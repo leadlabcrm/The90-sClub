@@ -128,7 +128,7 @@ export default function VisitPage() {
           </ul>
           <CtaRow className="mt-7" tone="onDark" items={["call", "whatsapp", "instagram", "directions"]} />
           <p className="mt-6 text-sm text-cream/80">
-            Kitchen and rooftop notes:{" "}
+            Kitchen and taproom notes:{" "}
             <TextLink href="/menu" tone="onDark">
               menu
             </TextLink>

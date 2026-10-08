@@ -13,11 +13,6 @@ export const homeFaqs: FaqItem[] = [
       "Yes. The menu includes Kerala Style Chicken Biryani, Coconut Fish Curry, Naadan Chicken Curry, Prawns Ghee Roast, and Prawns Pepper Fry.",
   },
   {
-    question: "Is The 90s Club a rooftop pub in Electronic City?",
-    answer:
-      "Yes. It is a rooftop pub at Millennium Plaza, Hebbagodi, with a full AC dining room.",
-  },
-  {
     question: "Which craft beer is available?",
     answer:
       "The taproom serves Flying Fox craft beer. The current tap list and prices are confirmed directly by the team.",

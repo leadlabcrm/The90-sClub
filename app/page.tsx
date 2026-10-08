@@ -63,7 +63,7 @@ const reasons = [
   {
     icon: Music,
     title: "Retro 90s music",
-    copy: "The room is built around retro 90s music in a rooftop pub at Millennium Plaza.",
+    copy: "The room is built around 90s music at the pub at Millennium Plaza.",
   },
   {
     icon: ParkingCircle,
@@ -132,7 +132,7 @@ export default function HomePage() {
           src={photos.interiorNeon.src}
           alt={photos.interiorNeon.alt}
           fill
-          priority
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover"
         />
@@ -185,7 +185,7 @@ export default function HomePage() {
             <div className="lux-on-photo relative z-10 grid w-full gap-6 p-7 text-ivory lg:grid-cols-2 lg:items-end lg:p-12">
               <h2 className="lux-h2 max-w-[12ch]">
                 <Link href="/rooftop-pub" className="hover:text-gold-highlight">
-                  Experience the <em>rooftop pub</em>
+                  Experience the <em>retro 90s pub</em>
                 </Link>
               </h2>
               <div className="max-w-md lg:justify-self-end">
@@ -331,7 +331,7 @@ export default function HomePage() {
             <div className="lux-scrim-center absolute inset-0" />
             <div className="lux-on-photo relative z-10 px-6 py-14">
               <h2 className="lux-h2 mx-auto max-w-[16ch]">
-                Come up to the <em>rooftop pub</em>
+                Come up to <em>The 90s Club</em>
               </h2>
               <p className="prose-body mx-auto mt-4 max-w-[50ch] text-ivory">
                 <TextLink href="/visit" tone="onDark">

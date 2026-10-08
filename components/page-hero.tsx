@@ -19,7 +19,7 @@ export function PageHero({
         src={photo.src}
         alt={photo.alt}
         fill
-        priority
+        fetchPriority="high"
         sizes="100vw"
         className="object-cover"
         style={photo.position ? { objectPosition: photo.position } : undefined}

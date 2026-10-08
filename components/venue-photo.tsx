@@ -16,7 +16,6 @@ export function VenuePhoto({
   src,
   alt,
   aspect = "wide",
-  priority = false,
   caption,
   className,
   sizes = "(min-width: 1024px) 640px, 100vw",
@@ -27,7 +26,6 @@ export function VenuePhoto({
   src?: string;
   alt?: string;
   aspect?: keyof typeof aspects;
-  priority?: boolean;
   caption?: string;
   className?: string;
   sizes?: string;
@@ -54,7 +52,6 @@ export function VenuePhoto({
           src={imageSrc}
           alt={imageAlt}
           fill
-          priority={priority}
           sizes={sizes}
           className="object-cover"
           style={photo?.position ? { objectPosition: photo.position } : undefined}

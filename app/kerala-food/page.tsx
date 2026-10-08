@@ -56,7 +56,7 @@ export default function KeralaFoodPage() {
           <h2 className="lux-h2 mt-3 text-ink">Why Kerala here</h2>
           <p className="prose-body mt-4 text-ink-soft">
             Kerala food and Flying Fox craft beer under one roof at Millennium Plaza, Hebbagodi. The kitchen leads with
-            these plates. You eat them in the rooftop pub, open daily from noon to midnight.
+            these plates. You eat them at the pub at Millennium Plaza, open daily from noon to midnight.
           </p>
         </div>
       </section>
