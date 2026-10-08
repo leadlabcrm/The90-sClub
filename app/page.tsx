@@ -49,7 +49,7 @@ const reasons = [
   {
     icon: Music,
     title: "Retro 90s music and rooftop",
-    copy: "A retro room and a rooftop address in Electronic City.",
+    copy: "The room is built around retro 90s music, with the rooftop at the same address.",
   },
   {
     icon: ParkingCircle,
@@ -62,8 +62,8 @@ const visitPlans = [
   {
     href: "/occasions",
     badge: "Groups",
-    title: "Team lunch & birthdays",
-    copy: "About 80 seats. Call with the date, time, and group size.",
+    title: "Team lunch & office get-togethers",
+    copy: "For E-City Phase 1 (Infosys/Velankani), Phase 2, Bommasandra and Ananth Nagar. About 80 seats.",
     photo: photos.interiorSeating,
   },
   {
@@ -146,20 +146,23 @@ export default function HomePage() {
             className="group relative flex min-h-[28rem] items-end overflow-hidden bg-black lg:min-h-[640px]"
           >
             <Image
-              src={photos.interiorSeating.src}
-              alt={photos.interiorSeating.alt}
+              src={photos.interiorWideNeon.src}
+              alt={photos.interiorWideNeon.alt}
               fill
               sizes="(min-width: 1024px) 1340px, 100vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              className="object-cover object-[center_40%] transition-transform duration-700 group-hover:scale-[1.03]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/25" />
             <div className="relative z-10 grid w-full gap-8 p-8 text-ivory lg:grid-cols-2 lg:items-end lg:p-16">
               <h2 className="lux-h2 max-w-[10ch]">
                 Experience <em>the rooftop</em>
               </h2>
-              <p className="max-w-md text-base leading-7 text-ivory/90 lg:justify-self-end">
-                Retro rooftop seating and a full AC dining room — about 80 seats at Millennium Plaza, Hebbagodi.
-              </p>
+              <div className="max-w-md lg:justify-self-end">
+                <p className="text-base leading-7 text-ivory/90">
+                  The rooftop pub at Millennium Plaza, Hebbagodi — seating upstairs, and a full AC dining room.
+                </p>
+                <span className="pill-sm pill-outline-light mt-6">Rooftop pub</span>
+              </div>
             </div>
           </Link>
         </div>
@@ -211,7 +214,7 @@ export default function HomePage() {
           <div className="w-full max-w-[560px] bg-white px-7 py-10 text-ink shadow-[0_18px_50px_rgba(10,9,7,0.18)] sm:px-10 sm:py-12">
             <h2 className="lux-h2">Why The 90s Club</h2>
             <p className="mt-4 text-base leading-7 text-ink-soft">
-              A Kerala kitchen, a Flying Fox taproom, and a retro rooftop under one roof in Electronic City.
+              Kerala food and Flying Fox craft beer under one roof in Electronic City.
             </p>
             <ul className="mt-8 space-y-5">
               {reasons.map(({ icon: Icon, title, copy }) => (

@@ -1,6 +1,11 @@
 /** 5-star Google reviews. Wording is unchanged apart from source line breaks. */
 export const homeReviews = [
   {
+    name: "Kavyashree Patel D G",
+    date: "20 May 2026",
+    text: "Absolutely loved the delicious and tasty food and drinks,  perfectly paired with incredible 90s music and a fantastic retro atmosphere.",
+  },
+  {
     name: "Fran Joel",
     date: "17 Sep 2026",
     text: "Had a great experience at this restro bar! 🍻 The ambience was really nice, the food was delicious, and the overall vibe was perfect for a relaxed evening.\n\nSpecial thanks to Chupa for the excellent service. He was friendly, attentive, and made sure we were comfortable throughout our visit. Great service and a great experience overall. Definitely worth visiting again….",
