@@ -29,7 +29,12 @@ export function HeroImage({
         loading="eager"
         decoding="async"
         className={className}
-        style={photo.position ? { objectPosition: photo.position } : undefined}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: photo.position ?? "center",
+        }}
       />
     </>
   );

@@ -15,7 +15,7 @@ export function PageHero({
   return (
     <header
       className="relative h-[22rem] overflow-hidden bg-black text-ivory lg:h-[28rem]"
-      style={{ height: "22rem" }}
+      style={{ minHeight: "22rem" }}
     >
       <HeroImage photo={photo} />
       <div className="lux-scrim-left pointer-events-none absolute inset-0" />

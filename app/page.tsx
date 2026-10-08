@@ -129,7 +129,7 @@ export default function HomePage() {
       <section
         data-shot="home-hero"
         className="relative h-[32rem] overflow-hidden bg-black text-ivory lg:h-[38rem]"
-        style={{ height: "32rem" }}
+        style={{ minHeight: "32rem" }}
       >
         <HeroImage photo={photos.interiorNeon} />
         <div className="lux-scrim-center pointer-events-none absolute inset-0" />
