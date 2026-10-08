@@ -1,10 +1,11 @@
 "use client";
 
-import { Menu, Phone } from "lucide-react";
+import { Camera, MapPin, Menu, MessageCircle, Phone } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+import { BrandLogo } from "@/components/brand-logo";
 import {
   Sheet,
   SheetContent,
@@ -13,7 +14,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { allNav, moreNav, phone, primaryNav } from "@/lib/site";
+import { allNav, hours, links, phone, whatsappHref, whatsappMessages } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 function NavLink({
@@ -34,8 +35,8 @@ function NavLink({
       onClick={onClick}
       aria-current={active ? "page" : undefined}
       className={cn(
-        "rounded-full px-3 py-2 text-sm font-semibold text-charcoal hover:bg-sand hover:text-teal",
-        active && "bg-sand text-teal",
+        "type-label relative px-2 py-2 text-[0.7rem] text-charcoal after:absolute after:inset-x-2 after:-bottom-0.5 after:h-0.5 after:origin-left after:scale-x-0 after:bg-gold after:transition-transform hover:text-blue hover:after:scale-x-100 xl:px-2.5",
+        active && "text-blue after:scale-x-100",
       )}
     >
       {label}
@@ -49,75 +50,128 @@ export function SiteHeader() {
   const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-cream/95 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-6xl items-center gap-3 px-4 py-2.5 sm:px-6">
-        <Link href="/" className="min-w-0 leading-none">
-          <span className="type-display block text-[1.55rem] text-teal sm:text-[1.85rem]">The 90s Club</span>
-          <span className="mt-0.5 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-            Taproom and Kitchen
-          </span>
-        </Link>
+    <header className="sticky top-0 z-50 bg-charcoal">
+      <div className="hidden border-b border-cream/15 bg-blue text-cream md:block">
+        <div className="mx-auto flex h-9 w-full max-w-[1220px] items-center justify-between px-5">
+          <p className="type-label text-[0.66rem]">
+            <span className="mr-2 inline-block size-1.5 rounded-full bg-gold" />
+            Open daily · {hours.summary}
+          </p>
+          <p className="type-label text-[0.66rem]">4.7 on Google · Millennium Plaza, Hebbagodi</p>
+          <nav aria-label="Utility" className="flex items-center gap-4">
+            <a className="type-label text-[0.66rem] hover:text-gold" href={phone.href}>
+              Call
+            </a>
+            <a
+              className="type-label text-[0.66rem] hover:text-gold"
+              href={whatsappHref(whatsappMessages.visit)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>
+            <a
+              className="type-label text-[0.66rem] hover:text-gold"
+              href={links.directions}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Directions
+            </a>
+            <a
+              className="type-label text-[0.66rem] hover:text-gold"
+              href={links.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+          </nav>
+        </div>
+      </div>
 
-        <nav aria-label="Primary" className="ml-auto hidden items-center gap-1 lg:flex">
-          {allNav.map((item) => (
-            <NavLink key={item.href} {...item} pathname={pathname} />
-          ))}
-        </nav>
+      <div className="px-3 py-2.5 sm:px-5">
+        <div className="club-card mx-auto flex h-[4.65rem] w-full max-w-[1220px] items-center gap-3 px-3.5 sm:px-4">
+          <Link href="/" className="shrink-0" aria-label="The 90s Club home">
+            <BrandLogo className="w-[9.6rem] sm:w-[11.2rem]" />
+          </Link>
 
-        <a
-          href={phone.href}
-          className="ml-auto inline-flex h-11 items-center gap-2 rounded-full bg-mustard px-4 text-sm font-semibold text-charcoal hover:bg-[#b88c12] lg:ml-2"
-        >
-          <Phone aria-hidden="true" className="size-4" />
-          <span className="sm:hidden">Call</span>
-          <span className="hidden sm:inline">Call {phone.display}</span>
-        </a>
+          <nav aria-label="Primary" className="ml-auto hidden items-center lg:flex">
+            {allNav.map((item) => (
+              <NavLink key={item.href} {...item} pathname={pathname} />
+            ))}
+          </nav>
 
-        <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger
-            className="inline-flex size-11 items-center justify-center rounded-full border border-border bg-paper text-teal lg:hidden"
-            aria-label="Open menu"
+          <a
+            href={phone.href}
+            className="club-button type-label ml-auto hidden h-10 items-center gap-2 bg-gold px-4 text-[0.72rem] text-charcoal sm:inline-flex lg:ml-3"
           >
-            <Menu aria-hidden="true" className="size-5" />
-          </SheetTrigger>
-          <SheetContent side="left" className="w-[min(100%,22rem)] bg-cream pb-24">
-            <SheetHeader>
-              <SheetTitle className="type-display text-3xl text-teal">The 90s Club</SheetTitle>
-              <SheetDescription>Taproom and Kitchen, Electronic City</SheetDescription>
-            </SheetHeader>
-            <nav aria-label="Mobile" className="flex flex-col gap-6 px-4">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal">Pages</p>
-                <ul className="mt-2 flex flex-col">
-                  {primaryNav.map((item) => (
+            <Phone aria-hidden="true" className="size-3.5" />
+            Call now
+          </a>
+
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger
+              className="club-button ml-auto inline-flex size-11 items-center justify-center bg-gold text-charcoal lg:hidden"
+              aria-label="Open menu"
+            >
+              <Menu aria-hidden="true" className="size-5" />
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[min(100%,24rem)] border-l-2 border-blue bg-cream pb-24">
+              <SheetHeader className="border-b-2 border-blue pb-5">
+                <SheetTitle>
+                  <BrandLogo className="w-[11rem]" />
+                </SheetTitle>
+                <SheetDescription className="type-label text-left text-[0.68rem] text-charcoal">
+                  Kerala kitchen · rooftop taproom · Electronic City
+                </SheetDescription>
+              </SheetHeader>
+              <nav aria-label="Mobile" className="px-4">
+                <ul className="divide-y divide-blue/25">
+                  {allNav.map((item, index) => (
                     <li key={item.href}>
-                      <NavLink {...item} pathname={pathname} onClick={close} />
+                      <Link
+                        href={item.href}
+                        onClick={close}
+                        aria-current={pathname === item.href ? "page" : undefined}
+                        className={cn(
+                          "flex items-center gap-4 py-3.5 text-charcoal",
+                          pathname === item.href && "text-blue",
+                        )}
+                      >
+                        <span className="type-label w-5 text-[0.62rem] text-blue/60">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <span className="type-display text-[1.65rem]">{item.label}</span>
+                      </Link>
                     </li>
                   ))}
                 </ul>
+              </nav>
+              <div className="mt-auto grid grid-cols-4 gap-2 px-4 pt-6">
+                {[
+                  { href: phone.href, label: "Call", icon: Phone },
+                  { href: links.directions, label: "Map", icon: MapPin },
+                  {
+                    href: whatsappHref(whatsappMessages.visit),
+                    label: "Chat",
+                    icon: MessageCircle,
+                  },
+                  { href: links.instagram, label: "IG", icon: Camera },
+                ].map(({ href, label, icon: Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    className="club-button flex aspect-square flex-col items-center justify-center gap-1 bg-gold text-[0.65rem] font-semibold uppercase tracking-wider"
+                  >
+                    <Icon aria-hidden="true" className="size-4" />
+                    {label}
+                  </a>
+                ))}
               </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal">More</p>
-                <ul className="mt-2 flex flex-col">
-                  {moreNav.map((item) => (
-                    <li key={item.href}>
-                      <NavLink {...item} pathname={pathname} onClick={close} />
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </nav>
-            <div className="mt-auto px-4">
-              <a
-                href={phone.href}
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-mustard text-base font-semibold text-charcoal"
-              >
-                <Phone aria-hidden="true" className="size-4" />
-                Call {phone.display}
-              </a>
-            </div>
-          </SheetContent>
-        </Sheet>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );

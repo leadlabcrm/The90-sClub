@@ -1,4 +1,4 @@
-import { MapPin, MessageCircle, Phone } from "lucide-react";
+import { Camera, MapPin, MessageCircle, Phone } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { links, phone, whatsappHref, whatsappMessages } from "@/lib/site";
@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 type CtaItem = "call" | "directions" | "whatsapp" | "instagram";
 
-const itemClass = "h-12 rounded-full px-5 text-base font-semibold";
+const itemClass = "h-12 px-5 text-base";
 
 export function CtaRow({
   items,
@@ -46,7 +46,7 @@ export function CtaRow({
               className={cn(
                 buttonVariants({ variant: "default", size: "lg" }),
                 itemClass,
-                tone === "onDark" && "bg-cream text-charcoal hover:bg-sand",
+                tone === "onDark" && "border-gold bg-cream text-charcoal hover:bg-paper",
               )}
             >
               <MapPin aria-hidden="true" />
@@ -62,7 +62,11 @@ export function CtaRow({
               href={whatsappHref(whatsappMessage)}
               target="_blank"
               rel="noopener noreferrer"
-              className={cn(buttonVariants({ variant: "outline", size: "lg" }), itemClass)}
+              className={cn(
+                buttonVariants({ variant: "outline", size: "lg" }),
+                itemClass,
+                tone === "onDark" && "border-gold",
+              )}
             >
               <MessageCircle aria-hidden="true" />
               WhatsApp
@@ -76,8 +80,13 @@ export function CtaRow({
             href={links.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className={cn(buttonVariants({ variant: "outline", size: "lg" }), itemClass)}
+            className={cn(
+              buttonVariants({ variant: "outline", size: "lg" }),
+              itemClass,
+              tone === "onDark" && "border-gold",
+            )}
           >
+            <Camera aria-hidden="true" />
             Instagram
             <span className="sr-only"> (opens in a new tab)</span>
           </a>

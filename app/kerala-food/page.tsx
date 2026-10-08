@@ -46,34 +46,38 @@ export default function KeralaFoodPage() {
         lede="Naadan flavours on a rooftop in Hebbagodi — biryani, coconut fish, and coastal starters at The 90s Club."
       />
 
-      <section className="py-14 sm:py-16">
-        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
-          <h2 className="type-display text-4xl text-teal sm:text-5xl">Why Kerala here</h2>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+      <section className="section-pad bg-cream">
+        <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
+          <p className="type-label text-xs text-blue">The kitchen’s point of view</p>
+          <h2 className="type-display mt-3 text-4xl text-blue sm:text-5xl lg:text-6xl">Why Kerala here</h2>
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-charcoal/75">
             The kitchen at Millennium Plaza leads with these plates. You eat them with the rooftop and the taproom around you, open daily from noon to midnight.
           </p>
         </div>
       </section>
 
-      <section className="bg-sand py-14 sm:py-16">
-        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
-          <h2 className="type-display text-4xl text-teal sm:text-5xl">Signatures</h2>
+      <section className="section-pad bg-paper">
+        <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
+          <p className="type-label text-xs text-blue">Order from the menu</p>
+          <h2 className="type-display mt-3 text-4xl text-blue sm:text-5xl lg:text-6xl">Signatures</h2>
           <ul className="mt-8 grid gap-5 lg:grid-cols-3">
             {plates.map((plate) => {
               const dish = findDish(plate.name);
               return (
-                <li key={plate.name} className="rounded-2xl border border-border bg-paper p-4">
+                <li key={plate.name} className="club-card flex flex-col p-4">
                   {plate.photo ? (
                     <VenuePhoto src={plate.photo.src} alt={plate.photo.alt} aspect="photo" caption={plate.caption} />
                   ) : (
-                    <p className="rounded-2xl bg-sand px-4 py-6 text-sm leading-relaxed text-muted-foreground">
-                      {plate.name} is on the card. A plated photo of this dish is not in the current set.
-                    </p>
+                    <div className="sunburst flex aspect-[4/3] items-center justify-center rounded-xl border-2 border-blue bg-blue p-6 text-center">
+                      <p className="type-display text-3xl text-gold">{plate.name}</p>
+                    </div>
                   )}
-                  <h3 className="mt-4 text-xl font-semibold">
-                    <TextLink href={dishHref(dish.name)}>{dish.name}</TextLink>
-                  </h3>
-                  <p className="mt-1 text-sm font-semibold tabular-nums text-teal">{formatPrice(dish.price)}</p>
+                  <div className="mt-auto">
+                    <h3 className="mt-5 text-xl font-semibold">
+                      <TextLink href={dishHref(dish.name)}>{dish.name}</TextLink>
+                    </h3>
+                    <p className="mt-1 text-sm font-semibold tabular-nums text-blue">{formatPrice(dish.price)}</p>
+                  </div>
                 </li>
               );
             })}
@@ -85,10 +89,11 @@ export default function KeralaFoodPage() {
         </div>
       </section>
 
-      <section className="py-14 sm:py-16">
-        <div className="mx-auto grid w-full max-w-6xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-2">
-          <div>
-            <h2 className="type-display text-4xl text-teal sm:text-5xl">Seafood</h2>
+      <section className="section-pad bg-cream">
+        <div className="mx-auto grid w-full max-w-[1220px] items-center gap-10 px-5 sm:px-8 lg:grid-cols-2">
+          <div className="club-card p-6 sm:p-8">
+            <p className="type-label text-xs text-blue">Coastal starters</p>
+            <h2 className="type-display mt-3 text-4xl text-blue sm:text-5xl">Seafood</h2>
             <ul className="mt-5 space-y-3 text-lg">
               {[ghee, pepper, chilliFish].map((dish) => (
                 <li key={dish.name}>
@@ -102,14 +107,15 @@ export default function KeralaFoodPage() {
             src={photos.foodSpread.src}
             alt={photos.foodSpread.alt}
             aspect="photo"
-            caption="A mixed kitchen table. Prawn and fish close-ups are not in this photo set."
+            caption="A mixed table from The 90s Club kitchen."
           />
         </div>
       </section>
 
-      <section className="bg-teal py-14 text-cream sm:py-16">
-        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
-          <h2 className="type-display text-4xl sm:text-5xl">Pair with craft beer</h2>
+      <section className="ink-grid border-y-2 border-charcoal bg-blue py-16 text-cream sm:py-20">
+        <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
+          <p className="type-label text-xs text-gold">From kitchen to taproom</p>
+          <h2 className="type-display mt-3 text-4xl sm:text-5xl lg:text-6xl">Pair with craft beer</h2>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-cream/90">
             Kerala plates with Flying Fox on the rooftop. Ask what is pouring — the tap list is still being collected.
           </p>
@@ -127,10 +133,10 @@ export default function KeralaFoodPage() {
         </div>
       </section>
 
-      <section className="py-14 sm:py-16">
-        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
-          <h2 className="type-display text-4xl text-teal sm:text-5xl">Come in</h2>
-          <p className="mt-3 text-base text-muted-foreground">Open daily, {hours.summary}.</p>
+      <section className="section-pad bg-gold">
+        <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
+          <h2 className="type-display text-4xl text-charcoal sm:text-5xl">Come in</h2>
+          <p className="mt-3 text-base text-charcoal/70">Open daily, {hours.summary}.</p>
           <CtaRow className="mt-5" items={["directions", "call", "whatsapp"]} />
         </div>
       </section>

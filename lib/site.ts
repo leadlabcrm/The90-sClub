@@ -53,17 +53,14 @@ export function whatsappHref(message: string) {
 export const primaryNav = [
   { href: "/menu", label: "Menu" },
   { href: "/kerala-food", label: "Kerala food" },
-  { href: "/rooftop-pub", label: "Rooftop" },
+  { href: "/rooftop-pub", label: "Rooftop pub" },
+  { href: "/craft-beer", label: "Craft beer" },
   { href: "/visit", label: "Visit" },
-] as const;
-
-export const moreNav = [
   { href: "/occasions", label: "Occasions" },
   { href: "/about", label: "About" },
-  { href: "/craft-beer", label: "Craft beer" },
 ] as const;
 
-export const allNav = [...primaryNav, ...moreNav] as const;
+export const allNav = primaryNav;
 
 export const mapsName = "The 90s Club";
 export const publicName = "The 90s Club Taproom and Kitchen";

@@ -2,7 +2,7 @@
 
 Staging draft for **The 90s Club** (Maps name) / **The 90s Club Taproom and Kitchen**, Millennium Plaza, Hebbagodi, Electronic City, Bangalore.
 
-The layout follows the approved Mulligans-style hospitality information architecture: food, drinks, occasions, about, and visit. It is a Next.js site Arshitha can stage on Vercel. It is not a Framer file.
+The visual system remixes the locked Mulligans hospitality template for The 90s Club: Fraunces/Oswald typography, full-bleed venue photography, compact floating chrome, cream/blue/gold cards, offset borders, ticker bands, rounded CTA panels, and mobile sticky actions. It is a Next.js implementation rather than a Framer file.
 
 English only. Phone locked to **+91 96321 48811**.
 
@@ -28,15 +28,14 @@ npm start
 
 | URL | Role |
 |---|---|
-| `/` | Home — Kerala food, craft beer, proof, signatures, rooftop, occasions, visit, Instagram |
-| `/menu` | Food card with prices as HTML text. Drinks and offers are marked as gaps |
+| `/` | SEO wireframe order — hero, intent doors, proof, dish hooks, wedge, rooftop, Kerala, beer, occasions, NAP, FAQ, Instagram |
+| `/menu` | Full food card with prices as HTML text; current drinks and offers by direct enquiry |
 | `/kerala-food` | Kerala kitchen and signatures |
 | `/rooftop-pub` | Rooftop, AC dining, Flying Fox, busy nights, parking, Google listing attributes |
 | `/visit` | NAP, map, hours, phone, parking, catchment. Contact lives here |
 | `/occasions` | Team lunch and birthdays |
 | `/about` | Akhil and Sathish, February 2026 |
-| `/craft-beer` | Flying Fox. Tap list held until the client sends it |
-| `/contact` | Temporary redirect to `/visit` |
+| `/craft-beer` | Flying Fox; current tap list and prices by direct enquiry |
 
 `/mangalore-food` is not in this build.
 
@@ -64,11 +63,11 @@ Still missing from that set:
 - A true rooftop / open-terrace photograph. Copy can still describe the rooftop. Image alt text describes the interior that is actually shown.
 - A beer-tap or Flying Fox product shot. The craft-beer page uses the neon beer-wall and the bar counter only.
 - Plated photos of coconut fish curry, Naadan chicken curry, and the prawn starters.
-- Founders portraits and the official logo file. The header stays a text lockup. The “90” icon is a temporary mark.
+- Founders portraits and the official vector logo file. The current clean SVG lockup recreates the venue’s arched sunburst, serif “90s,” and CLUB lettering from the supplied photographs.
 
 ## Open gaps
 
-- **Drinks and beer.** No tap list, styles, ABV, or drink prices. `/menu` and `/craft-beer` say the client asset is still needed.
+- **Drinks and beer.** No tap list, styles, ABV, or drink prices. `/menu` and `/craft-beer` direct visitors to confirm the current list with the team.
 - **Offers.** The pack mentioned BOGO and a bucket at ₹999. Those are not published. Add them only after the team confirms the live wording.
 - **Hours.** Published close is 12:00 am every day. A later event close is not used.
 - **Domain.** None yet.

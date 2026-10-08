@@ -6,15 +6,15 @@ export function MobileCta() {
   return (
     <nav
       aria-label="Quick actions"
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-cream/95 backdrop-blur lg:hidden"
+      className="fixed inset-x-0 bottom-0 z-50 border-t-2 border-charcoal bg-gold lg:hidden"
     >
-      <ul className="grid grid-cols-3">
+      <ul className="grid grid-cols-3 divide-x divide-charcoal/25">
         <li>
           <a
             href={phone.href}
-            className="flex h-16 flex-col items-center justify-center gap-1 text-xs font-semibold text-charcoal"
+            className="type-label flex h-16 flex-col items-center justify-center gap-1.5 text-[0.64rem] text-charcoal"
           >
-            <Phone aria-hidden="true" className="size-4 text-teal" />
+            <Phone aria-hidden="true" className="size-4" />
             Call
           </a>
         </li>
@@ -23,9 +23,9 @@ export function MobileCta() {
             href={links.directions}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-16 flex-col items-center justify-center gap-1 text-xs font-semibold text-charcoal"
+            className="type-label flex h-16 flex-col items-center justify-center gap-1.5 text-[0.64rem] text-charcoal"
           >
-            <MapPin aria-hidden="true" className="size-4 text-teal" />
+            <MapPin aria-hidden="true" className="size-4" />
             Directions
             <span className="sr-only"> (opens in a new tab)</span>
           </a>
@@ -35,9 +35,9 @@ export function MobileCta() {
             href={whatsappHref(whatsappMessages.visit)}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-16 flex-col items-center justify-center gap-1 text-xs font-semibold text-charcoal"
+            className="type-label flex h-16 flex-col items-center justify-center gap-1.5 text-[0.64rem] text-charcoal"
           >
-            <MessageCircle aria-hidden="true" className="size-4 text-teal" />
+            <MessageCircle aria-hidden="true" className="size-4" />
             WhatsApp
             <span className="sr-only"> (opens in a new tab)</span>
           </a>

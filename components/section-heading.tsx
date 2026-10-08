@@ -8,13 +8,13 @@ export function SectionHeading({
   lede?: string;
 }) {
   return (
-    <div className="max-w-2xl">
+    <div className="max-w-3xl">
       {eyebrow ? (
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">{eyebrow}</p>
+        <p className="type-label text-xs text-blue">{eyebrow}</p>
       ) : null}
-      <h2 className="type-display mt-2 text-4xl text-teal sm:text-5xl">{title}</h2>
+      <h2 className="type-display mt-3 text-4xl text-blue sm:text-5xl lg:text-6xl">{title}</h2>
       {lede ? (
-        <p className="mt-3 text-base leading-relaxed text-muted-foreground sm:text-lg">{lede}</p>
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-charcoal/75 sm:text-lg">{lede}</p>
       ) : null}
     </div>
   );

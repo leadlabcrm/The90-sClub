@@ -21,14 +21,15 @@ export default function AboutPage() {
         lede="Established February 2026. Founders Akhil and Sathish. A retro 90s room with a Kerala kitchen and a rooftop taproom in Electronic City."
       />
 
-      <section className="py-14 sm:py-16">
-        <div className="mx-auto grid w-full max-w-6xl items-start gap-8 px-4 sm:px-6 lg:grid-cols-2">
-          <div>
-            <h2 className="type-display text-4xl text-teal sm:text-5xl">The story</h2>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+      <section className="section-pad bg-cream">
+        <div className="mx-auto grid w-full max-w-[1220px] items-center gap-10 px-5 sm:px-8 lg:grid-cols-2">
+          <div className="club-card p-6 sm:p-8">
+            <p className="type-label text-xs text-blue">Akhil + Sathish</p>
+            <h2 className="type-display mt-3 text-4xl text-blue sm:text-5xl">The story</h2>
+            <p className="mt-5 text-lg leading-relaxed text-charcoal/75">
               Akhil and Sathish opened The 90s Club in February 2026 at Millennium Plaza on Hosur Road, Hebbagodi. The room is built around a retro 90s feeling, a Kerala kitchen, and a rooftop taproom.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-4 text-lg leading-relaxed text-charcoal/75">
               One outlet. Electronic City, with Hebbagodi and Ananth Nagar next door.
             </p>
           </div>
@@ -40,17 +41,18 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-sand py-14 sm:py-16">
-        <div className="mx-auto grid w-full max-w-6xl items-start gap-8 px-4 sm:px-6 lg:grid-cols-2">
+      <section className="border-y-2 border-charcoal bg-gold py-16 sm:py-20">
+        <div className="mx-auto grid w-full max-w-[1220px] items-center gap-10 px-5 sm:px-8 lg:grid-cols-2">
           <VenuePhoto
             src={photos.logoWall.src}
             alt={photos.logoWall.alt}
             aspect="photo"
-            caption="The logo on the interior wall. A founders portrait is not in this photo set."
+            caption="The illuminated logo on the interior wall."
           />
-          <div>
-            <h2 className="type-display text-4xl text-teal sm:text-5xl">What we serve</h2>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+          <div className="club-card bg-paper p-6 sm:p-8">
+            <p className="type-label text-xs text-blue">Kitchen + taproom</p>
+            <h2 className="type-display mt-3 text-4xl text-blue sm:text-5xl">What we serve</h2>
+            <p className="mt-4 text-lg leading-relaxed text-charcoal/75">
               Kerala food, seafood starters, and Flying Fox craft beer. The food card also carries other curries, noodles, and fried rice. The lead of the house is the Kerala kitchen and the taproom.
             </p>
             <ul className="mt-6 space-y-2 text-base font-semibold text-charcoal">
@@ -62,13 +64,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-14 sm:py-16">
-        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
-          <h2 className="type-display text-4xl text-teal">Next</h2>
+      <section className="ink-grid section-pad bg-blue text-cream">
+        <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
+          <p className="type-label text-xs text-gold">Keep exploring</p>
+          <h2 className="type-display mt-3 text-4xl text-cream sm:text-5xl">Next</h2>
           <p className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-lg">
-            <TextLink href="/visit">Visit</TextLink>
-            <TextLink href="/menu">Menu</TextLink>
-            <TextLink href={links.instagram} external>
+            <TextLink href="/visit" className="text-cream decoration-gold">Visit</TextLink>
+            <TextLink href="/menu" className="text-cream decoration-gold">Menu</TextLink>
+            <TextLink href={links.instagram} external className="text-cream decoration-gold">
               Instagram
             </TextLink>
           </p>

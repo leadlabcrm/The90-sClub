@@ -27,7 +27,12 @@ export function VenuePhoto({
   sizes?: string;
 }) {
   return (
-    <figure className={cn("overflow-hidden rounded-2xl border border-teal/15 bg-charcoal", className)}>
+    <figure
+      className={cn(
+        "overflow-hidden rounded-2xl border-2 border-blue bg-charcoal shadow-[4px_4px_0_#F0BD38]",
+        className,
+      )}
+    >
       <div className={cn("relative", aspects[aspect])}>
         <Image
           src={src}
@@ -35,11 +40,11 @@ export function VenuePhoto({
           fill
           priority={priority}
           sizes={sizes}
-          className="object-cover"
+          className="photo-grade object-cover"
         />
       </div>
       {caption ? (
-        <figcaption className="bg-paper px-4 py-3 text-sm leading-relaxed text-muted-foreground">
+        <figcaption className="bg-paper px-4 py-3 text-sm leading-relaxed text-charcoal/70">
           {caption}
         </figcaption>
       ) : null}

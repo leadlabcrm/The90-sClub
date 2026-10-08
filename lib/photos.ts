@@ -2,7 +2,7 @@
 export const photos = {
   barLogoHero: {
     src: "/photos/bar-logo-hero.jpg",
-    alt: "The 90s Club bar interior: a backlit bottle wall, the gold logo on the counter, and red pendant lights.",
+    alt: "The electric-blue bar front at The 90s Club, lit with the venue’s arched 90s Club emblem.",
   },
   barCounter: {
     src: "/photos/bar-counter.jpg",
@@ -50,7 +50,7 @@ export const photos = {
   },
   foodBiryani: {
     src: "/photos/food-biryani.jpg",
-    alt: "Chicken biryani with a side of gravy and a bowl of spiced rice on a wooden table at The 90s Club.",
+    alt: "A bowl of seasoned rice with curry and flatbread on a table at The 90s Club.",
   },
   foodChilliChicken: {
     src: "/photos/food-chilli-chicken.jpg",
