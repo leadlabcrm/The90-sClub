@@ -4,34 +4,30 @@ export function SectionHeading({
   eyebrow,
   title,
   lede,
-  tone = "dark",
+  align = "left",
+  tone = "light",
+  className,
 }: {
   eyebrow?: string;
-  title: string;
+  title: React.ReactNode;
   lede?: string;
-  tone?: "dark" | "light";
+  align?: "left" | "center";
+  tone?: "light" | "dark";
+  className?: string;
 }) {
-  const light = tone === "light";
+  const onDark = tone === "dark";
   return (
-    <div className="max-w-3xl">
+    <div className={cn(align === "center" && "text-center", className)}>
       {eyebrow ? (
-        <p className={cn("type-label text-xs", light ? "text-blue" : "text-gold-highlight")}>
-          {eyebrow}
-        </p>
+        <p className={cn("eyebrow", onDark ? "text-gold-highlight" : "text-gold-ink")}>{eyebrow}</p>
       ) : null}
-      <h2
-        className={cn(
-          "type-display mt-3 text-4xl sm:text-5xl lg:text-6xl",
-          light ? "text-ink" : "text-ivory",
-        )}
-      >
-        {title}
-      </h2>
+      <h2 className={cn("lux-h2 mt-4", onDark ? "text-ivory" : "text-ink")}>{title}</h2>
       {lede ? (
         <p
           className={cn(
-            "mt-4 max-w-2xl text-base leading-relaxed sm:text-lg",
-            light ? "text-ink/75" : "text-ivory-muted",
+            "prose-body mt-5 max-w-2xl",
+            align === "center" && "mx-auto",
+            onDark ? "text-ivory/85" : "text-ink-soft",
           )}
         >
           {lede}

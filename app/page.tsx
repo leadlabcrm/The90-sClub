@@ -1,29 +1,16 @@
-import {
-  ArrowUpRight,
-  Beer,
-  CarFront,
-  Clock3,
-  Fish,
-  MapPin,
-  Snowflake,
-  Star,
-  UsersRound,
-  UtensilsCrossed,
-} from "lucide-react";
+import { Beer, Music, ParkingCircle, UtensilsCrossed } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { BrandLogo } from "@/components/brand-logo";
+import { CategoryShowcase } from "@/components/category-showcase";
 import { CtaRow } from "@/components/cta-row";
-import { MapEmbed } from "@/components/map-embed";
-import { MarqueeBand } from "@/components/marquee-band";
-import { SectionHeading } from "@/components/section-heading";
+import { FaqList } from "@/components/faq-list";
+import { ReviewSlider } from "@/components/review-slider";
 import { homeFaqs } from "@/lib/faq";
-import { photos } from "@/lib/photos";
-import { dishHref, findDish, formatPrice } from "@/lib/menu";
+import { dishHref, findDish, formatPrice, menuSections } from "@/lib/menu";
 import { pageMetadata } from "@/lib/metadata";
+import { photos } from "@/lib/photos";
 import { faqPageJsonLd } from "@/lib/schema";
-import { address, hours, links, phone, whatsappMessages } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Kerala Food & Craft Beer Rooftop Pub | The 90s Club Electronic City",
@@ -32,586 +19,355 @@ export const metadata = pageMetadata({
   path: "/",
 });
 
-const intentDoors = [
-  {
-    href: "/rooftop-pub",
-    kicker: "Pub · bar · after work",
-    title: "Rooftop pub in Electronic City",
-    copy: "Retro interiors, full AC dining, craft beer, and the rooftop at Millennium Plaza.",
-    photo: photos.interiorWideNeon,
-    cta: "Explore the rooftop",
-  },
-  {
-    href: "/kerala-food",
-    kicker: "Naadan · seafood · biryani",
-    title: "Kerala food & seafood",
-    copy: "Coconut fish curry, Naadan chicken, Kerala-style biryani, and coastal starters.",
-    photo: photos.foodSpread,
-    cta: "See Kerala food",
-  },
-  {
-    href: "/occasions",
-    kicker: "Teams · birthdays · groups",
-    title: "Team lunch & birthdays",
-    copy: "About 80 seats, parking, and one direct number to plan your group.",
-    photo: photos.interiorSeating,
-    cta: "Plan an occasion",
-  },
+const categoryPhotos = [
+  photos.interiorSeating,
+  photos.foodChilliChicken,
+  photos.foodBiryani,
+  photos.foodSpread,
 ] as const;
 
-const proof = [
-  { icon: Star, value: "4.7", label: "on Google" },
-  { icon: UsersRound, value: "80", label: "seats" },
-  { icon: CarFront, value: "Parking", label: "at the plaza" },
-  { icon: Clock3, value: "12–12", label: "open daily" },
+const delightNames = [
+  "Kerala Style Chicken Biryani",
+  "Chilli Chicken",
+  "Naadan Chicken Curry",
+  "Butter Chicken",
 ] as const;
 
-const wedge = [
+const delightPhotos = [photos.foodBiryani, photos.foodChilliChicken, photos.foodSpread, photos.foodSpread];
+
+const reasons = [
   {
     icon: UtensilsCrossed,
-    title: "Kerala + seafood kitchen",
-    copy: "Naadan mains and coastal starters anchor the food story.",
+    title: "Kerala kitchen",
+    copy: "Naadan mains and coastal starters lead the food card.",
   },
   {
     icon: Beer,
-    title: "Flying Fox craft beer",
-    copy: "Craft beer at the taproom; ask the team what is pouring.",
+    title: "Flying Fox craft beer taproom",
+    copy: "Craft beer at the taproom. Ask the team what is pouring.",
   },
   {
-    icon: Star,
-    title: "Retro 90s rooftop",
-    copy: "Electric-blue light, old-school details, and an E-City rooftop.",
+    icon: Music,
+    title: "Retro 90s music and rooftop",
+    copy: "A retro room and a rooftop address in Electronic City.",
   },
   {
-    icon: MapPin,
-    title: "Mid-price E-City night out",
-    copy: "A typical meal for two sits around ₹400–₹1,000.",
+    icon: ParkingCircle,
+    title: "Parking and AC",
+    copy: "Parking at Millennium Plaza, and a full AC dining room.",
   },
 ] as const;
 
-const occasionCards = [
+const visitPlans = [
   {
-    number: "01",
-    title: "Team & office lunch",
-    copy: "Electronic City teams, direct enquiries, and a full food menu.",
+    href: "/occasions",
+    badge: "Groups",
+    title: "Team lunch & birthdays",
+    copy: "About 80 seats. Call with the date, time, and group size.",
+    photo: photos.interiorSeating,
   },
   {
-    number: "02",
-    title: "Birthdays",
-    copy: "A rooftop table with food, craft beer, and room for the group.",
+    href: "/visit",
+    badge: "Visit",
+    title: "Millennium Plaza, Hebbagodi",
+    copy: "Fourth floor on Hosur Road. Open daily from noon to midnight.",
+    photo: photos.exteriorStreet,
   },
   {
-    number: "03",
-    title: "Students & couples",
-    copy: "An easy Hebbagodi night out, open every day until midnight.",
+    href: "/kerala-food",
+    badge: "Kitchen",
+    title: "Kerala food in Electronic City",
+    copy: "Biryani, coconut fish curry, Naadan chicken, and seafood starters.",
+    photo: photos.foodBiryani,
   },
+] as const;
+
+const galleryLead = photos.barLogoHero;
+const galleryRow = [
+  photos.interiorSeating,
+  photos.barCounter,
+  photos.entrance,
+  photos.neonSign,
+  photos.logoWall,
 ] as const;
 
 export default function HomePage() {
   const biryani = findDish("Kerala Style Chicken Biryani");
   const fish = findDish("Coconut Fish Curry");
   const naadan = findDish("Naadan Chicken Curry");
-  const gheeRoast = findDish("Prawns Ghee Roast");
-  const pepperFry = findDish("Prawns Pepper Fry");
-
+  const stew = findDish("Chicken Stew");
   const faqJson = JSON.stringify(faqPageJsonLd()).replace(/</g, "\\u003c");
+
+  const categories = menuSections.map((section, index) => ({
+    id: section.id,
+    title: section.title,
+    intro: section.intro,
+    image: categoryPhotos[index].src,
+    alt: categoryPhotos[index].alt,
+  }));
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJson }} />
-      <section className="relative min-h-[43rem] overflow-hidden border-b-2 border-gold-shadow bg-black text-ivory sm:min-h-[47rem] lg:min-h-[calc(100svh-6.75rem)]">
+
+      <section className="relative flex min-h-[640px] items-center justify-center overflow-hidden bg-black text-ivory lg:min-h-[800px]">
         <Image
           src={photos.interiorWideNeon.src}
           alt={photos.interiorWideNeon.alt}
           fill
           priority
           sizes="100vw"
-          className="photo-grade object-cover object-[62%_center] sm:object-center"
+          className="object-cover"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,9,7,.92)_0%,rgba(10,9,7,.68)_48%,rgba(10,9,7,.15)_80%),linear-gradient(0deg,rgba(10,9,7,.9)_0%,transparent_55%)]" />
-        <div className="ink-grid absolute inset-0 opacity-20" />
-
-        <div className="relative mx-auto flex min-h-[43rem] w-full max-w-[1220px] items-end px-5 pb-12 pt-28 sm:min-h-[47rem] sm:px-8 sm:pb-16 lg:min-h-[calc(100svh-6.75rem)]">
-          <div className="max-w-5xl">
-            <p className="type-label mb-4 text-xs text-gold-highlight sm:text-sm">
-              Rooftop taproom · Kerala kitchen · Hebbagodi
-            </p>
-            <h1 className="type-display max-w-5xl text-[clamp(2.35rem,5.2vw,4.75rem)] leading-[0.98] text-ivory">
-              Kerala food &amp; craft beer at a rooftop pub in Electronic City — The 90s Club
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ivory/90 sm:text-xl">
-              The 90s Club Taproom and Kitchen · Flying Fox craft beer · Naadan plates ·
-              open daily noon to midnight.
-            </p>
-            <CtaRow
-              className="mt-7"
-              tone="onDark"
-              items={["call", "directions", "whatsapp"]}
-            />
-            <Link
-              href="/menu"
-              className="type-label mt-6 inline-flex items-center gap-2 text-xs text-ivory underline decoration-gold decoration-2 underline-offset-8 hover:text-gold-highlight"
-            >
-              Browse the food menu <ArrowUpRight aria-hidden="true" className="size-4" />
-            </Link>
-          </div>
-        </div>
-
-        <div className="pointer-events-none absolute right-6 top-6 hidden xl:block">
-          <BrandLogo variant="metallic" className="h-44" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(10,9,7,.55),rgba(10,9,7,.42)_42%,rgba(10,9,7,.62))]" />
+        <div className="lux-container relative z-10 flex flex-col items-center pt-44 pb-24 text-center">
+          <h1 className="lux-h1 max-w-[1072px] text-ivory">
+            {"Kerala food & craft beer at a "}
+            <em>rooftop pub</em>
+            {" in Electronic City — The 90s Club"}
+          </h1>
+          <p className="prose-body mt-6 max-w-2xl text-ivory">
+            The 90s Club Taproom and Kitchen · Flying Fox craft beer · Naadan plates · open daily noon to midnight.
+          </p>
+          <CtaRow className="mt-8 justify-center" tone="onDark" items={["call", "directions", "whatsapp"]} />
         </div>
       </section>
 
-      <MarqueeBand />
-
-      <section className="section-pad bg-black" id="start-here">
-        <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="type-label text-xs text-gold-highlight">Start here</p>
-            <h2 className="type-display mt-3 text-4xl text-ivory sm:text-5xl lg:text-6xl">
-              What brought you here?
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-ivory-muted">
-              Pick the path that matches your plan—not a generic list of restaurant categories.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {intentDoors.map((door) => (
-              <Link
-                key={door.href}
-                href={door.href}
-                className="club-card group overflow-hidden transition-transform duration-200 hover:-translate-y-1"
-              >
-                <div className="relative h-48 overflow-hidden border-b-2 border-gold-shadow">
-                  <Image
-                    src={door.photo.src}
-                    alt={door.photo.alt}
-                    fill
-                    sizes="(min-width: 1024px) 380px, 100vw"
-                    className="photo-grade object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                  />
-                </div>
-                <div className="p-5">
-                  <p className="type-label text-[0.65rem] text-gold-highlight">{door.kicker}</p>
-                  <h3 className="type-display mt-3 text-2xl text-ivory">{door.title}</h3>
-                  <p className="mt-3 text-base leading-relaxed text-ivory-muted">{door.copy}</p>
-                  <span className="type-label mt-5 inline-flex items-center gap-2 text-[0.68rem] text-gold-highlight">
-                    {door.cta} <ArrowUpRight aria-hidden="true" className="size-4" />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
+      <section className="bg-ivory py-20 lg:py-28">
+        <div className="lux-container">
+          <CategoryShowcase categories={categories} />
         </div>
       </section>
 
-      <section className="border-y-2 border-black bg-blue py-8 text-ivory" aria-label="At a glance">
-        <ul className="mx-auto grid w-full max-w-[1220px] grid-cols-2 gap-px px-5 sm:px-8 lg:grid-cols-4">
-          {proof.map(({ icon: Icon, value, label }) => (
-            <li
-              key={label}
-              className="flex min-h-28 items-center gap-4 border-gold/35 px-3 py-4 even:border-l lg:border-l lg:first:border-l-0"
-            >
-              <span className="flex size-11 shrink-0 items-center justify-center rounded-full border-2 border-ivory text-ivory">
-                <Icon aria-hidden="true" className="size-5" />
-              </span>
-              <div>
-                <p className="type-display text-2xl text-ivory sm:text-3xl">{value}</p>
-                <p className="type-label mt-1 text-[0.62rem] text-ivory/80">{label}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="section-pad bg-paper" id="signatures">
-        <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <SectionHeading
-            tone="light"
-            eyebrow="From the kitchen"
-            title="Order these — names match the menu"
-            lede="Kerala signatures, seafood starters, and the craft beer that shapes the house."
-          />
-
-          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-6">
-            <li className="club-card-light group overflow-hidden sm:col-span-2 lg:col-span-2">
-              <Link href={dishHref(biryani.name)}>
-                <div className="relative h-52 overflow-hidden border-b-2 border-blue">
-                  <Image
-                    src={photos.foodBiryani.src}
-                    alt={photos.foodBiryani.alt}
-                    fill
-                    sizes="(min-width: 1024px) 380px, 100vw"
-                    className="photo-grade object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                  />
-                </div>
-                <div className="p-5">
-                  <p className="type-label text-[0.65rem] text-blue">House signature</p>
-                  <h3 className="type-display mt-2 text-2xl text-charcoal">{biryani.name}</h3>
-                  <p className="mt-2 font-semibold text-blue">{formatPrice(biryani.price)}</p>
-                </div>
-              </Link>
-            </li>
-
-            <li className="club-card-light group overflow-hidden sm:col-span-2 lg:col-span-2">
-              <Link href={dishHref(fish.name)}>
-                <div className="relative h-52 overflow-hidden border-b-2 border-blue">
-                  <Image
-                    src={photos.foodSpread.src}
-                    alt={photos.foodSpread.alt}
-                    fill
-                    sizes="(min-width: 1024px) 380px, 100vw"
-                    className="photo-grade object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                  />
-                </div>
-                <div className="p-5">
-                  <p className="type-label text-[0.65rem] text-blue">Kerala main</p>
-                  <h3 className="type-display mt-2 text-2xl text-charcoal">{fish.name}</h3>
-                  <p className="mt-2 font-semibold text-blue">{formatPrice(fish.price)}</p>
-                </div>
-              </Link>
-            </li>
-
-            <li className="club-card-dark relative overflow-hidden p-5 sm:col-span-2 lg:col-span-2">
-              <div className="sunburst absolute inset-0 opacity-70" />
-              <div className="relative flex h-full min-h-72 flex-col">
-                <span className="flex size-12 items-center justify-center rounded-full border-2 border-gold text-gold">
-                  <UtensilsCrossed aria-hidden="true" className="size-5" />
-                </span>
-                <p className="type-label mt-auto pt-12 text-[0.65rem] text-gold-highlight">Naadan favourite</p>
-                <Link href={dishHref(naadan.name)}>
-                  <h3 className="type-display mt-2 text-3xl text-ivory">{naadan.name}</h3>
-                  <p className="mt-3 font-semibold text-gold-highlight">{formatPrice(naadan.price)}</p>
-                </Link>
-              </div>
-            </li>
-
-            <li className="club-card-light p-5 sm:col-span-1 lg:col-span-3">
-              <div className="flex h-full flex-col sm:flex-row sm:items-center sm:gap-5">
-                <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-blue text-cream">
-                  <Fish aria-hidden="true" className="size-5" />
-                </span>
-                <div className="mt-5 sm:mt-0">
-                  <p className="type-label text-[0.65rem] text-blue">Seafood starters</p>
-                  <h3 className="type-display mt-2 text-2xl text-charcoal">
-                    {gheeRoast.name} <span className="text-blue">/</span> {pepperFry.name}
-                  </h3>
-                  <p className="mt-2 font-semibold text-blue">
-                    {formatPrice(gheeRoast.price)} each
-                  </p>
-                </div>
-              </div>
-            </li>
-
-            <li className="club-card-light overflow-hidden sm:col-span-1 lg:col-span-3">
-              <Link href="/craft-beer" className="grid h-full sm:grid-cols-[0.8fr_1.2fr]">
-                <div className="relative min-h-44 border-b-2 border-blue sm:border-b-0 sm:border-r-2">
-                  <Image
-                    src={photos.neonBeerWall.src}
-                    alt={photos.neonBeerWall.alt}
-                    fill
-                    sizes="(min-width: 1024px) 250px, 50vw"
-                    className="photo-grade object-cover"
-                  />
-                </div>
-                <div className="flex flex-col justify-center p-5">
-                  <p className="type-label text-[0.65rem] text-blue">At the taproom</p>
-                  <h3 className="type-display mt-2 text-3xl text-charcoal">Flying Fox craft beer</h3>
-                  <p className="mt-3 text-charcoal/70">Ask what is pouring today.</p>
-                </div>
-              </Link>
-            </li>
-          </ul>
-
+      <section className="bg-ivory pb-6 lg:pb-10">
+        <div className="lux-container">
           <Link
-            href="/menu"
-            className="club-button type-label mt-9 inline-flex h-12 items-center gap-2 bg-gold px-5 text-xs text-black hover:bg-gold-highlight"
+            href="/rooftop-pub"
+            className="group relative flex min-h-[28rem] items-end overflow-hidden bg-black lg:min-h-[640px]"
           >
-            View the full food menu <ArrowUpRight aria-hidden="true" className="size-4" />
+            <Image
+              src={photos.interiorSeating.src}
+              alt={photos.interiorSeating.alt}
+              fill
+              sizes="(min-width: 1024px) 1340px, 100vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/20" />
+            <div className="relative z-10 grid w-full gap-8 p-8 text-ivory lg:grid-cols-2 lg:items-end lg:p-16">
+              <h2 className="lux-h2 max-w-[10ch]">
+                Experience <em>the rooftop</em>
+              </h2>
+              <p className="max-w-md text-base leading-7 text-ivory/90 lg:justify-self-end">
+                Retro rooftop seating and a full AC dining room — about 80 seats at Millennium Plaza, Hebbagodi.
+              </p>
+            </div>
           </Link>
         </div>
       </section>
 
-      <section className="section-pad ink-grid bg-charcoal text-cream">
-        <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <p className="type-label text-xs text-gold-highlight">Why this place</p>
-          <h2 className="type-display mt-3 max-w-4xl text-4xl text-ivory sm:text-5xl lg:text-6xl">
-            A different kind of Electronic City night out.
-          </h2>
-          <p className="mt-5 max-w-2xl text-lg text-ivory-muted">
-            A Kerala kitchen, a craft beer taproom, and retro rooftop character under one
-            roof—without losing the easy, mid-price feel.
-          </p>
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {wedge.map(({ icon: Icon, title, copy }) => (
-              <article key={title} className="club-card-dark flex gap-5 p-5 sm:p-6">
-                <span className="flex size-12 shrink-0 items-center justify-center rounded-full border-2 border-gold-highlight text-gold-highlight">
-                  <Icon aria-hidden="true" className="size-5" />
-                </span>
-                <div>
-                  <h3 className="type-display text-2xl text-ivory">{title}</h3>
-                  <p className="mt-2 text-base leading-relaxed text-ivory-muted">{copy}</p>
-                </div>
-              </article>
-            ))}
+      <section className="bg-ivory py-20 lg:py-28">
+        <div className="lux-container">
+          <p className="eyebrow text-center text-gold-ink">Signatures</p>
+          <h2 className="lux-h2 mt-4 text-center text-ink">Popular delights</h2>
+          <ul className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-[60px]">
+            {delightNames.map((name, index) => {
+              const dish = findDish(name);
+              const photo = delightPhotos[index];
+              return (
+                <li key={name}>
+                  <Link href={dishHref(name)} className="group block">
+                    <div className="relative aspect-[290/300] overflow-hidden bg-charcoal">
+                      <Image
+                        src={photo.src}
+                        alt={photo.alt}
+                        fill
+                        sizes="(min-width: 1024px) 290px, 50vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      />
+                    </div>
+                    <div className="mt-4 grid grid-cols-[1fr_auto] items-baseline gap-3 text-base">
+                      <span className="text-ink">{dish.name}</span>
+                      <span className="text-gold-ink">{formatPrice(dish.price)}</span>
+                    </div>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+
+      <section className="relative min-h-[36rem] bg-black lg:min-h-[616px]">
+        <Image
+          src={photos.barCounter.src}
+          alt={photos.barCounter.alt}
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/25" />
+        <p className="eyebrow absolute bottom-8 left-5 text-ivory lg:bottom-12 lg:left-[50px]">Values</p>
+        <div className="relative z-10 flex min-h-[36rem] items-center justify-center px-5 py-24 lg:min-h-[616px] lg:justify-end lg:px-[50px]">
+          <div className="w-full max-w-[560px] bg-white px-7 py-10 text-ink shadow-[0_18px_50px_rgba(10,9,7,0.18)] sm:px-10 sm:py-12">
+            <h2 className="lux-h2">Why The 90s Club</h2>
+            <p className="mt-4 text-base leading-7 text-ink-soft">
+              A Kerala kitchen, a Flying Fox taproom, and a retro rooftop under one roof in Electronic City.
+            </p>
+            <ul className="mt-8 space-y-5">
+              {reasons.map(({ icon: Icon, title, copy }) => (
+                <li key={title} className="flex gap-4">
+                  <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full border border-gold-ink text-gold-ink">
+                    <Icon aria-hidden="true" className="size-4" />
+                  </span>
+                  <div>
+                    <p className="font-semibold text-ink">{title}</p>
+                    <p className="mt-1 text-sm leading-6 text-ink-soft">{copy}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      <section className="section-pad bg-black">
-        <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <article className="club-card-dark grid overflow-hidden lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="relative min-h-[22rem] border-b-2 border-gold lg:min-h-[34rem] lg:border-b-0 lg:border-r-2">
-              <Image
-                src={photos.interiorSeating.src}
-                alt={photos.interiorSeating.alt}
-                fill
-                sizes="(min-width: 1024px) 650px, 100vw"
-                className="photo-grade object-cover"
-              />
+      <section className="bg-ivory py-20 lg:py-28">
+        <div className="lux-container">
+          <p className="eyebrow text-center text-gold-ink">Special menu</p>
+          <h2 className="lux-h2 mt-4 text-center text-ink">{biryani.name}</h2>
+          <div className="mt-14 grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,620px)_minmax(0,1fr)] lg:gap-8">
+            <div className="order-2 grid gap-10 lg:order-1">
+              <Note align="right" title="Menu card" copy="Indian main course. The kitchen leads with the Kerala plates." />
+              <Note align="right" title="Price" copy={`${formatPrice(biryani.price)} on the food menu.`} />
             </div>
-            <div className="flex flex-col justify-center p-6 sm:p-10 lg:p-12">
-              <p className="type-label text-xs text-gold-highlight">Rooftop pub · Hebbagodi</p>
-              <h2 className="type-display mt-3 text-4xl text-ivory sm:text-5xl">
-                Rooftop taproom &amp; retro pub
-              </h2>
-              <p className="mt-5 text-lg leading-relaxed text-ivory/85">
-                Electric-blue light, a full AC dining room, and a rooftop address for after-work
-                plans in Electronic City.
-              </p>
-              <ul className="mt-6 space-y-3 text-ivory/90">
-                <li className="flex items-center gap-3">
-                  <Snowflake aria-hidden="true" className="size-5 text-gold-highlight" /> Full AC dining
-                </li>
-                <li className="flex items-center gap-3">
-                  <CarFront aria-hidden="true" className="size-5 text-gold-highlight" /> Parking at the plaza
-                </li>
-                <li className="flex items-center gap-3">
-                  <Clock3 aria-hidden="true" className="size-5 text-gold-highlight" /> Busier Thursday to Saturday
-                </li>
-              </ul>
-              <Link
-                href="/rooftop-pub"
-                className="club-button type-label mt-8 inline-flex h-12 w-fit items-center gap-2 bg-gold px-5 text-xs text-black hover:bg-gold-highlight"
-              >
-                Explore the rooftop <ArrowUpRight aria-hidden="true" className="size-4" />
-              </Link>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section className="section-pad bg-paper">
-        <div className="mx-auto grid w-full max-w-[1220px] items-center gap-12 px-5 sm:px-8 lg:grid-cols-2">
-          <div className="relative">
-            <div className="club-card relative aspect-[4/3] overflow-hidden">
+            <div className="relative order-1 mx-auto aspect-square w-full max-w-[620px] overflow-hidden rounded-full bg-charcoal lg:order-2">
               <Image
                 src={photos.foodBiryani.src}
                 alt={photos.foodBiryani.alt}
                 fill
-                sizes="(min-width: 1024px) 580px, 100vw"
-                className="photo-grade object-cover"
+                sizes="(min-width: 1024px) 620px, 90vw"
+                className="object-cover"
               />
             </div>
-            <div className="club-card absolute -bottom-5 right-4 border-black bg-gold px-4 py-3 text-ink sm:right-8">
-              <p className="type-label text-[0.65rem]">Naadan · seafood · biryani</p>
+            <div className="order-3 grid gap-10">
+              <Note title="Plate" copy="Chicken biryani with gravy and spiced rice from the kitchen." />
+              <Note
+                title="Alongside"
+                copy={`On the same card as ${fish.name}, ${naadan.name}, and ${stew.name}.`}
+              />
             </div>
-          </div>
-          <div>
-            <p className="type-label text-xs text-blue">Kerala kitchen</p>
-            <h2 className="type-display mt-3 text-4xl text-ink sm:text-5xl lg:text-6xl">
-              Kerala food in Electronic City
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-ink/75">
-              Biryani, coconut fish curry, Naadan chicken, and seafood starters make this more
-              than a stop for drinks. The catchment runs from Electronic City to Hebbagodi and
-              Ananth Nagar.
-            </p>
-            <Link
-              href="/kerala-food"
-              className="club-button type-label mt-7 inline-flex h-12 items-center gap-2 bg-gold px-5 text-xs text-black hover:bg-gold-highlight"
-            >
-              Explore Kerala food <ArrowUpRight aria-hidden="true" className="size-4" />
-            </Link>
           </div>
         </div>
       </section>
 
-      <section className="border-y-2 border-charcoal bg-gold py-14 sm:py-16">
-        <div className="mx-auto grid w-full max-w-[1220px] items-center gap-8 px-5 sm:px-8 lg:grid-cols-[0.7fr_1.3fr]">
-          <div className="club-card relative aspect-[4/3] overflow-hidden">
+      <section className="bg-ivory pb-6 lg:pb-10">
+        <div className="lux-container">
+          <div className="relative flex min-h-[28rem] items-center justify-center overflow-hidden bg-black text-center text-ivory lg:min-h-[450px]">
             <Image
-              src={photos.neonBeerWall.src}
-              alt={photos.neonBeerWall.alt}
+              src={photos.exteriorStreet.src}
+              alt={photos.exteriorStreet.alt}
               fill
-              sizes="(min-width: 1024px) 430px, 100vw"
-              className="photo-grade object-cover"
+              sizes="(min-width: 1024px) 1340px, 100vw"
+              className="object-cover"
             />
-          </div>
-          <div>
-            <p className="type-label text-xs text-ink">Craft beer</p>
-            <h2 className="type-display mt-3 text-4xl text-ink sm:text-5xl lg:text-6xl">
-              Flying Fox at the taproom
-            </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/80">
-              Flying Fox craft beer is part of the rooftop experience. The current tap list and
-              prices are confirmed by the team, so the site does not guess.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-4">
-              <Link
-                href="/craft-beer"
-                className="club-button type-label inline-flex h-12 items-center gap-2 bg-blue px-5 text-xs text-ivory"
-              >
-                Craft beer <ArrowUpRight aria-hidden="true" className="size-4" />
-              </Link>
-              <CtaRow tone="onGold" items={["whatsapp"]} />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-pad bg-black">
-        <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <SectionHeading
-            eyebrow="Occasions"
-            title="Bring the room together"
-            lede="Team lunch, birthdays, students, and couples—one direct conversation with the venue, no pretend booking system."
-          />
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {occasionCards.map((card) => (
-              <article key={card.number} className="club-card-dark p-6">
-                <p className="type-display text-5xl text-gold-highlight">{card.number}</p>
-                <h3 className="type-display mt-6 text-2xl text-ivory">{card.title}</h3>
-                <p className="mt-3 leading-relaxed text-ivory-muted">{card.copy}</p>
-              </article>
-            ))}
-          </div>
-          <div className="mt-9 flex flex-wrap items-center gap-5">
-            <Link
-              href="/occasions"
-              className="club-button type-label inline-flex h-12 items-center gap-2 bg-gold px-5 text-xs text-black hover:bg-gold-highlight"
-            >
-              Plan your group <ArrowUpRight aria-hidden="true" className="size-4" />
-            </Link>
-            <CtaRow
-              items={["call", "whatsapp"]}
-              callLabel="Call to enquire"
-              whatsappMessage={whatsappMessages.group}
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="section-pad bg-paper">
-        <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <SectionHeading
-            tone="light"
-            eyebrow="Visit"
-            title="Find us — Millennium Plaza, Hebbagodi"
-            lede="Fourth floor on Hosur Road, close to Electronic City and Ananth Nagar."
-          />
-          <div className="mt-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-            <MapEmbed className="h-full min-h-[28rem]" />
-            <div className="club-card-dark flex flex-col justify-center p-6 sm:p-9">
-              <BrandLogo variant="metallic" className="mb-6 h-36" />
-              <h3 className="type-display text-3xl text-ivory">The 90s Club</h3>
-              <address className="mt-6 space-y-1 text-base leading-relaxed not-italic text-ivory/85">
-                <span className="block">{address.line1}</span>
-                <span className="block">{address.line2}</span>
-                <span className="block">{address.line3}</span>
-                <span className="block">{address.line4}</span>
-              </address>
-              <p className="mt-5 text-ivory">{hours.full}</p>
-              <a className="type-display mt-2 text-2xl text-gold-highlight" href={phone.href}>
-                {phone.display}
-              </a>
-              <p className="mt-3 text-sm text-ivory-muted">Parking available at Millennium Plaza.</p>
-              <CtaRow
-                className="mt-7"
-                tone="onDark"
-                items={["call", "directions"]}
-                callLabel="Call"
-              />
-              <Link
-                href="/visit"
-                className="type-label mt-6 inline-flex items-center gap-2 text-xs text-link underline decoration-gold decoration-2 underline-offset-8 hover:text-gold-highlight"
-              >
-                Full visit details <ArrowUpRight aria-hidden="true" className="size-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="scallop-top bg-blue pb-24 pt-16 text-cream">
-        <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <p className="type-label text-center text-xs text-ivory">Quick answers</p>
-          <h2 className="type-display mx-auto mt-3 max-w-3xl text-center text-4xl text-ivory sm:text-5xl lg:text-6xl">
-            The useful details, without the runaround.
-          </h2>
-          <div className="mx-auto mt-10 grid max-w-4xl gap-4">
-            {homeFaqs.map((faq, index) => (
-              <details key={faq.question} className="club-card group px-5 py-4">
-                <summary className="flex cursor-pointer list-none items-center gap-4">
-                  <span className="type-label text-[0.62rem] text-gold-highlight">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="type-display flex-1 text-xl text-ivory sm:text-2xl">{faq.question}</span>
-                  <span className="text-2xl text-gold-highlight transition-transform group-open:rotate-45">+</span>
-                </summary>
-                <p className="mt-4 border-t border-gold-shadow/40 pt-4 text-base leading-relaxed text-ivory-muted">
-                  {faq.answer}
-                </p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-pad bg-black">
-        <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="type-label text-xs text-gold-highlight">From the venue</p>
-              <h2 className="type-display mt-3 text-4xl text-ivory sm:text-5xl">
-                {links.instagramHandle}
+            <div className="absolute inset-0 bg-black/60" />
+            <div className="relative z-10 px-6 py-16">
+              <h2 className="lux-h2 mx-auto max-w-[12ch]">
+                Come up to the <em>rooftop</em>
               </h2>
+              <CtaRow className="mt-8 justify-center" tone="onDark" items={["call", "directions"]} callLabel="Call" />
             </div>
-            <CtaRow items={["instagram"]} />
           </div>
-          <a
-            href={links.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open The 90s Club on Instagram"
-            className="mt-9 grid grid-cols-2 gap-3 sm:grid-cols-5"
-          >
-            {[
-              photos.logoWall,
-              photos.foodSpread,
-              photos.barLogoHero,
-              photos.drinkMargarita,
-              photos.exteriorStreet,
-            ].map((photo, index) => (
-              <span
-                key={photo.src}
-                className={`club-card group relative overflow-hidden ${
-                  index === 4 ? "col-span-2 aspect-[2/1] sm:col-span-1 sm:aspect-square" : "aspect-square"
-                }`}
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  sizes="(min-width: 640px) 20vw, 50vw"
-                  className="photo-grade object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </span>
+        </div>
+      </section>
+
+      <section className="bg-ivory py-20 lg:py-28">
+        <div className="lux-container">
+          <FaqList items={homeFaqs} />
+        </div>
+      </section>
+
+      <section className="bg-black py-20 text-ivory lg:py-28">
+        <div className="lux-container">
+          <p className="eyebrow text-center text-gold-highlight">Testimonials</p>
+          <h2 className="mt-4 text-center font-heading text-[clamp(2.25rem,3.75vw,54px)] leading-none font-semibold">
+            Client reviews
+          </h2>
+          <ReviewSlider photo={photos.logoWall.src} alt={photos.logoWall.alt} />
+        </div>
+      </section>
+
+      <section className="bg-ivory py-20 lg:py-28">
+        <div className="lux-container">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="eyebrow text-gold-ink">Visit</p>
+              <h2 className="lux-h2 mt-4 text-ink">Plan your visit</h2>
+            </div>
+            <PillSee href="/visit" label="See all" />
+          </div>
+          <ul className="mt-12 grid gap-10 lg:grid-cols-2">
+            {visitPlans.map((plan) => (
+              <li key={plan.href} className={plan.href === "/kerala-food" ? "lg:col-span-1" : undefined}>
+                <Link href={plan.href} className="group block">
+                  <div className="relative aspect-[650/480] overflow-hidden bg-charcoal">
+                    <Image
+                      src={plan.photo.src}
+                      alt={plan.photo.alt}
+                      fill
+                      sizes="(min-width: 1024px) 650px, 100vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                    <span className="absolute top-4 right-4 bg-ivory px-3 py-1 text-xs tracking-wide text-ink uppercase">
+                      {plan.badge}
+                    </span>
+                  </div>
+                  <h3 className="mt-5 font-heading text-[1.75rem] leading-tight font-medium text-ink">{plan.title}</h3>
+                  <p className="mt-3 text-base leading-7 text-ink-soft">{plan.copy}</p>
+                </Link>
+              </li>
             ))}
-          </a>
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-ivory pb-20 lg:pb-28">
+        <div className="lux-container">
+          <div className="relative aspect-[1340/600] overflow-hidden bg-charcoal">
+            <Image
+              src={galleryLead.src}
+              alt={galleryLead.alt}
+              fill
+              sizes="(min-width: 1024px) 1340px, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <ul className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+            {galleryRow.map((photo) => (
+              <li key={photo.src} className="relative aspect-square overflow-hidden bg-charcoal">
+                <Image src={photo.src} alt={photo.alt} fill sizes="(min-width: 1024px) 252px, 50vw" className="object-cover" />
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </>
+  );
+}
+
+function Note({ title, copy, align = "left" }: { title: string; copy: string; align?: "left" | "right" }) {
+  const right = align === "right";
+  return (
+    <div className={right ? "lg:ml-auto lg:max-w-xs lg:text-right" : "max-w-xs"}>
+      <h3 className="text-xl leading-[26px] font-semibold text-ink">{title}</h3>
+      <p className="mt-2 text-base leading-[22.4px] text-ink-soft">{copy}</p>
+    </div>
+  );
+}
+
+function PillSee({ href, label }: { href: string; label: string }) {
+  return (
+    <Link href={href} className="pill-sm pill-outline w-fit font-sans">
+      {label}
+    </Link>
   );
 }

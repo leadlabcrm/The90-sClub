@@ -3,14 +3,10 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const tones = {
-  onLight:
-    "font-semibold text-blue underline decoration-gold-shadow decoration-2 underline-offset-4 hover:text-ink",
-  onDark:
-    "font-semibold text-link underline decoration-gold decoration-2 underline-offset-4 hover:text-gold-highlight",
-  onGold:
-    "font-semibold text-ink underline decoration-black decoration-2 underline-offset-4 hover:text-blue",
-  onBlue:
-    "font-semibold text-ivory underline decoration-ivory/50 decoration-2 underline-offset-4 hover:text-white",
+  onLight: "text-ink underline decoration-line underline-offset-4 hover:text-gold-ink",
+  onDark: "text-cream underline decoration-gold/60 underline-offset-4 hover:text-gold-highlight",
+  onGold: "text-black underline decoration-black/40 underline-offset-4 hover:text-gold-ink",
+  onBlue: "text-cream underline decoration-cream/40 underline-offset-4 hover:text-gold-highlight",
 } as const;
 
 export function TextLink({
@@ -31,11 +27,7 @@ export function TextLink({
   if (external || href.startsWith("http") || href.startsWith("tel:")) {
     const isWeb = href.startsWith("http");
     return (
-      <a
-        href={href}
-        className={className}
-        {...(isWeb ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      >
+      <a href={href} className={className} {...(isWeb ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
         {children}
         {isWeb ? <span className="sr-only"> (opens in a new tab)</span> : null}
       </a>

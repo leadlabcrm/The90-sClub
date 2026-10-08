@@ -7,24 +7,20 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-oswald), "Arial Narrow", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), Inter, ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
-  --font-heading: var(--font-fraunces), Georgia, serif;
+  --font-heading: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   --color-black: #0a0907;
-  --color-ink: #0a0907;
+  --color-ink: #321d1d;
+  --color-ink-soft: #6e5959;
   --color-cream: #f4e8cc;
-  --color-ivory: #f4e8cc;
-  --color-ivory-muted: #b9ad93;
-  --color-blue: #273a81;
-  --color-blue-bright: #31478f;
-  --color-link: #80a0f0;
+  --color-ivory: #fbf8f4;
+  --color-line: #e3d7ca;
   --color-gold: #d0a232;
   --color-gold-highlight: #e9c65a;
   --color-gold-shadow: #b17e1f;
+  --color-gold-ink: #8e6519;
   --color-charcoal: #16130f;
-  --color-brick: #b54b2e;
-  --color-sand: #e7dcc4;
-  --color-paper: #f7f0de;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -64,38 +60,38 @@
 }
 
 :root {
-  --background: #0a0907;
-  --foreground: #f4e8cc;
-  --card: #16130f;
-  --card-foreground: #f4e8cc;
-  --popover: #16130f;
-  --popover-foreground: #f4e8cc;
+  --background: #fbf8f4;
+  --foreground: #321d1d;
+  --card: #ffffff;
+  --card-foreground: #321d1d;
+  --popover: #ffffff;
+  --popover-foreground: #321d1d;
   --primary: #d0a232;
   --primary-foreground: #0a0907;
-  --secondary: #273a81;
-  --secondary-foreground: #f4e8cc;
-  --muted: #16130f;
-  --muted-foreground: #b9ad93;
+  --secondary: #f3eee8;
+  --secondary-foreground: #321d1d;
+  --muted: #f3eee8;
+  --muted-foreground: #6e5959;
   --accent: #e9c65a;
   --accent-foreground: #0a0907;
-  --destructive: #b54b2e;
-  --border: #b17e1f;
-  --input: #b17e1f;
-  --ring: #80a0f0;
+  --destructive: #8e6519;
+  --border: #e3d7ca;
+  --input: #e3d7ca;
+  --ring: #8e6519;
   --chart-1: #d0a232;
-  --chart-2: #273a81;
+  --chart-2: #8e6519;
   --chart-3: #e9c65a;
-  --chart-4: #f4e8cc;
+  --chart-4: #321d1d;
   --chart-5: #16130f;
-  --radius: 1rem;
-  --sidebar: #16130f;
-  --sidebar-foreground: #f4e8cc;
+  --radius: 999px;
+  --sidebar: #fbf8f4;
+  --sidebar-foreground: #321d1d;
   --sidebar-primary: #d0a232;
   --sidebar-primary-foreground: #0a0907;
-  --sidebar-accent: #0a0907;
-  --sidebar-accent-foreground: #f4e8cc;
-  --sidebar-border: #b17e1f;
-  --sidebar-ring: #80a0f0;
+  --sidebar-accent: #f3eee8;
+  --sidebar-accent-foreground: #321d1d;
+  --sidebar-border: #e3d7ca;
+  --sidebar-ring: #8e6519;
 }
 
 @layer base {
@@ -104,15 +100,14 @@
   }
   html {
     @apply font-sans;
-    color-scheme: dark;
-    scroll-padding-top: 7.5rem;
-    scroll-padding-bottom: 6rem;
+    color-scheme: light;
+    scroll-padding-top: 6.5rem;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-ivory text-ink;
     overflow-x: clip;
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.4;
   }
   ::selection {
     background: #e9c65a;
@@ -131,119 +126,130 @@
   summary {
     -webkit-tap-highlight-color: transparent;
   }
+  :focus-visible {
+    outline: 2px solid #8e6519;
+    outline-offset: 3px;
+  }
+  em {
+    font-style: italic;
+  }
 }
 
 @layer components {
-  .type-display {
-    font-family: var(--font-fraunces), Georgia, serif;
-    font-weight: 800;
-    letter-spacing: -0.035em;
-    line-height: 0.98;
+  .lux-container {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 20px;
   }
-  .type-label {
-    font-family: var(--font-oswald), "Arial Narrow", sans-serif;
-    font-weight: 600;
-    letter-spacing: 0.13em;
-    line-height: 1;
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    line-height: 1.4;
     text-transform: uppercase;
   }
-  .club-card {
-    border: 2px solid #b17e1f;
-    border-radius: 1rem;
-    background: #16130f;
-    box-shadow: 5px 5px 0 #0a0907;
-    color: #f4e8cc;
+  .lux-h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.75rem, 7.6vw, 110px);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1;
   }
-  .club-card-light {
-    border: 2px solid #b17e1f;
-    border-radius: 1rem;
-    background: #f7f0de;
-    box-shadow: 5px 5px 0 #d0a232;
-    color: #0a0907;
+  .lux-h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 4.45vw, 64px);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1;
   }
-  .club-card-dark {
-    border: 2px solid #d0a232;
-    border-radius: 1rem;
-    background: #16130f;
-    box-shadow: 5px 5px 0 #0a0907;
-    color: #f4e8cc;
+  .lux-h1 em,
+  .lux-h2 em {
+    font-style: italic;
+    font-weight: 500;
   }
-  .club-button {
-    border: 2px solid #0a0907;
-    border-radius: 0.65rem;
-    box-shadow: 3px 3px 0 #0a0907;
+  .prose-body {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 100px;
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.1;
+    padding: 12px 40px;
     transition:
-      transform 160ms ease,
-      box-shadow 160ms ease,
-      background-color 160ms ease;
+      background-color 200ms ease,
+      color 200ms ease,
+      border-color 200ms ease;
   }
-  .club-button:hover {
-    box-shadow: 1px 1px 0 #0a0907;
-    transform: translate(2px, 2px);
+  .pill-sm {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    padding: 8px 32px;
+    transition:
+      background-color 200ms ease,
+      color 200ms ease,
+      border-color 200ms ease;
   }
-  .section-pad {
-    padding-block: clamp(4.5rem, 8vw, 7.5rem);
+  .pill-solid {
+    background: #fbf8f4;
+    color: #321d1d;
   }
-  .ink-grid {
-    background-image:
-      linear-gradient(rgb(233 198 90 / 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(233 198 90 / 0.08) 1px, transparent 1px);
-    background-size: 28px 28px;
+  .pill-solid:hover {
+    background: #e9c65a;
   }
-  .sunburst {
-    background-image: repeating-conic-gradient(
-      from -8deg at 100% 0%,
-      rgb(208 162 50 / 0.18) 0deg 5deg,
-      transparent 5deg 12deg
-    );
-  }
-  .photo-grade {
-    filter: saturate(1.08) contrast(1.04);
-  }
-  .scallop-top {
-    position: relative;
-    margin-top: 2.5rem;
-  }
-  .scallop-top::before {
-    position: absolute;
-    top: -2.45rem;
-    left: 0;
-    width: 100%;
-    height: 2.5rem;
-    content: "";
-    background:
-      radial-gradient(72px 42px at 72px 42px, #273a81 99%, transparent 100%)
-      0 0 / 144px 42px repeat-x;
-  }
-  .marquee {
-    overflow: hidden;
+  .pill-gold {
     background: #d0a232;
     color: #0a0907;
-    border-block: 2px solid #0a0907;
   }
-  .marquee-track {
-    display: flex;
-    width: max-content;
-    animation: club-marquee 26s linear infinite;
+  .pill-gold:hover {
+    background: #e9c65a;
   }
-  .marquee-track > span {
-    flex: none;
-    padding-block: 0.8rem;
-    font-family: var(--font-fraunces), Georgia, serif;
-    font-weight: 750;
-    white-space: nowrap;
+  .pill-outline {
+    border: 1px solid #321d1d;
+    background: transparent;
+    color: #321d1d;
+  }
+  .pill-outline:hover {
+    background: #321d1d;
+    color: #fbf8f4;
+  }
+  .pill-outline-light {
+    border: 1px solid #fbf8f4;
+    background: transparent;
+    color: #fbf8f4;
+  }
+  .pill-outline-light:hover {
+    background: #fbf8f4;
+    color: #321d1d;
   }
 }
 
-@keyframes club-marquee {
-  to {
-    transform: translateX(-50%);
+@media (min-width: 1024px) {
+  .lux-container {
+    padding-inline: 50px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-    transform: none;
+  .pill,
+  .pill-sm {
+    transition: none;
   }
 }

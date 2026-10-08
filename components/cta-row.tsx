@@ -1,104 +1,62 @@
-import { Camera, MapPin, MessageCircle, Phone } from "lucide-react";
-
-import { buttonVariants } from "@/components/ui/button";
+import { PillLink } from "@/components/pill";
 import { links, phone, whatsappHref, whatsappMessages } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 type CtaItem = "call" | "directions" | "whatsapp" | "instagram";
-
-const itemClass = "h-12 px-5 text-base";
 
 export function CtaRow({
   items,
   callLabel,
   whatsappMessage = whatsappMessages.visit,
   className,
-  tone = "default",
+  tone = "onLight",
 }: {
   items: CtaItem[];
   callLabel?: string;
   whatsappMessage?: string;
   className?: string;
-  tone?: "default" | "onDark" | "onGold";
+  tone?: "onLight" | "onDark";
 }) {
+  const onDark = tone === "onDark";
+
   return (
     <div className={cn("flex flex-wrap gap-3", className)}>
       {items.map((item) => {
         if (item === "call") {
           return (
-            <a
-              key={item}
-              href={phone.href}
-              className={cn(
-                buttonVariants({ variant: tone === "onGold" ? "default" : "gold", size: "lg" }),
-                itemClass,
-                tone === "onGold" && "border-black bg-blue text-ivory hover:bg-blue-bright",
-              )}
-            >
-              <Phone aria-hidden="true" />
+            <PillLink key={item} href={phone.href} tone={onDark ? "solid" : "gold"}>
               {callLabel ?? `Call ${phone.display}`}
-            </a>
+            </PillLink>
           );
         }
         if (item === "directions") {
           return (
-            <a
+            <PillLink
               key={item}
               href={links.directions}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                buttonVariants({ variant: "default", size: "lg" }),
-                itemClass,
-                "border-black bg-blue text-ivory hover:bg-blue-bright",
-                tone === "onGold" && "bg-black text-ivory hover:bg-charcoal",
-              )}
+              tone={onDark ? "outlineLight" : "outline"}
+              external
             >
-              <MapPin aria-hidden="true" />
               Directions
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>
+            </PillLink>
           );
         }
         if (item === "whatsapp") {
           return (
-            <a
+            <PillLink
               key={item}
               href={whatsappHref(whatsappMessage)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                itemClass,
-                tone === "onDark" && "border-ivory text-ivory hover:bg-ivory/10",
-                tone === "onGold" && "border-black bg-black text-ivory hover:bg-charcoal",
-                tone === "default" && "border-gold-shadow bg-charcoal text-ivory hover:bg-black",
-              )}
+              tone={onDark ? "outlineLight" : "outline"}
+              external
             >
-              <MessageCircle aria-hidden="true" />
               WhatsApp
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>
+            </PillLink>
           );
         }
         return (
-          <a
-            key={item}
-            href={links.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              buttonVariants({ variant: "outline", size: "lg" }),
-              itemClass,
-              tone === "onDark" && "border-ivory text-ivory hover:bg-ivory/10",
-              tone === "onGold" && "border-black bg-black text-ivory hover:bg-charcoal",
-              tone === "default" && "border-gold-shadow bg-charcoal text-ivory hover:bg-black",
-            )}
-          >
-            <Camera aria-hidden="true" />
+          <PillLink key={item} href={links.instagram} tone={onDark ? "outlineLight" : "outline"} external>
             Instagram
-            <span className="sr-only"> (opens in a new tab)</span>
-          </a>
+          </PillLink>
         );
       })}
     </div>
