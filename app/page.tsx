@@ -133,6 +133,8 @@ export default function HomePage() {
           alt={photos.interiorNeon.alt}
           fill
           fetchPriority="high"
+          loading="eager"
+          decoding="sync"
           sizes="100vw"
           className="object-cover"
         />

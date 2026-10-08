@@ -8,7 +8,7 @@ export function SiteHeader() {
     <HeaderChrome
       logo={
         <Link href="/" className="shrink-0">
-          <BrandLogo alt="The 90s Club logo" className="h-10 lg:h-14" />
+          <BrandLogo alt="The 90s Club logo" className="h-10 lg:h-14" loading="eager" />
         </Link>
       }
     />
