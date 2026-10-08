@@ -11,17 +11,16 @@ const raster = {
 export function BrandLogo({
   variant = "gold",
   className,
+  alt = "",
 }: {
   variant?: "gold" | keyof typeof raster;
   className?: string;
+  alt?: string;
 }) {
   if (variant === "gold") {
     return (
       <span
-        className={cn(
-          "inline-block text-gold [&_svg]:block [&_svg]:h-full [&_svg]:w-auto",
-          className,
-        )}
+        className={cn("inline-block text-gold [&_svg]:block [&_svg]:h-full [&_svg]:w-auto", className)}
         dangerouslySetInnerHTML={{ __html: officialLogoSvg }}
       />
     );
@@ -32,7 +31,7 @@ export function BrandLogo({
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src={raster[variant]}
-      alt=""
+      alt={alt}
       width={568}
       height={1000}
       className={cn("w-auto max-w-none", className)}

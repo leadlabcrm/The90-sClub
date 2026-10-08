@@ -30,6 +30,11 @@ export const hours = {
   ],
 } as const;
 
+export const geo = {
+  latitude: 12.8346301,
+  longitude: 77.6793577,
+} as const;
+
 export const links = {
   directions: "https://share.google/IelhjSarfxq2uls3r",
   instagram: "https://www.instagram.com/the90sclubretropub",

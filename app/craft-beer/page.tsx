@@ -1,53 +1,48 @@
 import { CtaRow } from "@/components/cta-row";
+import { FaqList } from "@/components/faq-list";
 import { GapNotice } from "@/components/gap-notice";
+import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { TextLink } from "@/components/text-link";
 import { VenuePhoto } from "@/components/venue-photo";
+import { beerFaqs } from "@/lib/faq";
 import { dishHref } from "@/lib/menu";
 import { pageMetadata } from "@/lib/metadata";
 import { photos } from "@/lib/photos";
+import { faqPageJsonLd } from "@/lib/schema";
+import { seo } from "@/lib/seo";
 
-export const metadata = pageMetadata({
-  title: "Craft beer & Flying Fox | The 90s Club rooftop",
-  description:
-    "Flying Fox craft beer at The 90s Club rooftop in Electronic City. Ask the team for the current tap list and prices.",
-  path: "/craft-beer",
-});
+export const metadata = pageMetadata(seo.beer);
 
 export default function CraftBeerPage() {
   return (
     <>
+      <JsonLd data={faqPageJsonLd(beerFaqs)} />
       <PageHero
         eyebrow="Taproom"
-        title="Craft beer on the rooftop — Flying Fox at The 90s Club"
-        lede="Taproom pours featuring Flying Fox, on the Electronic City rooftop."
-        image={photos.barCounter.src}
-        alt={photos.barCounter.alt}
+        title="Craft beer in Electronic City — Flying Fox at The 90s Club"
+        lede="Flying Fox craft beer with Kerala food at Millennium Plaza on Hosur Rd, Hebbagodi."
+        photo={photos.barFront}
       />
 
-      <section className="bg-ivory py-20 lg:py-28">
-        <div className="lux-container grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <section className="lux-section bg-ivory">
+        <div className="lux-container grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div>
             <p className="eyebrow text-gold-ink">At the taproom</p>
-            <h2 className="lux-h2 mt-4 text-ink">Flying Fox on the roof</h2>
-            <p className="prose-body mt-5 text-ink-soft">
-              Kerala food and Flying Fox craft beer under one roof in Electronic City. The 90s Club pours Flying Fox
-              craft beer. The kitchen next to the taps leads with Kerala plates. Ask the team what is on today.
+            <h2 className="lux-h2 mt-3 text-ink">Flying Fox in Hebbagodi</h2>
+            <p className="prose-body mt-4 text-ink-soft">
+              Kerala food and Flying Fox craft beer under one roof at Millennium Plaza, Hebbagodi. The 90s Club pours
+              Flying Fox craft beer. The kitchen next to the taps leads with Kerala plates. Ask the team what is on
+              today.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <VenuePhoto
-              src={photos.neonBeerWall.src}
-              alt={photos.neonBeerWall.alt}
+              photo={photos.neonBeer}
               aspect="photo"
-              caption="Neon beer art inside The 90s Club."
+              caption="Neon beer-bottle wall art inside the taproom."
             />
-            <VenuePhoto
-              src={photos.barCounter.src}
-              alt={photos.barCounter.alt}
-              aspect="photo"
-              caption="The electric-blue bar counter and taps."
-            />
+            <VenuePhoto photo={photos.neonBar} aspect="photo" caption="The bar counter with the lit 90s Club logo." />
           </div>
         </div>
       </section>
@@ -64,29 +59,39 @@ export default function CraftBeerPage() {
         </div>
       </section>
 
-      <section className="bg-black py-20 text-cream lg:py-24">
+      <section className="lux-section bg-ivory">
+        <div className="lux-container">
+          <FaqList items={beerFaqs} />
+        </div>
+      </section>
+
+      <section className="lux-section bg-black text-cream">
         <div className="lux-container">
           <p className="eyebrow text-gold-highlight">From the kitchen</p>
-          <h2 className="lux-h2 mt-4">Pair and visit</h2>
-          <p className="prose-body mt-5 max-w-2xl text-cream/85">
+          <h2 className="lux-h2 mt-3">Pair and visit</h2>
+          <p className="prose-body mt-4 text-cream/85">
             Pair a pour with{" "}
+            <TextLink href="/kerala-food" tone="onDark">
+              craft beer and Kerala food
+            </TextLink>
+            , including{" "}
             <TextLink href={dishHref("Kerala Style Chicken Biryani")} tone="onDark">
               Kerala Style Chicken Biryani
-            </TextLink>{" "}
-            or the seafood starters. Then come up to the roof.
+            </TextLink>
+            .
           </p>
-          <p className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-lg">
+          <p className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-base">
             <TextLink href="/rooftop-pub" tone="onDark">
-              Rooftop
+              Rooftop pub
             </TextLink>
-            <TextLink href="/menu" tone="onDark">
-              Menu
+            <TextLink href="/menu#drinks" tone="onDark">
+              Menu drinks
             </TextLink>
-            <TextLink href="/kerala-food" tone="onDark">
-              Kerala food
+            <TextLink href="/visit" tone="onDark">
+              Visit
             </TextLink>
           </p>
-          <CtaRow className="mt-8" tone="onDark" items={["call", "directions", "whatsapp"]} />
+          <CtaRow className="mt-7" tone="onDark" items={["call", "directions", "whatsapp"]} />
         </div>
       </section>
     </>

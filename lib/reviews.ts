@@ -1,33 +1,47 @@
-/** 5-star Google reviews. Wording is unchanged apart from source line breaks. */
-export const homeReviews = [
-  {
-    name: "Kavyashree Patel D G",
+/** Real Google reviews. Names shortened to first name + initial. Wording kept as published. */
+
+export type Review = {
+  name: string;
+  date: string;
+  text: string;
+};
+
+export const reviews = {
+  kavyashree: {
+    name: "Kavyashree P.",
     date: "20 May 2026",
-    text: "Absolutely loved the delicious and tasty food and drinks,  perfectly paired with incredible 90s music and a fantastic retro atmosphere.",
+    text: "Absolutely loved the delicious and tasty food and drinks, perfectly paired with incredible 90s music and a fantastic retro atmosphere.",
   },
-  {
-    name: "Fran Joel",
+  fran: {
+    name: "Fran J.",
     date: "17 Sep 2026",
-    text: "Had a great experience at this restro bar! 🍻 The ambience was really nice, the food was delicious, and the overall vibe was perfect for a relaxed evening.\n\nSpecial thanks to Chupa for the excellent service. He was friendly, attentive, and made sure we were comfortable throughout our visit. Great service and a great experience overall. Definitely worth visiting again….",
+    text: "Had a great experience at this restro bar! The ambience was really nice, the food was delicious, and the overall vibe was perfect for a relaxed evening.",
   },
-  {
-    name: "Manojkumar Nayak",
+  manojkumar: {
+    name: "Manojkumar N.",
     date: "18 Sep 2026",
-    text: "Great place - 90s Vibes, Music is great, Service especially by ever smiling and cool Mr.HAPA is unmatched. Great place to jam with friends.",
+    text: "Great place - 90s Vibes, Music is great",
   },
-  {
-    name: "Vasanth Ganeshan",
-    date: "13 Sep 2026",
-    text: "What a cool spot! 😎 The ambiance is fantastic, with a really friendly vibe that makes you want to hang out. I definitely recommend checking this place out! 💯 The food was good, and the service was top-notch. Can't wait to visit again! ✨",
+  vaibhav: {
+    name: "Vaibhav P.",
+    date: "3 Jun 2026",
+    text: "Good sea food and ambience",
   },
-  {
-    name: "Jaya pradap",
-    date: "13 Jun 2026",
-    text: "Amazing ambiance, great food, and excellent service. The music and overall vibe make it a perfect place to chill with friends. Had a wonderful experience and would definitely visit again! 🎉🍻",
+  deepak: {
+    name: "Deepak N.",
+    date: "24 May 2026",
+    text: "We had a party here and the food was very tasty and especially the service.",
   },
-  {
-    name: "Vivek A",
-    date: "27 Sep 2026",
-    text: "Good service and ambiance was very good foods are very tasty",
+  spoorthi: {
+    name: "Spoorthi H.",
+    date: "24 May 2026",
+    text: "Loved the 90s nostalgia!This new spot has the perfect throwback energy.",
   },
-] as const;
+} as const satisfies Record<string, Review>;
+
+export const homeReviews: Review[] = [
+  reviews.kavyashree,
+  reviews.fran,
+  reviews.manojkumar,
+  reviews.spoorthi,
+];

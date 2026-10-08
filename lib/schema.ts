@@ -1,42 +1,46 @@
+import type { FaqItem } from "@/lib/faq";
 import { homeFaqs } from "@/lib/faq";
 import { photos } from "@/lib/photos";
-import { hours, links, mapsName, phone, publicName } from "@/lib/site";
+import { geo, hours, links, mapsName, phone, publicName } from "@/lib/site";
 import { getSiteUrl } from "@/lib/site-url";
 
 /**
  * Schema `name` uses the Maps listing name “The 90s Club”.
- * `alternateName` carries the H1-friendly name. PM still confirms this
- * stays 1:1 with the Google Business Profile.
+ * `alternateName` carries the H1-friendly name. Stay 1:1 with the Google Business Profile.
  */
 export function restaurantJsonLd() {
   const url = getSiteUrl();
 
   return {
     "@context": "https://schema.org",
-    "@type": "Restaurant",
+    "@type": ["Restaurant", "BarOrPub"],
     "@id": `${url}/#restaurant`,
     name: mapsName,
     alternateName: publicName,
     description:
       "Kerala kitchen and rooftop taproom in Hebbagodi, Electronic City, Bangalore. Craft beer from Flying Fox. Open daily from noon to midnight.",
     url,
-    image: `${url}${photos.barLogoHero.src}`,
+    image: `${url}/photos/food-spread-chilli-chicken-biryani-cocktails-the-90s-club-electronic-city-2400.jpg`,
     telephone: phone.tel,
-    servesCuisine: "Kerala",
-    priceRange: "₹₹",
+    servesCuisine: ["Kerala", "Seafood", "Indian", "Chinese"],
     currenciesAccepted: "INR",
     hasMenu: `${url}/menu`,
     menu: `${url}/menu`,
     hasMap: links.directions,
-    sameAs: [links.instagram],
+    sameAs: [links.instagram, links.directions],
     address: {
       "@type": "PostalAddress",
       streetAddress:
-        "Millennium Plaza, 396/48 Hosur Rd, Dadi Reddy Layout, Veerasandra, Hebbagodi",
-      addressLocality: "Electronic City, Bangalore",
+        "Millennium Plaza, 396/48 Hosur Rd, Dadi Reddy Layout, Veerasandra, Hebbagodi, Electronic City",
+      addressLocality: "Bengaluru",
       addressRegion: "Karnataka",
       postalCode: "560100",
       addressCountry: "IN",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: geo.latitude,
+      longitude: geo.longitude,
     },
     openingHoursSpecification: [
       {
@@ -62,12 +66,12 @@ export function restaurantJsonLd() {
   };
 }
 
-/** Mirrors the homepage FAQ block. Do not add questions that are not on the page. */
-export function faqPageJsonLd() {
+/** Mirrors a visible FAQ block. Do not add questions that are not on the page. */
+export function faqPageJsonLd(faqs: readonly FaqItem[] = homeFaqs) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: homeFaqs.map((faq) => ({
+    mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
       acceptedAnswer: {

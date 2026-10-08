@@ -1,11 +1,4 @@
-import { restaurantJsonLd } from "@/lib/schema";
-
-export function JsonLd() {
-  const json = JSON.stringify(restaurantJsonLd()).replace(/</g, "\\u003c");
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: json }}
-    />
-  );
+export function JsonLd({ data }: { data: unknown }) {
+  const json = JSON.stringify(data).replace(/</g, "\\u003c");
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: json }} />;
 }

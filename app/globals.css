@@ -21,6 +21,7 @@
   --color-gold-shadow: #b17e1f;
   --color-gold-ink: #8e6519;
   --color-charcoal: #16130f;
+  --color-bar-blue: #273a81;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -50,13 +51,13 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.5rem;
+  --radius-4xl: 2rem;
 }
 
 :root {
@@ -83,7 +84,7 @@
   --chart-3: #e9c65a;
   --chart-4: #321d1d;
   --chart-5: #16130f;
-  --radius: 999px;
+  --radius: 0.75rem;
   --sidebar: #fbf8f4;
   --sidebar-foreground: #321d1d;
   --sidebar-primary: #d0a232;
@@ -92,6 +93,16 @@
   --sidebar-accent-foreground: #321d1d;
   --sidebar-border: #e3d7ca;
   --sidebar-ring: #8e6519;
+  --text-body: clamp(1rem, 0.93rem + 0.28vw, 1.125rem);
+  --text-h1: clamp(2.25rem, 1.35rem + 3.7vw, 4rem);
+  --text-h2: clamp(1.75rem, 1.25rem + 2.05vw, 2.75rem);
+  --text-h3: clamp(1.25rem, 1.12rem + 0.55vw, 1.75rem);
+  --leading-body: 1.65;
+  --leading-heading: 1.15;
+  --section-y: clamp(3.5rem, 2.5rem + 4vw, 6rem);
+  --shadow-card: 0 12px 40px rgba(10, 9, 7, 0.08);
+  --radius-card: 0.75rem;
+  --radius-photo: 0.75rem;
 }
 
 @layer base {
@@ -101,13 +112,14 @@
   html {
     @apply font-sans;
     color-scheme: light;
-    scroll-padding-top: 6.5rem;
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-ivory text-ink;
     overflow-x: clip;
-    font-size: 16px;
-    line-height: 1.4;
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
   }
   ::selection {
     background: #e9c65a;
@@ -140,29 +152,39 @@
     width: 100%;
     max-width: 1440px;
     margin-inline: auto;
-    padding-inline: 20px;
+    padding-inline: 1.25rem;
+  }
+  .lux-section {
+    padding-block: var(--section-y);
   }
   .eyebrow {
     font-family: var(--font-sans);
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 0.3em;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
     line-height: 1.4;
     text-transform: uppercase;
   }
   .lux-h1 {
     font-family: var(--font-heading);
-    font-size: clamp(2.75rem, 7.6vw, 110px);
+    font-size: var(--text-h1);
     font-weight: 500;
-    letter-spacing: 0;
-    line-height: 1;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
   }
   .lux-h2 {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 4.45vw, 64px);
+    font-size: var(--text-h2);
     font-weight: 500;
-    letter-spacing: 0;
-    line-height: 1;
+    letter-spacing: -0.018em;
+    line-height: 1.15;
+  }
+  .lux-h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-h3);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
   }
   .lux-h1 em,
   .lux-h2 em {
@@ -170,9 +192,53 @@
     font-weight: 500;
   }
   .prose-body {
-    font-size: 20px;
+    font-size: var(--text-body);
     font-weight: 400;
-    line-height: 28px;
+    line-height: var(--leading-body);
+    max-width: 68ch;
+  }
+  .lux-photo {
+    position: relative;
+    overflow: hidden;
+    background: #16130f;
+    border-radius: var(--radius-photo);
+  }
+  .lux-photo img {
+    object-fit: cover;
+  }
+  .lux-photo-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(10, 9, 7, 0.28), transparent 48%);
+  }
+  .lux-card {
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+  .nav-link {
+    position: relative;
+    white-space: nowrap;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+    transition: color 180ms ease;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.35rem;
+    width: 100%;
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: currentColor;
+    transition: transform 180ms ease;
+  }
+  .nav-link:hover::after,
+  .nav-link[aria-current="page"]::after {
+    transform: scaleX(1);
   }
   .pill {
     display: inline-flex;
@@ -181,14 +247,14 @@
     gap: 0.5rem;
     border-radius: 100px;
     font-family: var(--font-heading);
-    font-size: 24px;
-    font-weight: 700;
+    font-size: clamp(1.05rem, 0.95rem + 0.35vw, 1.2rem);
+    font-weight: 600;
     line-height: 1.1;
-    padding: 12px 40px;
+    padding: 0.7rem 1.7rem;
     transition:
-      background-color 200ms ease,
-      color 200ms ease,
-      border-color 200ms ease;
+      background-color 180ms ease,
+      color 180ms ease,
+      border-color 180ms ease;
   }
   .pill-sm {
     display: inline-flex;
@@ -198,14 +264,14 @@
     border-radius: 100px;
     border: 1px solid transparent;
     font-family: var(--font-sans);
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 0.875rem;
+    font-weight: 500;
     line-height: 1.4;
-    padding: 8px 32px;
+    padding: 0.5rem 1.25rem;
     transition:
-      background-color 200ms ease,
-      color 200ms ease,
-      border-color 200ms ease;
+      background-color 180ms ease,
+      color 180ms ease,
+      border-color 180ms ease;
   }
   .pill-solid {
     background: #fbf8f4;
@@ -227,29 +293,40 @@
     color: #321d1d;
   }
   .pill-outline:hover {
-    background: #321d1d;
-    color: #fbf8f4;
+    border-color: #d0a232;
+    background: #d0a232;
+    color: #0a0907;
   }
   .pill-outline-light {
-    border: 1px solid #fbf8f4;
+    border: 1px solid rgba(251, 248, 244, 0.85);
     background: transparent;
     color: #fbf8f4;
   }
   .pill-outline-light:hover {
-    background: #fbf8f4;
-    color: #321d1d;
+    border-color: #e9c65a;
+    background: #e9c65a;
+    color: #0a0907;
   }
 }
 
 @media (min-width: 1024px) {
   .lux-container {
-    padding-inline: 50px;
+    padding-inline: 3.125rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   .pill,
-  .pill-sm {
+  .pill-sm,
+  .nav-link,
+  .nav-link::after {
     transition: none;
+  }
+  .lux-motion {
+    transition: none !important;
+    transform: none !important;
   }
 }

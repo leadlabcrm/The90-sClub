@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
       {
         source: "/contact",
         destination: "/visit",
-        permanent: false,
+        statusCode: 301,
       },
     ];
   },

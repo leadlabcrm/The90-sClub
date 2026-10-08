@@ -1,9 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import type { ReactNode } from "react";
 
 import { JsonLd } from "@/components/json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { siteIcons, ogImage } from "@/lib/metadata";
+import { restaurantJsonLd } from "@/lib/schema";
+import { seo } from "@/lib/seo";
 import { getSiteUrl } from "@/lib/site-url";
 
 import "./globals.css";
@@ -22,27 +26,52 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
+const siteUrl = getSiteUrl();
+
 export const metadata: Metadata = {
-  metadataBase: new URL(getSiteUrl()),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "The 90s Club Taproom and Kitchen | Kerala food & craft beer, Electronic City",
+    default: seo.home.title,
     template: "%s",
   },
-  description:
-    "Flying Fox craft beer and a Kerala kitchen at Millennium Plaza, Hebbagodi. Open daily from noon to midnight.",
+  description: seo.home.description,
   applicationName: "The 90s Club",
   authors: [{ name: "The 90s Club" }],
   robots: { index: true, follow: true },
   formatDetection: { telephone: true, address: true, email: false },
+  icons: siteIcons,
+  manifest: "/site.webmanifest",
+  openGraph: {
+    title: seo.home.title,
+    description: seo.home.description,
+    url: siteUrl,
+    siteName: "The 90s Club",
+    locale: "en_IN",
+    type: "website",
+    images: [ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seo.home.title,
+    description: seo.home.description,
+    images: [
+      {
+        url: ogImage.url,
+        width: ogImage.width,
+        height: ogImage.height,
+        alt: ogImage.alt,
+      },
+    ],
+  },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FBF8F4",
+  themeColor: "#0A0907",
   width: "device-width",
   initialScale: 1,
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-ivory text-ink">
@@ -57,7 +86,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <SiteFooter />
-        <JsonLd />
+        <JsonLd data={restaurantJsonLd()} />
       </body>
     </html>
   );

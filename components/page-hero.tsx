@@ -1,26 +1,34 @@
 import Image from "next/image";
 
+import type { Photo } from "@/lib/photos";
+
 export function PageHero({
   eyebrow,
   title,
   lede,
-  image,
-  alt,
+  photo,
 }: {
   eyebrow: string;
   title: string;
   lede: string;
-  image: string;
-  alt: string;
+  photo: Photo;
 }) {
   return (
-    <header className="relative flex min-h-[32rem] items-end overflow-hidden bg-black text-ivory lg:min-h-[38rem]">
-      <Image src={image} alt={alt} fill priority sizes="100vw" className="object-cover" />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,9,7,.72)_0%,rgba(10,9,7,.35)_55%,rgba(10,9,7,.2)_100%),linear-gradient(to_top,rgba(10,9,7,.55),transparent_45%)]" />
-      <div className="lux-container relative z-10 pb-14 pt-32 lg:pb-20">
+    <header className="relative flex min-h-[22rem] items-end overflow-hidden bg-black text-ivory lg:min-h-[28rem]">
+      <Image
+        src={photo.src}
+        alt={photo.alt}
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+        style={photo.position ? { objectPosition: photo.position } : undefined}
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,9,7,.78)_0%,rgba(10,9,7,.42)_58%,rgba(10,9,7,.28)_100%),linear-gradient(to_top,rgba(10,9,7,.55),transparent_50%)]" />
+      <div className="lux-container relative z-10 pt-28 pb-12 lg:pt-32 lg:pb-16">
         <p className="eyebrow text-gold-highlight">{eyebrow}</p>
-        <h1 className="lux-h2 mt-4 max-w-4xl text-ivory">{title}</h1>
-        <p className="prose-body mt-5 max-w-xl text-ivory/90">{lede}</p>
+        <h1 className="lux-h2 mt-3 max-w-3xl text-ivory">{title}</h1>
+        <p className="prose-body mt-4 max-w-[62ch] text-ivory/90">{lede}</p>
       </div>
     </header>
   );
