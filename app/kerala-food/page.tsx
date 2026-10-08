@@ -53,8 +53,9 @@ export default function KeralaFoodPage() {
           <p className="eyebrow text-gold-ink">The kitchen’s point of view</p>
           <h2 className="lux-h2 mt-4 text-ink">Why Kerala here</h2>
           <p className="prose-body mt-5 max-w-3xl text-ink-soft">
-            The kitchen at Millennium Plaza leads with these plates. You eat them with the rooftop and the taproom
-            around you, open daily from noon to midnight.
+            Kerala food and Flying Fox craft beer under one roof in Electronic City. The kitchen at Millennium Plaza
+            leads with these plates. You eat them with the rooftop and the taproom around you, open daily from noon to
+            midnight.
           </p>
         </div>
       </section>

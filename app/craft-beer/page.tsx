@@ -31,8 +31,8 @@ export default function CraftBeerPage() {
             <p className="eyebrow text-gold-ink">At the taproom</p>
             <h2 className="lux-h2 mt-4 text-ink">Flying Fox on the roof</h2>
             <p className="prose-body mt-5 text-ink-soft">
-              The 90s Club pours Flying Fox craft beer. The kitchen next to the taps leads with Kerala plates. Ask the
-              team what is on today.
+              Kerala food and Flying Fox craft beer under one roof in Electronic City. The 90s Club pours Flying Fox
+              craft beer. The kitchen next to the taps leads with Kerala plates. Ask the team what is on today.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">

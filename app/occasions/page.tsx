@@ -15,7 +15,7 @@ export const metadata = pageMetadata({
 const audiences = [
   {
     title: "Corporate teams",
-    copy: "A lunch table after work in Electronic City, with the kitchen and the rooftop in the same building.",
+    copy: "Team lunches and office get-togethers for E-City Phase 1 (Infosys/Velankani), Phase 2, Bommasandra and Ananth Nagar. The kitchen and the rooftop are in the same building.",
   },
   {
     title: "Students",
@@ -60,7 +60,7 @@ export default function OccasionsPage() {
             <p className="eyebrow text-gold-ink">Room for the group</p>
             <h2 className="lux-h2 mt-4 text-ink">Capacity</h2>
             <p className="prose-body mt-5 text-ink-soft">
-              About 80 seats, full AC, and parking — a practical size for a team lunch or a birthday table.
+              About 80 seats, full AC, and parking — a practical size for a team lunch, an office get-together, or a birthday table.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">

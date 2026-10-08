@@ -103,7 +103,8 @@ export default function VisitPage() {
             </p>
             <h3 className="mt-8 font-heading text-3xl font-medium text-ink">Getting here</h3>
             <p className="mt-3 text-base leading-7 text-ink-soft">
-              Straightforward from Electronic City, Hebbagodi, and Ananth Nagar.
+              The 90s Club is at Millennium Plaza on Hosur Road, Hebbagodi — a short drive from E-City Phase 1
+              (Infosys/Velankani), Phase 2, Bommasandra and Ananth Nagar.
             </p>
           </div>
         </div>
