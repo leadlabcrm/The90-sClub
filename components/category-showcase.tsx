@@ -4,19 +4,24 @@ import Image from "next/image";
 import { useState } from "react";
 
 import { PillLink } from "@/components/pill";
+import { TypographicCard } from "@/components/typographic-card";
 import { cn } from "@/lib/utils";
 
 export type CategorySlide = {
   id: string;
   title: string;
   intro: string;
-  image: string;
-  alt: string;
+  image?: string;
+  alt?: string;
   position?: string;
 };
 
 export function CategoryShowcase({ categories }: { categories: CategorySlide[] }) {
-  const [active, setActive] = useState(categories.length > 2 ? 2 : 0);
+  const firstPhoto = Math.max(
+    0,
+    categories.findIndex((category) => Boolean(category.image)),
+  );
+  const [active, setActive] = useState(firstPhoto);
   const current = categories[active] ?? categories[0];
 
   return (
@@ -61,17 +66,21 @@ export function CategoryShowcase({ categories }: { categories: CategorySlide[] }
       </div>
 
       <div>
-        <div className="lux-photo relative h-[200px] rounded-[500px] sm:h-[260px] lg:h-[300px]">
-          <Image
-            key={current.image + current.id}
-            src={current.image}
-            alt={current.alt}
-            fill
-            sizes="(min-width: 1024px) 900px, 100vw"
-            className="object-cover"
-            style={current.position ? { objectPosition: current.position } : undefined}
-          />
-        </div>
+        {current.image && current.alt ? (
+          <div className="lux-photo relative h-[200px] rounded-[500px] sm:h-[260px] lg:h-[300px]">
+            <Image
+              key={current.image + current.id}
+              src={current.image}
+              alt={current.alt}
+              fill
+              sizes="(min-width: 1024px) 900px, 100vw"
+              className="object-cover"
+              style={current.position ? { objectPosition: current.position } : undefined}
+            />
+          </div>
+        ) : (
+          <TypographicCard title={current.title} aspect="oval" tone="dark" className="mx-auto w-full max-w-[640px]" />
+        )}
         <p className="prose-body mx-auto mt-6 max-w-[62ch] text-center text-ink-soft">{current.intro}</p>
         <div className="mt-6 flex justify-center lg:hidden">
           <PillLink href="/menu" tone="outlineSm">

@@ -3,6 +3,7 @@ import { FaqList } from "@/components/faq-list";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { TextLink } from "@/components/text-link";
+import { TypographicCard } from "@/components/typographic-card";
 import { VenuePhoto } from "@/components/venue-photo";
 import { keralaFaqs } from "@/lib/faq";
 import { dishHref, findDish, formatPrice } from "@/lib/menu";
@@ -111,11 +112,7 @@ export default function KeralaFoodPage() {
               </footer>
             </blockquote>
           </div>
-          <VenuePhoto
-            photo={photos.chilliChicken}
-            aspect="photo"
-            caption="Chilli Chicken from The 90s Club kitchen."
-          />
+          <TypographicCard title="Seafood starters" kicker="Coastal kitchen" />
         </div>
       </section>
 

@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { JsonLd } from "@/components/json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { StickyCtas } from "@/components/sticky-ctas";
 import { siteIcons, ogImage } from "@/lib/metadata";
 import { restaurantJsonLd } from "@/lib/schema";
 import { seo } from "@/lib/seo";
@@ -69,6 +70,7 @@ export const viewport: Viewport = {
   themeColor: "#0A0907",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -86,6 +88,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
         </main>
         <SiteFooter />
+        <StickyCtas />
         <JsonLd data={restaurantJsonLd()} />
       </body>
     </html>

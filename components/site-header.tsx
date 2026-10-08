@@ -77,7 +77,7 @@ export function SiteHeader() {
             <a
               href={phone.href}
               className={cn(
-                "inline-flex items-center gap-2 text-sm transition-colors",
+                "inline-flex items-center gap-2 text-sm tabular-nums transition-colors",
                 light ? "text-ink hover:text-gold-ink" : "text-ivory hover:text-gold-highlight",
               )}
             >
@@ -127,7 +127,7 @@ export function SiteHeader() {
                 </Link>
               );
             })}
-            <a href={phone.href} className="mt-8 inline-flex items-center gap-2 text-base">
+            <a href={phone.href} className="mt-8 inline-flex items-center gap-2 text-base tabular-nums">
               <Phone aria-hidden="true" className="size-4" />
               {phone.display}
             </a>

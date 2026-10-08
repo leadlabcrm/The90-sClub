@@ -39,11 +39,30 @@ export default function RooftopPage() {
             <VenuePhoto photo={photos.neonBar} caption="The bar counter and lit logo." />
           </div>
           <ul className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {[photos.logoWall, photos.boombox, photos.barFront].map((photo) => (
-              <li key={photo.src}>
-                <VenuePhoto photo={photo} aspect="photo" sizes="(min-width: 1024px) 400px, 50vw" />
-              </li>
-            ))}
+            <li>
+              <VenuePhoto
+                photo={photos.logoWall}
+                aspect="photo"
+                sizes="(min-width: 1024px) 400px, 50vw"
+                caption="The backlit 90s Club logo on the interior wall."
+              />
+            </li>
+            <li>
+              <VenuePhoto
+                photo={photos.boombox}
+                aspect="photo"
+                sizes="(min-width: 1024px) 400px, 50vw"
+                caption="The boombox DJ booth in the music corner."
+              />
+            </li>
+            <li>
+              <VenuePhoto
+                photo={photos.neonBeer}
+                aspect="photo"
+                sizes="(min-width: 1024px) 400px, 50vw"
+                caption="Neon bottle wall art inside the taproom."
+              />
+            </li>
           </ul>
         </div>
       </section>
@@ -68,7 +87,7 @@ export default function RooftopPage() {
               </footer>
             </blockquote>
           </div>
-          <VenuePhoto photo={photos.neonBeer} caption="Neon beer-bottle wall art inside The 90s Club." />
+          <VenuePhoto photo={photos.barFront} caption="The bar front where Flying Fox is poured." />
         </div>
       </section>
 

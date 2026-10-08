@@ -113,13 +113,16 @@
     @apply font-sans;
     color-scheme: light;
     scroll-padding-top: 6rem;
+    scroll-padding-bottom: 6rem;
     scroll-behavior: smooth;
+    font-variant-numeric: lining-nums;
   }
   body {
     @apply bg-ivory text-ink;
     overflow-x: clip;
     font-size: var(--text-body);
     line-height: var(--leading-body);
+    padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
   }
   ::selection {
     background: #e9c65a;
@@ -145,6 +148,10 @@
   em {
     font-style: italic;
   }
+  :where(.font-heading) {
+    font-variant-numeric: lining-nums;
+    font-feature-settings: "lnum" 1, "onum" 0;
+  }
 }
 
 @layer components {
@@ -164,6 +171,13 @@
     letter-spacing: 0.22em;
     line-height: 1.4;
     text-transform: uppercase;
+  }
+  .lux-h1,
+  .lux-h2,
+  .lux-h3,
+  .font-heading {
+    font-variant-numeric: lining-nums;
+    font-feature-settings: "lnum" 1, "onum" 0;
   }
   .lux-h1 {
     font-family: var(--font-heading);
@@ -185,6 +199,16 @@
     font-weight: 500;
     letter-spacing: -0.015em;
     line-height: 1.25;
+  }
+  .tabular-nums {
+    font-variant-numeric: lining-nums tabular-nums;
+    font-feature-settings: "lnum" 1, "tnum" 1;
+  }
+  .sticky-cta {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-variant-numeric: lining-nums tabular-nums;
+    font-feature-settings: "lnum" 1, "tnum" 1;
   }
   .lux-h1 em,
   .lux-h2 em {
@@ -212,6 +236,26 @@
     inset: 0;
     pointer-events: none;
     background: linear-gradient(to top, rgba(10, 9, 7, 0.28), transparent 48%);
+  }
+  .lux-scrim-center {
+    background:
+      radial-gradient(ellipse 92% 78% at 50% 48%, rgba(10, 9, 7, 0.78) 0%, rgba(10, 9, 7, 0.58) 46%, rgba(10, 9, 7, 0.76) 100%),
+      linear-gradient(to bottom, rgba(10, 9, 7, 0.55), rgba(10, 9, 7, 0.38) 38%, rgba(10, 9, 7, 0.82));
+  }
+  .lux-scrim-left {
+    background:
+      linear-gradient(90deg, rgba(10, 9, 7, 0.88) 0%, rgba(10, 9, 7, 0.68) 42%, rgba(10, 9, 7, 0.42) 100%),
+      linear-gradient(to top, rgba(10, 9, 7, 0.55), transparent 55%);
+  }
+  .lux-scrim-banner {
+    background:
+      linear-gradient(90deg, rgba(10, 9, 7, 0.86) 0%, rgba(10, 9, 7, 0.58) 52%, rgba(10, 9, 7, 0.4) 100%),
+      linear-gradient(to top, rgba(10, 9, 7, 0.5), transparent 58%);
+  }
+  .lux-on-photo {
+    text-shadow:
+      0 1px 1px rgba(10, 9, 7, 0.7),
+      0 8px 28px rgba(10, 9, 7, 0.45);
   }
   .lux-card {
     border-radius: var(--radius-card);
@@ -246,11 +290,14 @@
     justify-content: center;
     gap: 0.5rem;
     border-radius: 100px;
-    font-family: var(--font-heading);
-    font-size: clamp(1.05rem, 0.95rem + 0.35vw, 1.2rem);
-    font-weight: 600;
-    line-height: 1.1;
-    padding: 0.7rem 1.7rem;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    padding: 0.72rem 1.55rem;
+    font-variant-numeric: lining-nums tabular-nums;
+    font-feature-settings: "lnum" 1, "tnum" 1;
     transition:
       background-color 180ms ease,
       color 180ms ease,
@@ -268,6 +315,8 @@
     font-weight: 500;
     line-height: 1.4;
     padding: 0.5rem 1.25rem;
+    font-variant-numeric: lining-nums tabular-nums;
+    font-feature-settings: "lnum" 1, "tnum" 1;
     transition:
       background-color 180ms ease,
       color 180ms ease,
@@ -312,6 +361,18 @@
 @media (min-width: 1024px) {
   .lux-container {
     padding-inline: 3.125rem;
+  }
+  body {
+    padding-bottom: 0;
+  }
+}
+
+@media print {
+  .sticky-cta {
+    display: none !important;
+  }
+  body {
+    padding-bottom: 0 !important;
   }
 }
 

@@ -18,8 +18,6 @@ import { seo } from "@/lib/seo";
 
 export const metadata = pageMetadata(seo.home);
 
-const categoryPhotos = [photos.booth, photos.chilliChicken, photos.biryani, photos.foodSpread] as const;
-
 const delights = [
   {
     title: "Kerala Style Chicken Biryani",
@@ -36,16 +34,16 @@ const delights = [
     meta: null,
   },
   {
-    title: "Kerala food in Electronic City",
+    title: "Kerala plates",
     href: "/kerala-food",
     photo: photos.foodSpread,
     dish: null,
     meta: "See plates",
   },
   {
-    title: "Flying Fox craft beer",
-    href: "/craft-beer",
-    photo: photos.neonBeer,
+    title: "Cocktails",
+    href: "/menu#drinks",
+    photo: photos.chocolateCocktail,
     dish: null,
     meta: "Ask the team",
   },
@@ -94,16 +92,16 @@ const visitPlans = [
     badge: "Kitchen",
     title: "Kerala food in Electronic City",
     copy: "Biryani, coconut fish curry, Naadan chicken, and seafood starters.",
-    photo: photos.biryani,
+    photo: photos.foodSpread,
   },
 ] as const;
 
 const galleryLead = photos.barFront;
 const galleryRow = [
-  photos.booth,
   photos.neonBar,
   photos.boombox,
-  photos.logoWall,
+  photos.redCocktail,
+  photos.greenCocktail,
   photos.neonBeer,
 ] as const;
 
@@ -113,48 +111,52 @@ export default function HomePage() {
   const naadan = findDish("Naadan Chicken Curry");
   const stew = findDish("Chicken Stew");
 
-  const categories = menuSections.map((section, index) => {
-    const photo = categoryPhotos[index];
-    return {
-      id: section.id,
-      title: section.title,
-      intro: section.intro,
-      image: photo.src,
-      alt: photo.alt,
-    };
-  });
+  const categories = menuSections.map((section, index) => ({
+    id: section.id,
+    title: section.title,
+    intro: section.intro,
+    ...(index === 1
+      ? { image: photos.chilliChicken.src, alt: photos.chilliChicken.alt }
+      : {}),
+  }));
 
   return (
     <>
       <JsonLd data={faqPageJsonLd(homeFaqs)} />
 
-      <section className="relative flex min-h-[32rem] items-center justify-center overflow-hidden bg-black text-ivory lg:min-h-[38rem]">
+      <section
+        data-shot="home-hero"
+        className="relative flex min-h-[32rem] items-center justify-center overflow-hidden bg-black text-ivory lg:min-h-[38rem]"
+      >
         <Image
-          src={photos.neonBar.src}
-          alt={photos.neonBar.alt}
+          src={photos.interiorNeon.src}
+          alt={photos.interiorNeon.alt}
           fill
           priority
           sizes="100vw"
           className="object-cover"
-          style={{ objectPosition: photos.neonBar.position }}
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(10,9,7,.58),rgba(10,9,7,.4)_42%,rgba(10,9,7,.62))]" />
-        <div className="lux-container relative z-10 flex flex-col items-center pt-28 pb-16 text-center lg:pt-32 lg:pb-20">
+        <div className="lux-scrim-center absolute inset-0" />
+        <div className="lux-container lux-on-photo relative z-10 flex flex-col items-center pt-28 pb-16 text-center lg:pt-32 lg:pb-20">
           <h1 className="lux-h1 max-w-[20em] text-ivory lg:max-w-[14.5em]">
             {"Kerala food & craft beer at a "}
             <em>rooftop pub</em>
             {" in Electronic City — The 90s Club"}
           </h1>
-          <p className="prose-body mt-5 max-w-[62ch] text-ivory/90">
-            Kerala food and Flying Fox craft beer under one roof in Electronic City. Open daily noon to midnight at
-            Millennium Plaza, Hebbagodi.
+          <p className="prose-body mt-5 max-w-[40em] text-ivory lg:whitespace-nowrap">
+            Kerala food and Flying Fox craft beer under one roof. Open daily noon to midnight.
           </p>
-          <CtaRow className="mt-7 justify-center" tone="onDark" items={["call", "directions", "whatsapp"]} />
+          <CtaRow
+            className="mt-7 justify-center"
+            tone="onDark"
+            layout="hero"
+            items={["call", "directions", "whatsapp"]}
+          />
         </div>
       </section>
 
       <div className="border-b border-line bg-ivory">
-        <p className="lux-container py-4 text-center text-sm tracking-wide text-ink-soft">
+        <p className="lux-container py-4 text-center text-sm tracking-wide text-ink-soft tabular-nums">
           Open daily 12 pm – 12 am · About 80 seats · Parking at the plaza · Flying Fox craft beer
         </p>
       </div>
@@ -167,23 +169,27 @@ export default function HomePage() {
 
       <section className="bg-ivory pb-6 lg:pb-8">
         <div className="lux-container">
-          <div className="group relative flex min-h-[22rem] items-end overflow-hidden rounded-[var(--radius-photo)] bg-black lg:min-h-[28rem]">
+          <div
+            data-shot="rooftop-banner"
+            className="group relative flex min-h-[22rem] items-end overflow-hidden rounded-[var(--radius-photo)] bg-black lg:min-h-[28rem]"
+          >
             <Image
-              src={photos.interiorNeon.src}
-              alt={photos.interiorNeon.alt}
+              src={photos.neonBar.src}
+              alt={photos.neonBar.alt}
               fill
               sizes="(min-width: 1024px) 1340px, 100vw"
               className="object-cover transition-transform duration-700 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+              style={{ objectPosition: photos.neonBar.position }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/25" />
-            <div className="relative z-10 grid w-full gap-6 p-7 text-ivory lg:grid-cols-2 lg:items-end lg:p-12">
+            <div className="lux-scrim-banner absolute inset-0" />
+            <div className="lux-on-photo relative z-10 grid w-full gap-6 p-7 text-ivory lg:grid-cols-2 lg:items-end lg:p-12">
               <h2 className="lux-h2 max-w-[12ch]">
                 <Link href="/rooftop-pub" className="hover:text-gold-highlight">
                   Experience the <em>rooftop pub</em>
                 </Link>
               </h2>
               <div className="max-w-md lg:justify-self-end">
-                <p className="text-[length:var(--text-body)] leading-[var(--leading-body)] text-ivory/90">
+                <p className="text-[length:var(--text-body)] leading-[var(--leading-body)] text-ivory">
                   The{" "}
                   <TextLink href="/rooftop-pub" tone="onDark">
                     rooftop pub
@@ -196,7 +202,7 @@ export default function HomePage() {
                   <TextLink href="/kerala-food" tone="onDark">
                     Kerala food in Electronic City
                   </TextLink>
-                  .
+                  . The photograph shows the interior bar.
                 </p>
                 <Link href="/rooftop-pub" className="pill-sm pill-outline-light mt-5">
                   Rooftop pub
@@ -207,7 +213,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="lux-section bg-ivory">
+      <section data-shot="signatures" className="lux-section bg-ivory">
         <div className="lux-container">
           <p className="eyebrow text-center text-gold-ink">Signatures</p>
           <h2 className="lux-h2 mt-3 text-center text-ink">Popular delights</h2>
@@ -228,7 +234,7 @@ export default function HomePage() {
                     </div>
                     <div className="mt-3 grid grid-cols-[1fr_auto] items-baseline gap-3 text-sm">
                       <span className="text-ink">{priced ? priced.name : item.title}</span>
-                      <span className="text-gold-ink">{priced ? formatPrice(priced.price) : item.meta}</span>
+                      <span className="text-gold-ink tabular-nums">{priced ? formatPrice(priced.price) : item.meta}</span>
                     </div>
                   </Link>
                 </li>
@@ -240,14 +246,13 @@ export default function HomePage() {
 
       <section className="relative min-h-[28rem] bg-black lg:min-h-[34rem]">
         <Image
-          src={photos.neonBar.src}
-          alt={photos.neonBar.alt}
+          src={photos.boombox.src}
+          alt={photos.boombox.alt}
           fill
           sizes="100vw"
           className="object-cover"
-          style={{ objectPosition: photos.neonBar.position }}
         />
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/35" />
         <p className="eyebrow absolute bottom-8 left-5 text-ivory lg:bottom-12 lg:left-[50px]">Values</p>
         <div className="relative z-10 flex min-h-[28rem] items-center justify-center px-5 py-16 lg:min-h-[34rem] lg:justify-end lg:px-[50px]">
           <div className="lux-card w-full max-w-[520px] bg-white px-7 py-9 text-ink sm:px-10 sm:py-11">
@@ -317,18 +322,18 @@ export default function HomePage() {
         <div className="lux-container">
           <div className="relative flex min-h-[22rem] items-center justify-center overflow-hidden rounded-[var(--radius-photo)] bg-black text-center text-ivory lg:min-h-[24rem]">
             <Image
-              src={photos.interiorNeon.src}
-              alt={photos.interiorNeon.alt}
+              src={photos.booth.src}
+              alt={photos.booth.alt}
               fill
               sizes="(min-width: 1024px) 1340px, 100vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-black/60" />
-            <div className="relative z-10 px-6 py-14">
+            <div className="lux-scrim-center absolute inset-0" />
+            <div className="lux-on-photo relative z-10 px-6 py-14">
               <h2 className="lux-h2 mx-auto max-w-[16ch]">
                 Come up to the <em>rooftop pub</em>
               </h2>
-              <p className="prose-body mx-auto mt-4 max-w-[50ch] text-ivory/90">
+              <p className="prose-body mx-auto mt-4 max-w-[50ch] text-ivory">
                 <TextLink href="/visit" tone="onDark">
                   Millennium Plaza, Hebbagodi
                 </TextLink>
@@ -336,6 +341,7 @@ export default function HomePage() {
                 <TextLink href="/occasions" tone="onDark">
                   team lunch
                 </TextLink>
+                . Photograph of the interior seating.
               </p>
               <CtaRow className="mt-7 justify-center" tone="onDark" items={["call", "directions"]} callLabel="Call" />
             </div>
@@ -352,7 +358,7 @@ export default function HomePage() {
       <section className="lux-section bg-black text-ivory">
         <div className="lux-container">
           <p className="eyebrow text-center text-gold-highlight">Testimonials</p>
-          <h2 className="lux-h2 mt-3 text-center">Client reviews</h2>
+          <h2 className="lux-h2 mt-3 text-center">Guest reviews</h2>
           <ReviewSlider photo={photos.logoWall} />
         </div>
       </section>

@@ -79,7 +79,7 @@ export default function VisitPage() {
           <div>
             <p className="eyebrow text-gold-ink">Direct to the venue</p>
             <h2 className="lux-h2 mt-3 text-ink">Phone and WhatsApp</h2>
-            <p className="mt-4 font-heading text-3xl text-gold-ink">
+            <p className="mt-4 font-heading text-3xl text-gold-ink tabular-nums">
               <a className="underline decoration-line underline-offset-4 hover:text-gold" href={phone.href}>
                 {phone.display}
               </a>
