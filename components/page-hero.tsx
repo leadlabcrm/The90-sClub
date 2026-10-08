@@ -1,5 +1,4 @@
-import Image from "next/image";
-
+import { HeroImage } from "@/components/hero-image";
 import type { Photo } from "@/lib/photos";
 
 export function PageHero({
@@ -14,17 +13,11 @@ export function PageHero({
   photo: Photo;
 }) {
   return (
-    <header className="relative flex min-h-[22rem] items-end overflow-hidden bg-black text-ivory lg:min-h-[28rem]">
-      <Image
-        src={photo.src}
-        alt={photo.alt}
-        fill
-        fetchPriority="high"
-        loading="eager"
-        sizes="100vw"
-        className="object-cover"
-        style={photo.position ? { objectPosition: photo.position } : undefined}
-      />
+    <header
+      className="relative flex min-h-[22rem] items-end overflow-hidden bg-black text-ivory lg:min-h-[28rem]"
+      style={{ minHeight: "22rem" }}
+    >
+      <HeroImage photo={photo} />
       <div className="lux-scrim-left absolute inset-0" />
       <div className="lux-container lux-on-photo relative z-10 pt-28 pb-12 lg:pt-32 lg:pb-16">
         <p className="eyebrow text-gold-highlight">{eyebrow}</p>

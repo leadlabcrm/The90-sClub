@@ -53,6 +53,8 @@ export function VenuePhoto({
           alt={imageAlt}
           fill
           sizes={sizes}
+          loading="lazy"
+          fetchPriority="low"
           className="object-cover"
           style={photo?.position ? { objectPosition: photo.position } : undefined}
         />

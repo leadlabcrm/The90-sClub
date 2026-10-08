@@ -74,6 +74,8 @@ export function CategoryShowcase({ categories }: { categories: CategorySlide[] }
               alt={current.alt}
               fill
               sizes="(min-width: 1024px) 900px, 100vw"
+              loading="lazy"
+              fetchPriority="low"
               className="object-cover"
               style={current.position ? { objectPosition: current.position } : undefined}
             />

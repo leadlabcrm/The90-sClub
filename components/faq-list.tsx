@@ -3,6 +3,7 @@
 import { ChevronDown } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
+import { RupeeText } from "@/components/price";
 import type { FaqItem } from "@/lib/faq";
 import { cn } from "@/lib/utils";
 
@@ -55,7 +56,7 @@ export function FaqList({
               >
                 <div className="overflow-hidden">
                   <p className="max-w-[68ch] pb-5 text-[length:var(--text-body)] leading-[var(--leading-body)] text-ink-soft">
-                    {item.answer}
+                    <RupeeText text={item.answer} />
                   </p>
                 </div>
               </div>
