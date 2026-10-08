@@ -21,16 +21,16 @@ export default function RooftopPage() {
       <PageHero
         eyebrow="Hebbagodi · Millennium Plaza"
         title="Rooftop pub & retro taproom in Electronic City"
-        lede="A retro 90s rooftop pub with full AC dining — about 80 seats at Millennium Plaza, Hebbagodi."
+        lede="A retro 90s pub with full AC dining — about 80 seats at Millennium Plaza, Hebbagodi."
         photo={photos.interiorNeon}
       />
 
       <section className="lux-section bg-ivory">
         <div className="lux-container">
           <p className="eyebrow text-gold-ink">Millennium Plaza, Hebbagodi</p>
-          <h2 className="lux-h2 mt-3 text-ink">Rooftop pub and AC dining</h2>
+          <h2 className="lux-h2 mt-3 text-ink">Retro 90s pub and AC dining</h2>
           <p className="prose-body mt-4 text-ink-soft">
-            The 90s Club is a rooftop pub at {address.line1}, with an air-conditioned dining room, interior bar, lounge
+            The 90s Club is a retro 90s pub at {address.line1}, with an air-conditioned dining room, interior bar, lounge
             seating, and neon details.
           </p>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -118,8 +118,8 @@ export default function RooftopPage() {
           <p className="eyebrow text-gold-highlight">Visit facts</p>
           <h2 className="lux-h2 mt-3 max-w-3xl">What Google lists for this address</h2>
           <p className="prose-body mt-4 text-cream/85">
-            Live music, karaoke, and dancing are on the Google listing. Come for the Kerala kitchen and the rooftop
-            taproom. There is no published event calendar on this site.
+            Live music, karaoke, and dancing are on the Google listing. Come for the Kerala kitchen and the taproom.
+            There is no published event calendar on this site.
           </p>
           <ul className="mt-5 flex flex-wrap gap-3">
             {["Live music", "Karaoke", "Dancing"].map((item) => (

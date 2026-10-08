@@ -4,10 +4,11 @@ import Link from "next/link";
 import { CtaRow } from "@/components/cta-row";
 import { GapNotice } from "@/components/gap-notice";
 import { PageHero } from "@/components/page-hero";
+import { Price } from "@/components/price";
 import { TextLink } from "@/components/text-link";
 import { TypographicCard } from "@/components/typographic-card";
 import { VenuePhoto } from "@/components/venue-photo";
-import { formatPrice, menuSections, slugify } from "@/lib/menu";
+import { menuSections, slugify } from "@/lib/menu";
 import { pageMetadata } from "@/lib/metadata";
 import { drinkGallery, photos } from "@/lib/photos";
 import { seo } from "@/lib/seo";
@@ -66,6 +67,8 @@ export default function MenuPage() {
                           alt={photo.alt}
                           fill
                           sizes="(min-width: 640px) 50vw, 100vw"
+                          loading="lazy"
+                          fetchPriority="low"
                           className="object-cover"
                         />
                       </div>
@@ -137,7 +140,9 @@ export default function MenuPage() {
                     {item.signature ? (
                       <span className="text-[0.65rem] tracking-[0.14em] text-gold-ink uppercase">Kerala kitchen</span>
                     ) : null}
-                    <span className="ml-auto text-gold-ink tabular-nums">{formatPrice(item.price)}</span>
+                    <span className="ml-auto text-gold-ink tabular-nums">
+                      <Price amount={item.price} />
+                    </span>
                   </li>
                 ))}
               </ul>

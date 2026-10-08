@@ -17,7 +17,7 @@ export const metadata = pageMetadata(seo.occasions);
 const audiences = [
   {
     title: "Corporate teams",
-    copy: "Team lunch near Infosys / E-City Phase 1, plus Phase 2, Bommasandra and Ananth Nagar. The kitchen and the rooftop pub are in the same building.",
+    copy: "Team lunch near Infosys / E-City Phase 1, plus Phase 2, Bommasandra and Ananth Nagar. The kitchen and the taproom are in the same building.",
   },
   {
     title: "Students",
@@ -25,7 +25,7 @@ const audiences = [
   },
   {
     title: "Couples",
-    copy: "A Kerala plate in the rooftop pub. Call ahead if you want a specific time.",
+    copy: "A Kerala plate in the retro 90s pub. Call ahead if you want a specific time.",
   },
 ];
 

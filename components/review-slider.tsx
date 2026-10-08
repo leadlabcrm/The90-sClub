@@ -53,6 +53,8 @@ export function ReviewSlider({
             alt={photo.alt}
             fill
             sizes="(min-width: 768px) 420px, 100vw"
+            loading="lazy"
+            fetchPriority="low"
             className="object-cover"
             style={photo.position ? { objectPosition: photo.position } : undefined}
           />

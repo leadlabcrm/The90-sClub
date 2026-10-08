@@ -9,7 +9,7 @@ export function SiteFooter() {
   return (
     <footer className="bg-black text-cream">
       <div className="lux-container flex flex-col gap-6 py-12 lg:flex-row lg:items-center lg:justify-between lg:py-16">
-        <h2 className="max-w-xl font-heading text-[clamp(1.75rem,1.3rem+1.4vw,2.35rem)] leading-[1.15] font-semibold text-cream">
+          <h2 className="max-w-xl font-heading text-[clamp(1.75rem,1.3rem+1.4vw,2.35rem)] leading-[1.15] font-medium text-cream">
           Follow{" "}
           <a
             href={links.instagram}
@@ -81,9 +81,9 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <BrandLogo variant="metallic" className="h-28" alt="" />
+          <BrandLogo className="h-28" alt="" />
           <p className="mt-4 max-w-[16rem] text-sm leading-7 text-[#b9ad93]">
-            A Kerala kitchen and rooftop taproom in Electronic City.
+            A Kerala kitchen and taproom in Electronic City.
           </p>
         </div>
       </div>

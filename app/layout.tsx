@@ -17,14 +17,18 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: false,
+  adjustFontFallback: true,
 });
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500"],
   style: ["normal", "italic"],
   variable: "--font-cormorant",
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 const siteUrl = getSiteUrl();

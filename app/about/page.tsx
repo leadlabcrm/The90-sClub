@@ -15,7 +15,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="February 2026"
         title="About The 90s Club"
-        lede="Established February 2026. Founders Akhil and Sathish. A retro 90s room with a Kerala kitchen and a rooftop taproom in Electronic City."
+        lede="Established February 2026. Founders Akhil and Sathish. A retro 90s room with a Kerala kitchen and a taproom in Electronic City."
         photo={photos.logoWall}
       />
 
@@ -61,7 +61,7 @@ export default function AboutPage() {
             <ul className="mt-5 space-y-2 text-sm font-semibold text-ink">
               <li>Akhil and Sathish, founders</li>
               <li>Opened February 2026</li>
-              <li>80 seats · full AC · rooftop pub · parking</li>
+              <li>80 seats · full AC · taproom · parking</li>
             </ul>
           </div>
         </div>

@@ -6,11 +6,13 @@ import type { ReactNode } from "react";
 import { CategoryShowcase } from "@/components/category-showcase";
 import { CtaRow } from "@/components/cta-row";
 import { FaqList } from "@/components/faq-list";
+import { HeroImage } from "@/components/hero-image";
 import { JsonLd } from "@/components/json-ld";
+import { Price } from "@/components/price";
 import { ReviewSlider } from "@/components/review-slider";
 import { TextLink } from "@/components/text-link";
 import { homeFaqs } from "@/lib/faq";
-import { dishHref, findDish, formatPrice, menuSections } from "@/lib/menu";
+import { dishHref, findDish, menuSections } from "@/lib/menu";
 import { pageMetadata } from "@/lib/metadata";
 import { photos } from "@/lib/photos";
 import { faqPageJsonLd } from "@/lib/schema";
@@ -63,7 +65,7 @@ const reasons = [
   {
     icon: Music,
     title: "Retro 90s music",
-    copy: "The room is built around retro 90s music in a rooftop pub at Millennium Plaza.",
+    copy: "The room is built around 90s music at the pub at Millennium Plaza.",
   },
   {
     icon: ParkingCircle,
@@ -126,18 +128,12 @@ export default function HomePage() {
 
       <section
         data-shot="home-hero"
-        className="relative flex min-h-[32rem] items-center justify-center overflow-hidden bg-black text-ivory lg:min-h-[38rem]"
+        className="relative h-[32rem] overflow-hidden bg-black text-ivory lg:h-[38rem]"
+        style={{ minHeight: "32rem" }}
       >
-        <Image
-          src={photos.interiorNeon.src}
-          alt={photos.interiorNeon.alt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="lux-scrim-center absolute inset-0" />
-        <div className="lux-container lux-on-photo relative z-10 flex flex-col items-center pt-28 pb-16 text-center lg:pt-32 lg:pb-20">
+        <HeroImage photo={photos.interiorNeon} />
+        <div className="lux-scrim-center pointer-events-none absolute inset-0" />
+        <div className="lux-container lux-on-photo absolute inset-0 z-10 flex flex-col items-center justify-center pt-28 pb-16 text-center lg:pt-32 lg:pb-20">
           <h1 className="lux-h1 max-w-[20em] text-ivory lg:max-w-[14.5em]">
             {"Kerala food & craft beer at a "}
             <em>rooftop pub</em>
@@ -178,6 +174,8 @@ export default function HomePage() {
               alt={photos.neonBar.alt}
               fill
               sizes="(min-width: 1024px) 1340px, 100vw"
+              loading="lazy"
+              fetchPriority="low"
               className="object-cover transition-transform duration-700 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
               style={{ objectPosition: photos.neonBar.position }}
             />
@@ -185,7 +183,7 @@ export default function HomePage() {
             <div className="lux-on-photo relative z-10 grid w-full gap-6 p-7 text-ivory lg:grid-cols-2 lg:items-end lg:p-12">
               <h2 className="lux-h2 max-w-[12ch]">
                 <Link href="/rooftop-pub" className="hover:text-gold-highlight">
-                  Experience the <em>rooftop pub</em>
+                  Experience the <em>retro 90s pub</em>
                 </Link>
               </h2>
               <div className="max-w-md lg:justify-self-end">
@@ -234,7 +232,9 @@ export default function HomePage() {
                     </div>
                     <div className="mt-3 grid grid-cols-[1fr_auto] items-baseline gap-3 text-sm">
                       <span className="text-ink">{priced ? priced.name : item.title}</span>
-                      <span className="text-gold-ink tabular-nums">{priced ? formatPrice(priced.price) : item.meta}</span>
+                      <span className="text-gold-ink tabular-nums">
+                        {priced ? <Price amount={priced.price} /> : item.meta}
+                      </span>
                     </div>
                   </Link>
                 </li>
@@ -250,6 +250,8 @@ export default function HomePage() {
           alt={photos.boombox.alt}
           fill
           sizes="100vw"
+          loading="lazy"
+          fetchPriority="low"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/35" />
@@ -284,7 +286,15 @@ export default function HomePage() {
           <div className="mt-12 grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(240px,520px)_minmax(0,1fr)] lg:gap-8">
             <div className="order-2 grid gap-8 lg:order-1">
               <Note align="right" title="Menu card" copy="Indian main course. The kitchen leads with the Kerala plates." />
-              <Note align="right" title="Price" copy={`${formatPrice(biryani.price)} on the food menu.`} />
+              <Note
+                align="right"
+                title="Price"
+                copy={
+                  <>
+                    <Price amount={biryani.price} /> on the food menu.
+                  </>
+                }
+              />
             </div>
             <div className="relative order-1 mx-auto aspect-square w-full max-w-[520px] overflow-hidden rounded-full bg-charcoal lg:order-2">
               <Image
@@ -331,7 +341,7 @@ export default function HomePage() {
             <div className="lux-scrim-center absolute inset-0" />
             <div className="lux-on-photo relative z-10 px-6 py-14">
               <h2 className="lux-h2 mx-auto max-w-[16ch]">
-                Come up to the <em>rooftop pub</em>
+                Come up to <em>The 90s Club</em>
               </h2>
               <p className="prose-body mx-auto mt-4 max-w-[50ch] text-ivory">
                 <TextLink href="/visit" tone="onDark">

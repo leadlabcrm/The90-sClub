@@ -2,11 +2,12 @@ import { CtaRow } from "@/components/cta-row";
 import { FaqList } from "@/components/faq-list";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
+import { Price } from "@/components/price";
 import { TextLink } from "@/components/text-link";
 import { TypographicCard } from "@/components/typographic-card";
 import { VenuePhoto } from "@/components/venue-photo";
 import { keralaFaqs } from "@/lib/faq";
-import { dishHref, findDish, formatPrice } from "@/lib/menu";
+import { dishHref, findDish } from "@/lib/menu";
 import { pageMetadata } from "@/lib/metadata";
 import { photos } from "@/lib/photos";
 import { reviews } from "@/lib/reviews";
@@ -56,7 +57,7 @@ export default function KeralaFoodPage() {
           <h2 className="lux-h2 mt-3 text-ink">Why Kerala here</h2>
           <p className="prose-body mt-4 text-ink-soft">
             Kerala food and Flying Fox craft beer under one roof at Millennium Plaza, Hebbagodi. The kitchen leads with
-            these plates. You eat them in the rooftop pub, open daily from noon to midnight.
+            these plates. You eat them at the pub at Millennium Plaza, open daily from noon to midnight.
           </p>
         </div>
       </section>
@@ -80,14 +81,19 @@ export default function KeralaFoodPage() {
                   <h3 className="mt-4 text-lg font-semibold">
                     <TextLink href={dishHref(dish.name)}>{dish.name}</TextLink>
                   </h3>
-                  <p className="mt-1 text-sm font-semibold text-gold-ink tabular-nums">{formatPrice(dish.price)}</p>
+                  <p className="mt-1 text-sm font-semibold text-gold-ink tabular-nums">
+                    <Price amount={dish.price} />
+                  </p>
                 </li>
               );
             })}
           </ul>
           <p className="mt-6 text-base text-ink">
             <TextLink href={dishHref(stew.name)}>{stew.name}</TextLink>
-            <span className="text-ink-soft"> · {formatPrice(stew.price)}</span>
+            <span className="text-ink-soft">
+              {" · "}
+              <Price amount={stew.price} />
+            </span>
           </p>
         </div>
       </section>
@@ -101,7 +107,10 @@ export default function KeralaFoodPage() {
               {[ghee, pepper, chilliFish].map((dish) => (
                 <li key={dish.name}>
                   <TextLink href={dishHref(dish.name)}>{dish.name}</TextLink>
-                  <span className="text-ink-soft"> · {formatPrice(dish.price)}</span>
+                  <span className="text-ink-soft">
+                    {" · "}
+                    <Price amount={dish.price} />
+                  </span>
                 </li>
               ))}
             </ul>

@@ -1,40 +1,27 @@
-import { officialLogoSvg } from "@/lib/official-logo-svg";
+import Image from "next/image";
+
 import { cn } from "@/lib/utils";
 
-const raster = {
-  metallic: "/brand/logo-90s-club-gold-metallic-transparent-1000.png",
-  flat: "/brand/logo-90s-club-gold-flat-transparent-1000.png",
-  cream: "/brand/logo-90s-club-cream-transparent-1000.png",
-  white: "/brand/logo-90s-club-white-transparent-1000.png",
-} as const;
-
+/** Nav-sized gold PNG (~114×200). Do not use the 1000px metallic raster. */
 export function BrandLogo({
-  variant = "gold",
   className,
-  alt = "",
+  alt = "The 90s Club logo",
+  loading = "lazy",
 }: {
-  variant?: "gold" | keyof typeof raster;
   className?: string;
   alt?: string;
+  loading?: "lazy" | "eager";
 }) {
-  if (variant === "gold") {
-    return (
-      <span
-        className={cn("inline-block text-gold [&_svg]:block [&_svg]:h-full [&_svg]:w-auto", className)}
-        dangerouslySetInnerHTML={{ __html: officialLogoSvg }}
-      />
-    );
-  }
-
   return (
-    // Official foil/flat artwork. Height is set by the caller; width follows the oval.
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={raster[variant]}
+    <Image
+      src="/brand/logo-nav-gold.png"
       alt={alt}
-      width={568}
-      height={1000}
-      className={cn("w-auto max-w-none", className)}
+      width={114}
+      height={200}
+      fetchPriority="low"
+      loading={loading}
+      sizes="80px"
+      className={cn("w-auto", className)}
     />
   );
 }

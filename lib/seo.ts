@@ -22,7 +22,7 @@ export const seo = {
   rooftop: {
     title: "Rooftop Pub in Electronic City | The 90s Club Retro Taproom",
     description:
-      "Retro 90s rooftop pub at Millennium Plaza, Hebbagodi: Flying Fox craft beer, Kerala food, 90s music, AC seating and parking. Open daily from 12 pm.",
+      "Retro 90s pub at Millennium Plaza, Hebbagodi: Flying Fox craft beer, Kerala food, 90s music, AC seating and parking. Open daily from 12 pm.",
     path: "/rooftop-pub",
   },
   visit: {
