@@ -7,7 +7,7 @@ import type { Photo } from "@/lib/photos";
  */
 export function HeroImage({
   photo,
-  className = "absolute inset-0 h-full w-full object-cover",
+  className = "h-full w-full object-cover",
 }: {
   photo: Photo;
   className?: string;

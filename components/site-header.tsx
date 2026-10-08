@@ -7,7 +7,7 @@ export function SiteHeader() {
   return (
     <HeaderChrome
       logo={
-        <Link href="/" className="shrink-0">
+        <Link href="/" prefetch={false} className="shrink-0">
           <BrandLogo alt="The 90s Club logo" className="h-10 lg:h-14" loading="eager" />
         </Link>
       }

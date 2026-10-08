@@ -128,12 +128,12 @@ export default function HomePage() {
 
       <section
         data-shot="home-hero"
-        className="relative flex h-[32rem] items-center justify-center overflow-hidden bg-black text-ivory lg:h-[38rem]"
-        style={{ minHeight: "32rem" }}
+        className="relative h-[32rem] overflow-hidden bg-black text-ivory lg:h-[38rem]"
+        style={{ height: "32rem" }}
       >
         <HeroImage photo={photos.interiorNeon} />
-        <div className="lux-scrim-center absolute inset-0" />
-        <div className="lux-container lux-on-photo relative z-10 flex flex-col items-center pt-28 pb-16 text-center lg:pt-32 lg:pb-20">
+        <div className="lux-scrim-center pointer-events-none absolute inset-0" />
+        <div className="lux-container lux-on-photo absolute inset-0 z-10 flex flex-col items-center justify-center pt-28 pb-16 text-center lg:pt-32 lg:pb-20">
           <h1 className="lux-h1 max-w-[20em] text-ivory lg:max-w-[14.5em]">
             {"Kerala food & craft beer at a "}
             <em>rooftop pub</em>
