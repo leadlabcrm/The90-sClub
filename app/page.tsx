@@ -26,14 +26,12 @@ const categoryPhotos = [
   photos.foodSpread,
 ] as const;
 
-const delightNames = [
-  "Kerala Style Chicken Biryani",
-  "Chilli Chicken",
-  "Naadan Chicken Curry",
-  "Butter Chicken",
+const delights = [
+  { name: "Kerala Style Chicken Biryani", photo: photos.foodBiryani },
+  { name: "Chilli Chicken", photo: photos.foodChilliChicken },
+  { name: "Naadan Chicken Curry", photo: photos.foodSpread },
+  { name: "Chicken Stew", photo: photos.interiorSeating },
 ] as const;
-
-const delightPhotos = [photos.foodBiryani, photos.foodChilliChicken, photos.foodSpread, photos.foodSpread];
 
 const reasons = [
   {
@@ -173,9 +171,8 @@ export default function HomePage() {
           <p className="eyebrow text-center text-gold-ink">Signatures</p>
           <h2 className="lux-h2 mt-4 text-center text-ink">Popular delights</h2>
           <ul className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-[60px]">
-            {delightNames.map((name, index) => {
+            {delights.map(({ name, photo }) => {
               const dish = findDish(name);
-              const photo = delightPhotos[index];
               return (
                 <li key={name}>
                   <Link href={dishHref(name)} className="group block">

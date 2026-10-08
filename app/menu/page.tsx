@@ -26,7 +26,7 @@ export default function MenuPage() {
       <PageHero
         eyebrow="Electronic City food card"
         title="Menu — The 90s Club Electronic City"
-        lede="The full food card with prices in rupees. A meal for two often sits between ₹400 and ₹1,000; current craft beer availability is confirmed directly with the team."
+        lede="The full food card with prices in rupees. Current craft beer availability is confirmed directly with the team."
         image={photos.foodSpread.src}
         alt={photos.foodSpread.alt}
       />

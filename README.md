@@ -74,7 +74,7 @@ Still missing from that set:
 - **Photos still needed.** Rooftop terrace, beer taps / Flying Fox product, prawn and fish close-ups, founders, logo file.
 - **Schema name.** Short Maps name, pending a final profile check.
 - **Parking.** “Parking is available” only. No gate or fee instructions.
-- **Price for two.** The menu intro says ₹400–₹1,000 from the client snapshot, not from a new calculation.
+- **Price for two.** Do not publish a cost-for-two range. Reviews dispute it.
 - **Reviews.** The home strip says “About 4.7 on Google”. No review count is shown.
 - **Akhil.** The visit page notes that Akhil takes calls after 12 pm.
 
