@@ -134,7 +134,6 @@ export default function HomePage() {
           fill
           fetchPriority="high"
           loading="eager"
-          decoding="sync"
           sizes="100vw"
           className="object-cover"
         />

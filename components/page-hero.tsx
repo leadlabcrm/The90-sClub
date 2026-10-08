@@ -21,7 +21,6 @@ export function PageHero({
         fill
         fetchPriority="high"
         loading="eager"
-        decoding="sync"
         sizes="100vw"
         className="object-cover"
         style={photo.position ? { objectPosition: photo.position } : undefined}

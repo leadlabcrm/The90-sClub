@@ -27,7 +27,7 @@ const cormorant = Cormorant_Garamond({
   style: ["normal", "italic"],
   variable: "--font-cormorant",
   display: "swap",
-  preload: false,
+  preload: true,
   adjustFontFallback: true,
 });
 
@@ -80,7 +80,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable} h-full antialiased`}>
-      <body className={`${inter.className} flex min-h-full flex-col bg-ivory text-ink`}>
+      <body className="flex min-h-full flex-col bg-ivory text-ink">
         <a
           href="#content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[70] focus:rounded-full focus:bg-gold focus:px-4 focus:py-2 focus:font-semibold focus:text-black"
