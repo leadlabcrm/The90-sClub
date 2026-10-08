@@ -249,8 +249,8 @@
   }
   .lux-scrim-banner {
     background:
-      linear-gradient(90deg, rgba(10, 9, 7, 0.86) 0%, rgba(10, 9, 7, 0.58) 52%, rgba(10, 9, 7, 0.4) 100%),
-      linear-gradient(to top, rgba(10, 9, 7, 0.5), transparent 58%);
+      linear-gradient(90deg, rgba(10, 9, 7, 0.86) 0%, rgba(10, 9, 7, 0.7) 48%, rgba(10, 9, 7, 0.78) 100%),
+      linear-gradient(to top, rgba(10, 9, 7, 0.55), transparent 58%);
   }
   .lux-on-photo {
     text-shadow:
