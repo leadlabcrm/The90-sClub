@@ -149,7 +149,7 @@ export default function MenuPage() {
               Flying Fox craft beer and drinks are available. Ask the team for the current list and prices; the site
               does not publish an incomplete card.
             </p>
-            <p>The glasses below are cocktails photographed at the bar; no price is implied.</p>
+            <p>Cocktails at the bar; ask the team for prices.</p>
             <div className="grid gap-4 sm:grid-cols-3">
               {drinkGallery.map((photo) => (
                 <VenuePhoto

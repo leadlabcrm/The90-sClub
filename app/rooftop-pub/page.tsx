@@ -30,8 +30,8 @@ export default function RooftopPage() {
           <p className="eyebrow text-gold-ink">Millennium Plaza, Hebbagodi</p>
           <h2 className="lux-h2 mt-3 text-ink">Rooftop pub and AC dining</h2>
           <p className="prose-body mt-4 text-ink-soft">
-            The 90s Club is a rooftop pub at {address.line1}, with an air-conditioned dining room. The photographs
-            below show the interior bar, lounge seating, and neon details.
+            The 90s Club is a rooftop pub at {address.line1}, with an air-conditioned dining room, interior bar, lounge
+            seating, and neon details.
           </p>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             <VenuePhoto photo={photos.booth} caption="Booth seating inside the taproom." />

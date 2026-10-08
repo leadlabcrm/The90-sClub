@@ -194,15 +194,15 @@ export default function HomePage() {
                   <TextLink href="/rooftop-pub" tone="onDark">
                     rooftop pub
                   </TextLink>{" "}
-                  at Millennium Plaza, Hebbagodi — a full AC dining room,{" "}
+                  at Millennium Plaza — AC dining,{" "}
                   <TextLink href="/craft-beer" tone="onDark">
                     Flying Fox craft beer
                   </TextLink>
                   , and{" "}
                   <TextLink href="/kerala-food" tone="onDark">
-                    Kerala food in Electronic City
+                    Kerala food
                   </TextLink>
-                  . The photograph shows the interior bar.
+                  .
                 </p>
                 <Link href="/rooftop-pub" className="pill-sm pill-outline-light mt-5">
                   Rooftop pub
@@ -341,7 +341,6 @@ export default function HomePage() {
                 <TextLink href="/occasions" tone="onDark">
                   team lunch
                 </TextLink>
-                . Photograph of the interior seating.
               </p>
               <CtaRow className="mt-7 justify-center" tone="onDark" items={["call", "directions"]} callLabel="Call" />
             </div>

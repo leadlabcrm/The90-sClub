@@ -257,6 +257,9 @@
       0 1px 1px rgba(10, 9, 7, 0.7),
       0 8px 28px rgba(10, 9, 7, 0.45);
   }
+  .lux-on-photo :is(.pill, .pill-sm) {
+    text-shadow: none;
+  }
   .lux-card {
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-card);
@@ -364,6 +367,12 @@
   }
   body {
     padding-bottom: 0;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1535px) {
+  .lux-container {
+    padding-right: 5.75rem;
   }
 }
 

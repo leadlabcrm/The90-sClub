@@ -56,7 +56,7 @@ export function StickyCtas() {
 
       <nav
         aria-label="Quick actions"
-        className="sticky-cta pointer-events-none fixed top-1/2 right-4 z-40 hidden -translate-y-1/2 lg:block print:hidden xl:right-6"
+        className="sticky-cta pointer-events-none fixed top-1/2 right-3 z-40 hidden -translate-y-1/2 lg:block print:hidden xl:right-4"
       >
         <ul className="pointer-events-auto flex flex-col gap-3">
           {actions.map((action) => (
@@ -65,10 +65,10 @@ export function StickyCtas() {
                 href={action.href}
                 aria-label={action.aria}
                 title={`${action.label} · ${action.detail}`}
-                className="group relative flex size-14 items-center justify-center rounded-full bg-black text-gold shadow-[0_8px_24px_rgba(10,9,7,0.35)] ring-1 ring-gold/45 outline-none transition-colors hover:bg-gold hover:text-black focus-visible:ring-2 focus-visible:ring-gold-highlight"
+                className="group relative flex size-12 items-center justify-center rounded-full bg-black text-gold shadow-[0_8px_24px_rgba(10,9,7,0.35)] ring-1 ring-gold/45 outline-none transition-colors hover:bg-gold hover:text-black focus-visible:ring-2 focus-visible:ring-gold-highlight"
                 {...(action.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               >
-                <action.Icon aria-hidden="true" className="size-5" strokeWidth={1.75} />
+                <action.Icon aria-hidden="true" className="size-4" strokeWidth={1.75} />
                 <span className="pointer-events-none absolute top-1/2 right-full mr-3 -translate-y-1/2 rounded-full bg-black px-3 py-1.5 text-xs tracking-wide whitespace-nowrap text-gold opacity-0 shadow-lg ring-1 ring-gold/30 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
                   {action.label}
                   {action.label === "Call" ? ` ${phone.display}` : ""}
