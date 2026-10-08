@@ -18,15 +18,17 @@ import { CtaRow } from "@/components/cta-row";
 import { MapEmbed } from "@/components/map-embed";
 import { MarqueeBand } from "@/components/marquee-band";
 import { SectionHeading } from "@/components/section-heading";
+import { homeFaqs } from "@/lib/faq";
 import { photos } from "@/lib/photos";
 import { dishHref, findDish, formatPrice } from "@/lib/menu";
 import { pageMetadata } from "@/lib/metadata";
+import { faqPageJsonLd } from "@/lib/schema";
 import { address, hours, links, phone, whatsappMessages } from "@/lib/site";
 
 export const metadata = pageMetadata({
-  title: "Kerala food & craft beer rooftop | The 90s Club Electronic City",
+  title: "Kerala Food & Craft Beer Rooftop Pub | The 90s Club Electronic City",
   description:
-    "Kerala food and Flying Fox craft beer on a rooftop in Electronic City. Open daily noon to midnight at Millennium Plaza, Hebbagodi.",
+    "Flying Fox craft beer and a Kerala kitchen at Millennium Plaza, Hebbagodi. Open daily from noon to midnight.",
   path: "/",
 });
 
@@ -105,32 +107,6 @@ const occasionCards = [
   },
 ] as const;
 
-const faqs = [
-  {
-    question: "Is Kerala food served at The 90s Club?",
-    answer:
-      "Yes. The menu includes Kerala Style Chicken Biryani, Coconut Fish Curry, Naadan Chicken Curry, Prawns Ghee Roast, and Prawns Pepper Fry.",
-  },
-  {
-    question: "Is The 90s Club a rooftop pub in Electronic City?",
-    answer:
-      "Yes. The venue is on the fourth floor at Millennium Plaza in Hebbagodi, with rooftop seating and a full AC dining room.",
-  },
-  {
-    question: "Which craft beer is available?",
-    answer:
-      "The taproom serves Flying Fox craft beer. The current tap list and prices are confirmed directly by the team.",
-  },
-  {
-    question: "Is parking available?",
-    answer: "Yes. Parking is available at Millennium Plaza.",
-  },
-  {
-    question: "Can I plan a team lunch or birthday?",
-    answer: `Yes. The venue has about 80 seats. Call ${phone.display} with your date, time, and group size.`,
-  },
-] as const;
-
 export default function HomePage() {
   const biryani = findDish("Kerala Style Chicken Biryani");
   const fish = findDish("Coconut Fish Curry");
@@ -138,9 +114,12 @@ export default function HomePage() {
   const gheeRoast = findDish("Prawns Ghee Roast");
   const pepperFry = findDish("Prawns Pepper Fry");
 
+  const faqJson = JSON.stringify(faqPageJsonLd()).replace(/</g, "\\u003c");
+
   return (
     <>
-      <section className="relative min-h-[43rem] overflow-hidden border-b-2 border-charcoal bg-charcoal text-cream sm:min-h-[47rem] lg:min-h-[calc(100svh-7.9rem)]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJson }} />
+      <section className="relative min-h-[43rem] overflow-hidden border-b-2 border-gold-shadow bg-black text-ivory sm:min-h-[47rem] lg:min-h-[calc(100svh-6.75rem)]">
         <Image
           src={photos.interiorWideNeon.src}
           alt={photos.interiorWideNeon.alt}
@@ -149,19 +128,18 @@ export default function HomePage() {
           sizes="100vw"
           className="photo-grade object-cover object-[62%_center] sm:object-center"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,13,24,.92)_0%,rgba(7,13,24,.68)_48%,rgba(7,13,24,.15)_80%),linear-gradient(0deg,rgba(7,13,24,.9)_0%,transparent_55%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,9,7,.92)_0%,rgba(10,9,7,.68)_48%,rgba(10,9,7,.15)_80%),linear-gradient(0deg,rgba(10,9,7,.9)_0%,transparent_55%)]" />
         <div className="ink-grid absolute inset-0 opacity-20" />
 
-        <div className="relative mx-auto flex min-h-[43rem] w-full max-w-[1220px] items-end px-5 pb-12 pt-28 sm:min-h-[47rem] sm:px-8 sm:pb-16 lg:min-h-[calc(100svh-7.9rem)]">
+        <div className="relative mx-auto flex min-h-[43rem] w-full max-w-[1220px] items-end px-5 pb-12 pt-28 sm:min-h-[47rem] sm:px-8 sm:pb-16 lg:min-h-[calc(100svh-6.75rem)]">
           <div className="max-w-5xl">
-            <p className="type-label mb-4 text-xs text-gold sm:text-sm">
+            <p className="type-label mb-4 text-xs text-gold-highlight sm:text-sm">
               Rooftop taproom · Kerala kitchen · Hebbagodi
             </p>
-            <h1 className="type-display max-w-5xl text-[clamp(3.25rem,7.2vw,6.7rem)] leading-[0.93] text-gold">
-              Kerala food &amp; craft beer on a rooftop in Electronic City
-              <span className="mt-2 block text-[0.52em] text-cream">— The 90s Club</span>
+            <h1 className="type-display max-w-5xl text-[clamp(2.35rem,5.2vw,4.75rem)] leading-[0.98] text-ivory">
+              Kerala food &amp; craft beer at a rooftop pub in Electronic City — The 90s Club
             </h1>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-cream/90 sm:text-xl">
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ivory/90 sm:text-xl">
               The 90s Club Taproom and Kitchen · Flying Fox craft beer · Naadan plates ·
               open daily noon to midnight.
             </p>
@@ -172,28 +150,28 @@ export default function HomePage() {
             />
             <Link
               href="/menu"
-              className="type-label mt-6 inline-flex items-center gap-2 text-xs text-cream underline decoration-gold decoration-2 underline-offset-8 hover:text-gold"
+              className="type-label mt-6 inline-flex items-center gap-2 text-xs text-ivory underline decoration-gold decoration-2 underline-offset-8 hover:text-gold-highlight"
             >
               Browse the food menu <ArrowUpRight aria-hidden="true" className="size-4" />
             </Link>
           </div>
         </div>
 
-        <div className="absolute right-7 top-8 hidden opacity-80 xl:block">
-          <BrandLogo compact inverse className="w-20" />
+        <div className="pointer-events-none absolute right-6 top-6 hidden xl:block">
+          <BrandLogo variant="metallic" className="h-44" />
         </div>
       </section>
 
       <MarqueeBand />
 
-      <section className="section-pad bg-cream" id="start-here">
+      <section className="section-pad bg-black" id="start-here">
         <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="type-label text-xs text-blue">Start here</p>
-            <h2 className="type-display mt-3 text-4xl text-blue sm:text-5xl lg:text-6xl">
+            <p className="type-label text-xs text-gold-highlight">Start here</p>
+            <h2 className="type-display mt-3 text-4xl text-ivory sm:text-5xl lg:text-6xl">
               What brought you here?
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-charcoal/70">
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-ivory-muted">
               Pick the path that matches your plan—not a generic list of restaurant categories.
             </p>
           </div>
@@ -205,7 +183,7 @@ export default function HomePage() {
                 href={door.href}
                 className="club-card group overflow-hidden transition-transform duration-200 hover:-translate-y-1"
               >
-                <div className="relative h-48 overflow-hidden border-b-2 border-blue">
+                <div className="relative h-48 overflow-hidden border-b-2 border-gold-shadow">
                   <Image
                     src={door.photo.src}
                     alt={door.photo.alt}
@@ -215,10 +193,10 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="p-5">
-                  <p className="type-label text-[0.65rem] text-blue">{door.kicker}</p>
-                  <h3 className="type-display mt-3 text-2xl text-charcoal">{door.title}</h3>
-                  <p className="mt-3 text-base leading-relaxed text-charcoal/70">{door.copy}</p>
-                  <span className="type-label mt-5 inline-flex items-center gap-2 text-[0.68rem] text-blue">
+                  <p className="type-label text-[0.65rem] text-gold-highlight">{door.kicker}</p>
+                  <h3 className="type-display mt-3 text-2xl text-ivory">{door.title}</h3>
+                  <p className="mt-3 text-base leading-relaxed text-ivory-muted">{door.copy}</p>
+                  <span className="type-label mt-5 inline-flex items-center gap-2 text-[0.68rem] text-gold-highlight">
                     {door.cta} <ArrowUpRight aria-hidden="true" className="size-4" />
                   </span>
                 </div>
@@ -228,19 +206,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y-2 border-charcoal bg-blue py-8 text-cream" aria-label="At a glance">
+      <section className="border-y-2 border-black bg-blue py-8 text-ivory" aria-label="At a glance">
         <ul className="mx-auto grid w-full max-w-[1220px] grid-cols-2 gap-px px-5 sm:px-8 lg:grid-cols-4">
           {proof.map(({ icon: Icon, value, label }) => (
             <li
               key={label}
               className="flex min-h-28 items-center gap-4 border-gold/35 px-3 py-4 even:border-l lg:border-l lg:first:border-l-0"
             >
-              <span className="flex size-11 shrink-0 items-center justify-center rounded-full border-2 border-gold text-gold">
+              <span className="flex size-11 shrink-0 items-center justify-center rounded-full border-2 border-ivory text-ivory">
                 <Icon aria-hidden="true" className="size-5" />
               </span>
               <div>
-                <p className="type-display text-2xl text-gold sm:text-3xl">{value}</p>
-                <p className="type-label mt-1 text-[0.62rem] text-cream/75">{label}</p>
+                <p className="type-display text-2xl text-ivory sm:text-3xl">{value}</p>
+                <p className="type-label mt-1 text-[0.62rem] text-ivory/80">{label}</p>
               </div>
             </li>
           ))}
@@ -250,13 +228,14 @@ export default function HomePage() {
       <section className="section-pad bg-paper" id="signatures">
         <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
           <SectionHeading
+            tone="light"
             eyebrow="From the kitchen"
             title="Order these — names match the menu"
             lede="Kerala signatures, seafood starters, and the craft beer that shapes the house."
           />
 
           <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-6">
-            <li className="club-card group overflow-hidden sm:col-span-2 lg:col-span-2">
+            <li className="club-card-light group overflow-hidden sm:col-span-2 lg:col-span-2">
               <Link href={dishHref(biryani.name)}>
                 <div className="relative h-52 overflow-hidden border-b-2 border-blue">
                   <Image
@@ -275,7 +254,7 @@ export default function HomePage() {
               </Link>
             </li>
 
-            <li className="club-card group overflow-hidden sm:col-span-2 lg:col-span-2">
+            <li className="club-card-light group overflow-hidden sm:col-span-2 lg:col-span-2">
               <Link href={dishHref(fish.name)}>
                 <div className="relative h-52 overflow-hidden border-b-2 border-blue">
                   <Image
@@ -300,15 +279,15 @@ export default function HomePage() {
                 <span className="flex size-12 items-center justify-center rounded-full border-2 border-gold text-gold">
                   <UtensilsCrossed aria-hidden="true" className="size-5" />
                 </span>
-                <p className="type-label mt-auto pt-12 text-[0.65rem] text-gold">Naadan favourite</p>
+                <p className="type-label mt-auto pt-12 text-[0.65rem] text-gold-highlight">Naadan favourite</p>
                 <Link href={dishHref(naadan.name)}>
-                  <h3 className="type-display mt-2 text-3xl text-cream">{naadan.name}</h3>
-                  <p className="mt-3 font-semibold text-gold">{formatPrice(naadan.price)}</p>
+                  <h3 className="type-display mt-2 text-3xl text-ivory">{naadan.name}</h3>
+                  <p className="mt-3 font-semibold text-gold-highlight">{formatPrice(naadan.price)}</p>
                 </Link>
               </div>
             </li>
 
-            <li className="club-card p-5 sm:col-span-1 lg:col-span-3">
+            <li className="club-card-light p-5 sm:col-span-1 lg:col-span-3">
               <div className="flex h-full flex-col sm:flex-row sm:items-center sm:gap-5">
                 <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-blue text-cream">
                   <Fish aria-hidden="true" className="size-5" />
@@ -325,7 +304,7 @@ export default function HomePage() {
               </div>
             </li>
 
-            <li className="club-card overflow-hidden sm:col-span-1 lg:col-span-3">
+            <li className="club-card-light overflow-hidden sm:col-span-1 lg:col-span-3">
               <Link href="/craft-beer" className="grid h-full sm:grid-cols-[0.8fr_1.2fr]">
                 <div className="relative min-h-44 border-b-2 border-blue sm:border-b-0 sm:border-r-2">
                   <Image
@@ -347,7 +326,7 @@ export default function HomePage() {
 
           <Link
             href="/menu"
-            className="club-button type-label mt-9 inline-flex h-12 items-center gap-2 bg-gold px-5 text-xs text-charcoal"
+            className="club-button type-label mt-9 inline-flex h-12 items-center gap-2 bg-gold px-5 text-xs text-black hover:bg-gold-highlight"
           >
             View the full food menu <ArrowUpRight aria-hidden="true" className="size-4" />
           </Link>
@@ -356,23 +335,23 @@ export default function HomePage() {
 
       <section className="section-pad ink-grid bg-charcoal text-cream">
         <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <p className="type-label text-xs text-gold">Why this place</p>
-          <h2 className="type-display mt-3 max-w-4xl text-4xl text-cream sm:text-5xl lg:text-6xl">
+          <p className="type-label text-xs text-gold-highlight">Why this place</p>
+          <h2 className="type-display mt-3 max-w-4xl text-4xl text-ivory sm:text-5xl lg:text-6xl">
             A different kind of Electronic City night out.
           </h2>
-          <p className="mt-5 max-w-2xl text-lg text-cream/70">
+          <p className="mt-5 max-w-2xl text-lg text-ivory-muted">
             A Kerala kitchen, a craft beer taproom, and retro rooftop character under one
             roof—without losing the easy, mid-price feel.
           </p>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {wedge.map(({ icon: Icon, title, copy }) => (
               <article key={title} className="club-card-dark flex gap-5 p-5 sm:p-6">
-                <span className="flex size-12 shrink-0 items-center justify-center rounded-full border-2 border-gold text-gold">
+                <span className="flex size-12 shrink-0 items-center justify-center rounded-full border-2 border-gold-highlight text-gold-highlight">
                   <Icon aria-hidden="true" className="size-5" />
                 </span>
                 <div>
-                  <h3 className="type-display text-2xl text-cream">{title}</h3>
-                  <p className="mt-2 text-base leading-relaxed text-cream/75">{copy}</p>
+                  <h3 className="type-display text-2xl text-ivory">{title}</h3>
+                  <p className="mt-2 text-base leading-relaxed text-ivory-muted">{copy}</p>
                 </div>
               </article>
             ))}
@@ -380,7 +359,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-pad bg-cream">
+      <section className="section-pad bg-black">
         <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
           <article className="club-card-dark grid overflow-hidden lg:grid-cols-[1.05fr_0.95fr]">
             <div className="relative min-h-[22rem] border-b-2 border-gold lg:min-h-[34rem] lg:border-b-0 lg:border-r-2">
@@ -393,28 +372,28 @@ export default function HomePage() {
               />
             </div>
             <div className="flex flex-col justify-center p-6 sm:p-10 lg:p-12">
-              <p className="type-label text-xs text-gold">Rooftop pub · Hebbagodi</p>
-              <h2 className="type-display mt-3 text-4xl text-cream sm:text-5xl">
+              <p className="type-label text-xs text-gold-highlight">Rooftop pub · Hebbagodi</p>
+              <h2 className="type-display mt-3 text-4xl text-ivory sm:text-5xl">
                 Rooftop taproom &amp; retro pub
               </h2>
-              <p className="mt-5 text-lg leading-relaxed text-cream/80">
+              <p className="mt-5 text-lg leading-relaxed text-ivory/85">
                 Electric-blue light, a full AC dining room, and a rooftop address for after-work
                 plans in Electronic City.
               </p>
-              <ul className="mt-6 space-y-3 text-cream/85">
+              <ul className="mt-6 space-y-3 text-ivory/90">
                 <li className="flex items-center gap-3">
-                  <Snowflake aria-hidden="true" className="size-5 text-gold" /> Full AC dining
+                  <Snowflake aria-hidden="true" className="size-5 text-gold-highlight" /> Full AC dining
                 </li>
                 <li className="flex items-center gap-3">
-                  <CarFront aria-hidden="true" className="size-5 text-gold" /> Parking at the plaza
+                  <CarFront aria-hidden="true" className="size-5 text-gold-highlight" /> Parking at the plaza
                 </li>
                 <li className="flex items-center gap-3">
-                  <Clock3 aria-hidden="true" className="size-5 text-gold" /> Busier Thursday to Saturday
+                  <Clock3 aria-hidden="true" className="size-5 text-gold-highlight" /> Busier Thursday to Saturday
                 </li>
               </ul>
               <Link
                 href="/rooftop-pub"
-                className="club-button type-label mt-8 inline-flex h-12 w-fit items-center gap-2 border-gold bg-cream px-5 text-xs text-charcoal"
+                className="club-button type-label mt-8 inline-flex h-12 w-fit items-center gap-2 bg-gold px-5 text-xs text-black hover:bg-gold-highlight"
               >
                 Explore the rooftop <ArrowUpRight aria-hidden="true" className="size-4" />
               </Link>
@@ -435,23 +414,23 @@ export default function HomePage() {
                 className="photo-grade object-cover"
               />
             </div>
-            <div className="club-card absolute -bottom-5 right-4 bg-gold px-4 py-3 sm:right-8">
-              <p className="type-label text-[0.65rem] text-charcoal">Naadan · seafood · biryani</p>
+            <div className="club-card absolute -bottom-5 right-4 border-black bg-gold px-4 py-3 text-ink sm:right-8">
+              <p className="type-label text-[0.65rem]">Naadan · seafood · biryani</p>
             </div>
           </div>
           <div>
             <p className="type-label text-xs text-blue">Kerala kitchen</p>
-            <h2 className="type-display mt-3 text-4xl text-blue sm:text-5xl lg:text-6xl">
+            <h2 className="type-display mt-3 text-4xl text-ink sm:text-5xl lg:text-6xl">
               Kerala food in Electronic City
             </h2>
-            <p className="mt-5 text-lg leading-relaxed text-charcoal/75">
+            <p className="mt-5 text-lg leading-relaxed text-ink/75">
               Biryani, coconut fish curry, Naadan chicken, and seafood starters make this more
               than a stop for drinks. The catchment runs from Electronic City to Hebbagodi and
               Ananth Nagar.
             </p>
             <Link
               href="/kerala-food"
-              className="club-button type-label mt-7 inline-flex h-12 items-center gap-2 bg-gold px-5 text-xs text-charcoal"
+              className="club-button type-label mt-7 inline-flex h-12 items-center gap-2 bg-gold px-5 text-xs text-black hover:bg-gold-highlight"
             >
               Explore Kerala food <ArrowUpRight aria-hidden="true" className="size-4" />
             </Link>
@@ -471,28 +450,28 @@ export default function HomePage() {
             />
           </div>
           <div>
-            <p className="type-label text-xs text-blue">Craft beer</p>
-            <h2 className="type-display mt-3 text-4xl text-charcoal sm:text-5xl lg:text-6xl">
+            <p className="type-label text-xs text-ink">Craft beer</p>
+            <h2 className="type-display mt-3 text-4xl text-ink sm:text-5xl lg:text-6xl">
               Flying Fox at the taproom
             </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-charcoal/75">
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/80">
               Flying Fox craft beer is part of the rooftop experience. The current tap list and
               prices are confirmed by the team, so the site does not guess.
             </p>
             <div className="mt-7 flex flex-wrap gap-4">
               <Link
                 href="/craft-beer"
-                className="club-button type-label inline-flex h-12 items-center gap-2 bg-blue px-5 text-xs text-cream"
+                className="club-button type-label inline-flex h-12 items-center gap-2 bg-blue px-5 text-xs text-ivory"
               >
                 Craft beer <ArrowUpRight aria-hidden="true" className="size-4" />
               </Link>
-              <CtaRow items={["whatsapp"]} />
+              <CtaRow tone="onGold" items={["whatsapp"]} />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section-pad bg-cream">
+      <section className="section-pad bg-black">
         <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
           <SectionHeading
             eyebrow="Occasions"
@@ -502,16 +481,16 @@ export default function HomePage() {
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {occasionCards.map((card) => (
               <article key={card.number} className="club-card-dark p-6">
-                <p className="type-display text-5xl text-gold">{card.number}</p>
-                <h3 className="type-display mt-6 text-2xl text-cream">{card.title}</h3>
-                <p className="mt-3 leading-relaxed text-cream/75">{card.copy}</p>
+                <p className="type-display text-5xl text-gold-highlight">{card.number}</p>
+                <h3 className="type-display mt-6 text-2xl text-ivory">{card.title}</h3>
+                <p className="mt-3 leading-relaxed text-ivory-muted">{card.copy}</p>
               </article>
             ))}
           </div>
           <div className="mt-9 flex flex-wrap items-center gap-5">
             <Link
               href="/occasions"
-              className="club-button type-label inline-flex h-12 items-center gap-2 bg-gold px-5 text-xs text-charcoal"
+              className="club-button type-label inline-flex h-12 items-center gap-2 bg-gold px-5 text-xs text-black hover:bg-gold-highlight"
             >
               Plan your group <ArrowUpRight aria-hidden="true" className="size-4" />
             </Link>
@@ -527,6 +506,7 @@ export default function HomePage() {
       <section className="section-pad bg-paper">
         <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
           <SectionHeading
+            tone="light"
             eyebrow="Visit"
             title="Find us — Millennium Plaza, Hebbagodi"
             lede="Fourth floor on Hosur Road, close to Electronic City and Ananth Nagar."
@@ -534,20 +514,19 @@ export default function HomePage() {
           <div className="mt-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
             <MapEmbed className="h-full min-h-[28rem]" />
             <div className="club-card-dark flex flex-col justify-center p-6 sm:p-9">
-              <BrandLogo compact inverse className="mb-6 w-16" />
-              <h3 className="type-display text-3xl text-cream">The 90s Club</h3>
-              <p className="type-label mt-1 text-[0.67rem] text-gold">Taproom and Kitchen</p>
-              <address className="mt-6 space-y-1 text-base leading-relaxed not-italic text-cream/80">
+              <BrandLogo variant="metallic" className="mb-6 h-36" />
+              <h3 className="type-display text-3xl text-ivory">The 90s Club</h3>
+              <address className="mt-6 space-y-1 text-base leading-relaxed not-italic text-ivory/85">
                 <span className="block">{address.line1}</span>
                 <span className="block">{address.line2}</span>
                 <span className="block">{address.line3}</span>
                 <span className="block">{address.line4}</span>
               </address>
-              <p className="mt-5 text-cream">{hours.full}</p>
-              <a className="type-display mt-2 text-2xl text-gold" href={phone.href}>
+              <p className="mt-5 text-ivory">{hours.full}</p>
+              <a className="type-display mt-2 text-2xl text-gold-highlight" href={phone.href}>
                 {phone.display}
               </a>
-              <p className="mt-3 text-sm text-cream/65">Parking available at Millennium Plaza.</p>
+              <p className="mt-3 text-sm text-ivory-muted">Parking available at Millennium Plaza.</p>
               <CtaRow
                 className="mt-7"
                 tone="onDark"
@@ -556,7 +535,7 @@ export default function HomePage() {
               />
               <Link
                 href="/visit"
-                className="type-label mt-6 inline-flex items-center gap-2 text-xs text-cream underline decoration-gold decoration-2 underline-offset-8"
+                className="type-label mt-6 inline-flex items-center gap-2 text-xs text-link underline decoration-gold decoration-2 underline-offset-8 hover:text-gold-highlight"
               >
                 Full visit details <ArrowUpRight aria-hidden="true" className="size-4" />
               </Link>
@@ -567,21 +546,21 @@ export default function HomePage() {
 
       <section className="scallop-top bg-blue pb-24 pt-16 text-cream">
         <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <p className="type-label text-center text-xs text-gold">Quick answers</p>
-          <h2 className="type-display mx-auto mt-3 max-w-3xl text-center text-4xl text-cream sm:text-5xl lg:text-6xl">
+          <p className="type-label text-center text-xs text-ivory">Quick answers</p>
+          <h2 className="type-display mx-auto mt-3 max-w-3xl text-center text-4xl text-ivory sm:text-5xl lg:text-6xl">
             The useful details, without the runaround.
           </h2>
           <div className="mx-auto mt-10 grid max-w-4xl gap-4">
-            {faqs.map((faq, index) => (
-              <details key={faq.question} className="club-card group px-5 py-4 text-charcoal">
+            {homeFaqs.map((faq, index) => (
+              <details key={faq.question} className="club-card group px-5 py-4">
                 <summary className="flex cursor-pointer list-none items-center gap-4">
-                  <span className="type-label text-[0.62rem] text-blue">
+                  <span className="type-label text-[0.62rem] text-gold-highlight">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="type-display flex-1 text-xl sm:text-2xl">{faq.question}</span>
-                  <span className="text-2xl text-blue transition-transform group-open:rotate-45">+</span>
+                  <span className="type-display flex-1 text-xl text-ivory sm:text-2xl">{faq.question}</span>
+                  <span className="text-2xl text-gold-highlight transition-transform group-open:rotate-45">+</span>
                 </summary>
-                <p className="border-t border-blue/20 pt-4 text-base leading-relaxed text-charcoal/75">
+                <p className="mt-4 border-t border-gold-shadow/40 pt-4 text-base leading-relaxed text-ivory-muted">
                   {faq.answer}
                 </p>
               </details>
@@ -590,12 +569,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-pad bg-cream">
+      <section className="section-pad bg-black">
         <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="type-label text-xs text-blue">From the venue</p>
-              <h2 className="type-display mt-3 text-4xl text-blue sm:text-5xl">
+              <p className="type-label text-xs text-gold-highlight">From the venue</p>
+              <h2 className="type-display mt-3 text-4xl text-ivory sm:text-5xl">
                 {links.instagramHandle}
               </h2>
             </div>

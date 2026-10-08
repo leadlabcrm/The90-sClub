@@ -57,7 +57,7 @@ export default function MenuPage() {
 
       <nav
         aria-label="Menu sections"
-        className="sticky top-[5.25rem] z-30 border-y-2 border-charcoal bg-gold/95 backdrop-blur md:top-[7.9rem]"
+        className="sticky top-16 z-30 border-y-2 border-black bg-gold/95 backdrop-blur md:top-[6.75rem]"
       >
         <ul className="mx-auto flex w-full max-w-[1220px] gap-2 overflow-x-auto px-5 py-3 sm:px-8">
           {menuSections.map((section) => (
@@ -91,7 +91,7 @@ export default function MenuPage() {
 
       <div className="mx-auto flex w-full max-w-[1220px] flex-col gap-10 px-5 py-16 sm:px-8 sm:py-24">
         {menuSections.map((section) => (
-          <section key={section.id} id={section.id} className="club-card scroll-mt-40 p-5 sm:p-8">
+          <section key={section.id} id={section.id} className="club-card-light scroll-mt-40 p-5 sm:p-8">
             <p className="type-label text-[0.65rem] text-blue">Food menu</p>
             <h2 className="type-display mt-2 text-4xl text-blue sm:text-5xl">{section.title}</h2>
             <p className="mt-3 max-w-2xl text-base leading-relaxed text-charcoal/70">{section.intro}</p>
@@ -124,7 +124,7 @@ export default function MenuPage() {
           </div>
           <p>The glasses below are cocktails photographed at the bar; no price is implied.</p>
           <p>
-            <TextLink href="/craft-beer" className="text-gold decoration-cream">
+            <TextLink href="/craft-beer" tone="onDark">
               Craft beer page
             </TextLink>
           </p>

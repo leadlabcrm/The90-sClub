@@ -1,3 +1,4 @@
+import { homeFaqs } from "@/lib/faq";
 import { photos } from "@/lib/photos";
 import { hours, links, mapsName, phone, publicName } from "@/lib/site";
 import { getSiteUrl } from "@/lib/site-url";
@@ -58,5 +59,21 @@ export function restaurantJsonLd() {
         value: true,
       },
     ],
+  };
+}
+
+/** Mirrors the homepage FAQ block. Do not add questions that are not on the page. */
+export function faqPageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: homeFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
   };
 }

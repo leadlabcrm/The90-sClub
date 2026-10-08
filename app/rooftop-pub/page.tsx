@@ -22,11 +22,11 @@ export default function RooftopPage() {
         lede="Retro rooftop seating plus full AC dining — 80 seats at Millennium Plaza, Hebbagodi."
       />
 
-      <section className="section-pad bg-cream">
+      <section className="section-pad bg-black">
         <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <p className="type-label text-xs text-blue">Fourth floor · Millennium Plaza</p>
-          <h2 className="type-display mt-3 text-4xl text-blue sm:text-5xl lg:text-6xl">Rooftop and AC dining</h2>
-          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-charcoal/75">
+          <p className="type-label text-xs text-gold-highlight">Fourth floor · Millennium Plaza</p>
+          <h2 className="type-display mt-3 text-4xl text-ivory sm:text-5xl lg:text-6xl">Rooftop and AC dining</h2>
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-ivory-muted">
             The venue combines a rooftop address with an air-conditioned dining floor at {address.line1}. The photographs below show the interior bar, lounge seating, stage screen, and neon details.
           </p>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -81,20 +81,20 @@ export default function RooftopPage() {
       <section className="section-pad bg-paper">
         <div className="mx-auto grid w-full max-w-[1220px] gap-7 px-5 sm:px-8 md:grid-cols-2">
           <div className="club-card p-6 sm:p-8">
-            <p className="type-label text-xs text-blue">Plan the night</p>
-            <h2 className="type-display mt-3 text-4xl text-blue">When it is busy</h2>
-            <p className="mt-4 text-base leading-relaxed text-charcoal/70">
+            <p className="type-label text-xs text-gold-highlight">Plan the night</p>
+            <h2 className="type-display mt-3 text-4xl text-ivory">When it is busy</h2>
+            <p className="mt-4 text-base leading-relaxed text-ivory-muted">
               Thursday, Friday, and Saturday are the busy nights — a practical time for groups and for heading out after work in Electronic City. The listed close is {hours.summary}.
             </p>
           </div>
           <div className="club-card p-6 sm:p-8">
-            <p className="type-label text-xs text-blue">Arrive easy</p>
-            <h2 className="type-display mt-3 text-4xl text-blue">Parking</h2>
-            <p className="mt-4 text-base leading-relaxed text-charcoal/70">
+            <p className="type-label text-xs text-gold-highlight">Arrive easy</p>
+            <h2 className="type-display mt-3 text-4xl text-ivory">Parking</h2>
+            <p className="mt-4 text-base leading-relaxed text-ivory-muted">
               Parking is available. The visit page has the address and the map.
             </p>
             <p className="mt-3">
-              <TextLink href="/visit">Visit</TextLink>
+              <TextLink href="/visit" tone="onDark">Visit</TextLink>
             </p>
           </div>
         </div>
@@ -102,14 +102,14 @@ export default function RooftopPage() {
 
       <section className="scallop-top bg-blue pb-20 pt-14 text-cream">
         <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <p className="type-label text-xs text-gold">Visit facts</p>
+          <p className="type-label text-xs text-ivory">Visit facts</p>
           <h2 className="type-display mt-3 text-4xl text-cream sm:text-5xl lg:text-6xl">What Google lists for this address</h2>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-cream/80">
             Live music, karaoke, and dancing are on the Google listing. Come for the Kerala kitchen and the rooftop taproom. There is no published event calendar on this site.
           </p>
           <ul className="mt-6 flex flex-wrap gap-2">
             {["Live music", "Karaoke", "Dancing"].map((item) => (
-              <li key={item} className="club-button type-label bg-cream px-4 py-2 text-[0.65rem] text-charcoal">
+              <li key={item} className="club-button type-label bg-ivory px-4 py-2 text-[0.65rem] text-ink">
                 {item}
               </li>
             ))}
@@ -119,8 +119,8 @@ export default function RooftopPage() {
 
       <section className="section-pad bg-gold">
         <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <h2 className="type-display text-4xl text-charcoal sm:text-5xl">Come up</h2>
-          <CtaRow className="mt-5" items={["call", "directions", "whatsapp", "instagram"]} />
+          <h2 className="type-display text-4xl text-ink sm:text-5xl">Come up</h2>
+          <CtaRow className="mt-5" tone="onGold" items={["call", "directions", "whatsapp", "instagram"]} />
         </div>
       </section>
     </>

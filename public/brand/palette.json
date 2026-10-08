@@ -1,0 +1,608 @@
+{
+ "generated": "2026-10-08",
+ "logo_source": "brand/client-logo-original.jpeg (official, gold foil on black)",
+ "logo_colours": {
+  "gold_highlight": "#E9C65A",
+  "gold_mid": "#D0A232",
+  "gold_shadow": "#B17E1F",
+  "gold_peak_glint": "#FDE1A2",
+  "black_field": "#010000",
+  "method": "core gold pixels sorted by CIELAB L*, median of luminance bands; cross-checked with scikit-learn k-means (#E3BD53/#CDA036/#B28328), colorthief (#C8A044), extcolors (#DBB13B/#BC8C37)"
+ },
+ "wall_sign_reference": {
+  "ivory_glyph_backlit": "#FFF2C3 (blown by backlight)",
+  "field": "#1B1F21"
+ },
+ "venue_ambience": {
+  "bar_blue_base": "#273A81",
+  "bar_led_glow": "#80A0F0",
+  "bar_mid_blue": "#4766BB",
+  "interior_neon_blue": "#3E5EC1",
+  "interior_cyan_led": "#58AFFA",
+  "neon_violet": "#C93CF4",
+  "neon_purple_deep": "#5D2293",
+  "seating_rust_orange": "#822712",
+  "seating_lamp_amber": "#ED9B5F",
+  "grass_wall_green": "#071A06",
+  "note": "storefront-signboard red (#D53F49) is the neighbouring shop header, not venue brand; excluded"
+ },
+ "website_palette": {
+  "bg": {
+   "hex": "#0A0907",
+   "name": "Club Black",
+   "role": "page background",
+   "source": "logo field (#010000/#030100), lifted slightly warm"
+  },
+  "surface": {
+   "hex": "#16130F",
+   "name": "Charcoal",
+   "role": "cards, nav bar, footer",
+   "source": "derived from bg"
+  },
+  "text": {
+   "hex": "#F4E8CC",
+   "name": "Ivory",
+   "role": "body text and headings on dark",
+   "source": "cream of the backlit wall sign, de-glared"
+  },
+  "text_muted": {
+   "hex": "#B9AD93",
+   "name": "Ivory Muted",
+   "role": "secondary text, captions",
+   "source": "derived from text"
+  },
+  "primary": {
+   "hex": "#D0A232",
+   "name": "Club Gold",
+   "role": "primary accent, logo colour, rules/dividers, CTA fill",
+   "source": "client logo file, mid gold (p45-55 L* band; k-means #CDA036)"
+  },
+  "primary_highlight": {
+   "hex": "#E9C65A",
+   "name": "Gold Highlight",
+   "role": "CTA hover, small gold text on dark/blue",
+   "source": "client logo file, p85-95 band (k-means #E3BD53)"
+  },
+  "primary_shadow": {
+   "hex": "#B17E1F",
+   "name": "Gold Shadow",
+   "role": "borders, pressed state, gradient low stop",
+   "source": "client logo file, p5-15 band"
+  },
+  "gold_peak": {
+   "hex": "#FDE1A2",
+   "name": "Gold Glint",
+   "role": "gradient top stop only (metallic effect)",
+   "source": "client logo file, p98-100 band"
+  },
+  "secondary": {
+   "hex": "#273A81",
+   "name": "Bar Blue",
+   "role": "secondary section bands, secondary CTA fill",
+   "source": "bar-front backlit panel base (k-means #273A81 47%, extcolors #213685)"
+  },
+  "secondary_light": {
+   "hex": "#80A0F0",
+   "name": "LED Blue",
+   "role": "links/focus rings on dark",
+   "source": "bar panel LED glow (k-means #80A0F0)"
+  },
+  "secondary_mid": {
+   "hex": "#4766BB",
+   "name": "Electric Blue",
+   "role": "decorative glow only (fails AA for small text on dark)",
+   "source": "bar panel mid / interior neon #3E5EC1"
+  },
+  "neon_accent": {
+   "hex": "#C93CF4",
+   "name": "Neon Violet",
+   "role": "optional, very sparing",
+   "source": "neon beer wall"
+  },
+  "cta": {
+   "fill": "#D0A232",
+   "text": "#0A0907",
+   "hover_fill": "#E9C65A",
+   "secondary_fill": "#273A81",
+   "secondary_text": "#FFFFFF"
+  }
+ },
+ "contrast_wcag": [
+  {
+   "pair": "text",
+   "fg": "#F4E8CC",
+   "bg": "#0A0907",
+   "ratio": 16.36,
+   "AA_normal": true,
+   "AAA_normal": true,
+   "AA_large": true
+  },
+  {
+   "pair": "text on surface",
+   "fg": "#F4E8CC",
+   "bg": "#16130F",
+   "ratio": 15.22,
+   "AA_normal": true,
+   "AAA_normal": true,
+   "AA_large": true
+  },
+  {
+   "pair": "muted text",
+   "fg": "#B9AD93",
+   "bg": "#0A0907",
+   "ratio": 8.97,
+   "AA_normal": true,
+   "AAA_normal": true,
+   "AA_large": true
+  },
+  {
+   "pair": "gold text on bg",
+   "fg": "#D0A232",
+   "bg": "#0A0907",
+   "ratio": 8.43,
+   "AA_normal": true,
+   "AAA_normal": true,
+   "AA_large": true
+  },
+  {
+   "pair": "gold highlight text on bg",
+   "fg": "#E9C65A",
+   "bg": "#0A0907",
+   "ratio": 12.03,
+   "AA_normal": true,
+   "AAA_normal": true,
+   "AA_large": true
+  },
+  {
+   "pair": "CTA: black on gold",
+   "fg": "#0A0907",
+   "bg": "#D0A232",
+   "ratio": 8.43,
+   "AA_normal": true,
+   "AAA_normal": true,
+   "AA_large": true
+  },
+  {
+   "pair": "CTA hover: black on gold highlight",
+   "fg": "#0A0907",
+   "bg": "#E9C65A",
+   "ratio": 12.03,
+   "AA_normal": true,
+   "AAA_normal": true,
+   "AA_large": true
+  },
+  {
+   "pair": "secondary CTA: white on bar blue",
+   "fg": "#FFFFFF",
+   "bg": "#273A81",
+   "ratio": 10.46,
+   "AA_normal": true,
+   "AAA_normal": true,
+   "AA_large": true
+  },
+  {
+   "pair": "ivory on bar blue",
+   "fg": "#F4E8CC",
+   "bg": "#273A81",
+   "ratio": 8.59,
+   "AA_normal": true,
+   "AAA_normal": true,
+   "AA_large": true
+  },
+  {
+   "pair": "gold highlight on bar blue",
+   "fg": "#E9C65A",
+   "bg": "#273A81",
+   "ratio": 6.32,
+   "AA_normal": true,
+   "AAA_normal": false,
+   "AA_large": true
+  },
+  {
+   "pair": "club gold on bar blue",
+   "fg": "#D0A232",
+   "bg": "#273A81",
+   "ratio": 4.43,
+   "AA_normal": false,
+   "AAA_normal": false,
+   "AA_large": true
+  },
+  {
+   "pair": "LED blue link on bg",
+   "fg": "#80A0F0",
+   "bg": "#0A0907",
+   "ratio": 7.78,
+   "AA_normal": true,
+   "AAA_normal": true,
+   "AA_large": true
+  },
+  {
+   "pair": "electric blue on bg",
+   "fg": "#4766BB",
+   "bg": "#0A0907",
+   "ratio": 3.68,
+   "AA_normal": false,
+   "AAA_normal": false,
+   "AA_large": true
+  },
+  {
+   "pair": "neon violet on bg",
+   "fg": "#C93CF4",
+   "bg": "#0A0907",
+   "ratio": 5.15,
+   "AA_normal": true,
+   "AAA_normal": false,
+   "AA_large": true
+  },
+  {
+   "pair": "current site mustard #E8B84A on bg",
+   "fg": "#E8B84A",
+   "bg": "#0A0907",
+   "ratio": 10.79,
+   "AA_normal": true,
+   "AAA_normal": true,
+   "AA_large": true
+  }
+ ],
+ "mustard_check": {
+  "current_site": "#E8B84A",
+  "verdict": "Same gold family as the official logo (dE76 4.8-8.1 vs measured golds), not a foreign colour, but flatter/more yellow. Use #D0A232 fills and #E9C65A hover/small text to match the logo exactly."
+ },
+ "raw_extraction": {
+  "logo_client_file": {
+   "tones_luminance_bands": {
+    "gold_shadow(p5-15)": "#B17E1F",
+    "gold_mid(p45-55)": "#D0A232",
+    "gold_highlight(p85-95)": "#E9C65A",
+    "gold_peak(p98-100)": "#FDE1A2",
+    "gold_median_all": "#D0A238",
+    "core_px": 33036,
+    "black_field_median": "#010000"
+   },
+   "kmeans_k2_whole": [
+    [
+     "#030100",
+     80.6
+    ],
+    [
+     "#C89B3A",
+     19.4
+    ]
+   ],
+   "kmeans_k4_gold_only": [
+    [
+     "#CDA036",
+     34.3
+    ],
+    [
+     "#B28328",
+     29.2
+    ],
+    [
+     "#E3BD53",
+     25.0
+    ],
+    [
+     "#866527",
+     11.4
+    ]
+   ],
+   "colorthief_k4": [
+    "#C8A044",
+    "#0B0705",
+    "#797164",
+    "#7C7C64"
+   ],
+   "extcolors_k5": [
+    [
+     "#000000",
+     78.0
+    ],
+    [
+     "#DBB13B",
+     9.9
+    ],
+    [
+     "#BC8C37",
+     5.1
+    ],
+    [
+     "#5B5233",
+     1.4
+    ],
+    [
+     "#8E7936",
+     1.3
+    ]
+   ]
+  },
+  "bar_panel": {
+   "venue_blue": "#2A3B83",
+   "bar_blue_kmeans3": [
+    [
+     "#25367D",
+     58.2
+    ],
+    [
+     "#4260B6",
+     22.0
+    ],
+    [
+     "#7BA3F2",
+     19.8
+    ]
+   ],
+   "colorthief_k4": [
+    "#374A93",
+    "#80B1F9",
+    "#A3A3C6",
+    "#241D21"
+   ],
+   "extcolors_k5": [
+    [
+     "#213685",
+     54.1
+    ],
+    [
+     "#88BDFF",
+     12.4
+    ],
+    [
+     "#3E61BD",
+     10.6
+    ],
+    [
+     "#202454",
+     8.9
+    ],
+    [
+     "#6290E8",
+     3.4
+    ]
+   ],
+   "kmeans_k4": [
+    [
+     "#273A81",
+     46.9
+    ],
+    [
+     "#80A0F0",
+     20.5
+    ],
+    [
+     "#4766BB",
+     18.3
+    ],
+    [
+     "#212652",
+     14.4
+    ]
+   ]
+  },
+  "venue": {
+   "interior-wide-neon_DSC02379": {
+    "kmeans_k5": [
+     [
+      "#0C0C0C",
+      60.4
+     ],
+     [
+      "#383028",
+      15.8
+     ],
+     [
+      "#655953",
+      13.9
+     ],
+     [
+      "#3E5EC1",
+      5.0
+     ],
+     [
+      "#C3C8C9",
+      4.8
+     ]
+    ],
+    "vivid_kmeans_k4": [
+     [
+      "#325BC1",
+      56.9
+     ],
+     [
+      "#58AFFA",
+      17.4
+     ],
+     [
+      "#836C3C",
+      16.3
+     ],
+     [
+      "#BEA152",
+      9.5
+     ]
+    ],
+    "colorthief_k5": [
+     "#171413",
+     "#BDB597",
+     "#655850",
+     "#3E5DBD",
+     "#56B1EE"
+    ]
+   },
+   "neon-beer-wall_DSC02367": {
+    "kmeans_k5": [
+     [
+      "#2C1530",
+      56.2
+     ],
+     [
+      "#624658",
+      16.0
+     ],
+     [
+      "#581678",
+      12.2
+     ],
+     [
+      "#C13EEF",
+      7.9
+     ],
+     [
+      "#FEF7FE",
+      7.6
+     ]
+    ],
+    "vivid_kmeans_k4": [
+     [
+      "#641788",
+      41.9
+     ],
+     [
+      "#9C26CF",
+      29.7
+     ],
+     [
+      "#E655FB",
+      22.0
+     ],
+     [
+      "#2E86A4",
+      6.5
+     ]
+    ],
+    "colorthief_k5": [
+     "#341B3B",
+     "#E089F0",
+     "#764A6D",
+     "#7E27BD",
+     "#3FB8C6"
+    ]
+   },
+   "interior-seating_DSC02284": {
+    "kmeans_k5": [
+     [
+      "#120F0D",
+      46.8
+     ],
+     [
+      "#75675E",
+      19.5
+     ],
+     [
+      "#3F3232",
+      17.2
+     ],
+     [
+      "#A7926E",
+      8.2
+     ],
+     [
+      "#6F2210",
+      8.2
+     ]
+    ],
+    "vivid_kmeans_k4": [
+     [
+      "#822712",
+      52.3
+     ],
+     [
+      "#8B5C3D",
+      29.1
+     ],
+     [
+      "#ED9B5F",
+      14.8
+     ],
+     [
+      "#4067CD",
+      3.8
+     ]
+    ],
+    "colorthief_k5": [
+     "#221C1A",
+     "#B89372",
+     "#785446",
+     "#8B9EA7",
+     "#6D7A9F"
+    ]
+   },
+   "storefront-signboard_DSC02357": {
+    "kmeans_k5": [
+     [
+      "#48463E",
+      26.6
+     ],
+     [
+      "#2E2927",
+      20.0
+     ],
+     [
+      "#87896B",
+      19.4
+     ],
+     [
+      "#CF3B46",
+      18.7
+     ],
+     [
+      "#D8D9D9",
+      15.3
+     ]
+    ],
+    "vivid_kmeans_k4": [
+     [
+      "#D73F4A",
+      47.2
+     ],
+     [
+      "#8C933A",
+      26.5
+     ],
+     [
+      "#9C3137",
+      20.1
+     ],
+     [
+      "#292991",
+      6.1
+     ]
+    ],
+    "colorthief_k5": [
+     "#434338",
+     "#D68E8A",
+     "#9FB473",
+     "#9B5E5C",
+     "#8280AF"
+    ]
+   },
+   "ALL_vivid_kmeans_k6": [
+    [
+     "#D53F49",
+     26.0
+    ],
+    [
+     "#5D2293",
+     19.5
+    ],
+    [
+     "#862E2F",
+     18.0
+    ],
+    [
+     "#9C9348",
+     17.9
+    ],
+    [
+     "#C93CF4",
+     10.8
+    ],
+    [
+     "#426FD2",
+     7.8
+    ]
+   ],
+   "grass_wall_median": "#071A06"
+  }
+ }
+}

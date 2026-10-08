@@ -36,14 +36,14 @@ export default function OccasionsPage() {
         lede="Corporate teams, students, couples — a rooftop and a Kerala kitchen for groups."
       />
 
-      <section className="section-pad bg-cream">
+      <section className="section-pad bg-black">
         <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <p className="type-label text-xs text-blue">Pick your plan</p>
-          <h2 className="type-display mt-3 text-4xl text-blue sm:text-5xl lg:text-6xl">Who it is for</h2>
+          <p className="type-label text-xs text-gold-highlight">Pick your plan</p>
+          <h2 className="type-display mt-3 text-4xl text-ivory sm:text-5xl lg:text-6xl">Who it is for</h2>
           <ul className="mt-10 grid gap-6 md:grid-cols-3">
             {audiences.map((item, index) => (
               <li key={item.title} className="club-card-dark p-6">
-                <p className="type-display text-5xl text-gold">0{index + 1}</p>
+                <p className="type-display text-5xl text-gold-highlight">0{index + 1}</p>
                 <h3 className="type-display mt-6 text-2xl text-cream">{item.title}</h3>
                 <p className="mt-3 text-base leading-relaxed text-cream/75">{item.copy}</p>
               </li>
@@ -78,7 +78,7 @@ export default function OccasionsPage() {
 
       <section className="ink-grid section-pad bg-blue text-cream">
         <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <p className="type-label text-xs text-gold">Three details are enough</p>
+          <p className="type-label text-xs text-ivory">Three details are enough</p>
           <h2 className="type-display mt-3 text-4xl text-cream sm:text-5xl lg:text-6xl">Enquire</h2>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-cream/80">
             WhatsApp or call {phone.display}. Tell us the date, the headcount, and the time. Walk-ins are part of how the room works; groups should send those three details first.

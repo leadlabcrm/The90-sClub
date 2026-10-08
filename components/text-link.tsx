@@ -2,26 +2,38 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
-const className =
-  "font-semibold text-teal underline decoration-mustard decoration-2 underline-offset-4 hover:text-teal-deep";
+const tones = {
+  onLight:
+    "font-semibold text-blue underline decoration-gold-shadow decoration-2 underline-offset-4 hover:text-ink",
+  onDark:
+    "font-semibold text-link underline decoration-gold decoration-2 underline-offset-4 hover:text-gold-highlight",
+  onGold:
+    "font-semibold text-ink underline decoration-black decoration-2 underline-offset-4 hover:text-blue",
+  onBlue:
+    "font-semibold text-ivory underline decoration-ivory/50 decoration-2 underline-offset-4 hover:text-white",
+} as const;
 
 export function TextLink({
   href,
   children,
   className: extra,
   external = false,
+  tone = "onLight",
 }: {
   href: string;
   children: React.ReactNode;
   className?: string;
   external?: boolean;
+  tone?: keyof typeof tones;
 }) {
+  const className = cn(tones[tone], extra);
+
   if (external || href.startsWith("http") || href.startsWith("tel:")) {
     const isWeb = href.startsWith("http");
     return (
       <a
         href={href}
-        className={cn(className, extra)}
+        className={className}
         {...(isWeb ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         {children}
@@ -31,7 +43,7 @@ export function TextLink({
   }
 
   return (
-    <Link href={href} className={cn(className, extra)}>
+    <Link href={href} className={className}>
       {children}
     </Link>
   );

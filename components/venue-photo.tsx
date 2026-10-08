@@ -29,7 +29,7 @@ export function VenuePhoto({
   return (
     <figure
       className={cn(
-        "overflow-hidden rounded-2xl border-2 border-blue bg-charcoal shadow-[4px_4px_0_#F0BD38]",
+        "overflow-hidden rounded-2xl border-2 border-gold-shadow bg-charcoal shadow-[4px_4px_0_#0A0907]",
         className,
       )}
     >
@@ -44,7 +44,7 @@ export function VenuePhoto({
         />
       </div>
       {caption ? (
-        <figcaption className="bg-paper px-4 py-3 text-sm leading-relaxed text-charcoal/70">
+        <figcaption className="bg-charcoal px-4 py-3 text-sm leading-relaxed text-ivory-muted">
           {caption}
         </figcaption>
       ) : null}

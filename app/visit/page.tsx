@@ -23,10 +23,10 @@ export default function VisitPage() {
         lede="Phone, WhatsApp, Instagram, hours, and the map live on this page."
       />
 
-      <section className="section-pad bg-cream">
+      <section className="section-pad bg-black">
         <div className="mx-auto grid w-full max-w-[1220px] gap-10 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="club-card-dark h-fit p-6 sm:p-8">
-            <p className="type-label text-xs text-gold">Fourth floor · Hosur Road</p>
+            <p className="type-label text-xs text-gold-highlight">Fourth floor · Hosur Road</p>
             <h2 className="type-display mt-3 text-4xl text-cream">Address</h2>
             <address className="mt-5 space-y-1 text-lg leading-relaxed not-italic text-cream/85">
               <span className="block">{address.line1}</span>
@@ -62,8 +62,8 @@ export default function VisitPage() {
 
       <section className="border-y-2 border-charcoal bg-gold py-16 sm:py-20">
         <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <p className="type-label text-xs text-blue">Millennium Plaza · Hebbagodi</p>
-          <h2 className="type-display mt-3 text-4xl text-charcoal sm:text-5xl">Map</h2>
+          <p className="type-label text-xs text-ink">Millennium Plaza · Hebbagodi</p>
+          <h2 className="type-display mt-3 text-4xl text-ink sm:text-5xl">Map</h2>
           <div className="mt-8">
             <MapEmbed className="h-[28rem]" />
           </div>
@@ -73,40 +73,40 @@ export default function VisitPage() {
       <section className="section-pad bg-paper">
         <div className="mx-auto grid w-full max-w-[1220px] gap-7 px-5 sm:px-8 md:grid-cols-2">
           <div className="club-card p-6 sm:p-8">
-            <p className="type-label text-xs text-blue">Every day</p>
-            <h2 className="type-display mt-3 text-4xl text-blue">Hours</h2>
-            <p className="mt-3 text-base text-charcoal/70">Times are the venue’s local time in Bangalore.</p>
+            <p className="type-label text-xs text-gold-highlight">Every day</p>
+            <h2 className="type-display mt-3 text-4xl text-ivory">Hours</h2>
+            <p className="mt-3 text-base text-ivory-muted">Times are the venue’s local time in Bangalore.</p>
             <table className="mt-4 w-full text-left text-sm">
               <caption className="sr-only">Opening hours, Monday to Sunday</caption>
               <tbody>
                 {hours.days.map((day) => (
-                  <tr key={day} className="border-b border-blue/20">
-                    <th scope="row" className="py-2 pr-4 font-medium text-charcoal">
+                  <tr key={day} className="border-b border-gold-shadow/40">
+                    <th scope="row" className="py-2 pr-4 font-medium text-ivory">
                       {day}
                     </th>
-                    <td className="py-2 text-charcoal/70">12:00 pm – 12:00 am</td>
+                    <td className="py-2 text-ivory-muted">12:00 pm – 12:00 am</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <div className="club-card p-6 sm:p-8">
-            <p className="type-label text-xs text-blue">Direct to the venue</p>
-            <h2 className="type-display mt-3 text-4xl text-blue">Phone and WhatsApp</h2>
-            <p className="mt-4 text-2xl font-semibold text-charcoal">
-              <a className="underline decoration-mustard decoration-2 underline-offset-4" href={phone.href}>
+            <p className="type-label text-xs text-gold-highlight">Direct to the venue</p>
+            <h2 className="type-display mt-3 text-4xl text-ivory">Phone and WhatsApp</h2>
+            <p className="mt-4 text-2xl font-semibold text-gold-highlight">
+              <a className="underline decoration-gold-shadow decoration-2 underline-offset-4" href={phone.href}>
                 {phone.display}
               </a>
             </p>
-            <p className="mt-3 text-base leading-relaxed text-charcoal/70">
+            <p className="mt-3 text-base leading-relaxed text-ivory-muted">
               WhatsApp uses the same number. Akhil takes calls after 12 pm.
             </p>
-            <h3 className="mt-8 text-lg font-semibold text-charcoal">Parking</h3>
-            <p className="mt-2 text-base leading-relaxed text-charcoal/70">
+            <h3 className="mt-8 text-lg font-semibold text-ivory">Parking</h3>
+            <p className="mt-2 text-base leading-relaxed text-ivory-muted">
               Parking is available at the plaza. Ask the team on arrival if you need a specific bay.
             </p>
-            <h3 className="mt-8 text-lg font-semibold text-charcoal">Getting here</h3>
-            <p className="mt-2 text-base leading-relaxed text-charcoal/70">
+            <h3 className="mt-8 text-lg font-semibold text-ivory">Getting here</h3>
+            <p className="mt-2 text-base leading-relaxed text-ivory-muted">
               Straightforward from Electronic City, Hebbagodi, and Ananth Nagar.
             </p>
           </div>
@@ -115,7 +115,7 @@ export default function VisitPage() {
 
       <section className="scallop-top bg-blue pb-20 pt-14 text-cream">
         <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <p className="type-label text-xs text-gold">Call · chat · follow</p>
+          <p className="type-label text-xs text-ivory">Call · chat · follow</p>
           <h2 className="type-display mt-3 text-4xl sm:text-5xl lg:text-6xl">Contact The 90s Club</h2>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-cream/90">
             Call, WhatsApp, or Instagram {links.instagramHandle}. There is no enquiry form — the phone is the direct line.
@@ -132,11 +132,11 @@ export default function VisitPage() {
           </ul>
           <CtaRow className="mt-6" tone="onDark" items={["call", "whatsapp", "instagram", "directions"]} />
           <p className="mt-6 text-sm text-cream/80">
-            Kitchen and rooftop notes: <TextLink href="/menu" className="text-cream">menu</TextLink>
+            Kitchen and rooftop notes: <TextLink href="/menu" tone="onBlue">menu</TextLink>
             {" · "}
-            <TextLink href="/kerala-food" className="text-cream">Kerala food</TextLink>
+            <TextLink href="/kerala-food" tone="onBlue">Kerala food</TextLink>
             {" · "}
-            <TextLink href="/rooftop-pub" className="text-cream">rooftop</TextLink>
+            <TextLink href="/rooftop-pub" tone="onBlue">rooftop</TextLink>
           </p>
         </div>
       </section>

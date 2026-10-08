@@ -1,10 +1,19 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
+
 import { ImageResponse } from "next/og";
 
-export const alt = "The 90s Club Taproom and Kitchen — Kerala food and craft beer in Electronic City";
+export const alt =
+  "The 90s Club — Kerala food and craft beer rooftop pub in Electronic City";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OpenGraphImage() {
+export default async function OpenGraphImage() {
+  const logo = await readFile(
+    join(process.cwd(), "public/brand/logo-90s-club-gold-metallic-transparent-1000.png"),
+  );
+  const src = `data:image/png;base64,${logo.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -12,51 +21,30 @@ export default function OpenGraphImage() {
           width: "100%",
           height: "100%",
           display: "flex",
-          alignItems: "stretch",
-          background: "#0A3D8F",
-          color: "#FFF0CF",
-          padding: "64px",
+          alignItems: "center",
+          background: "#0A0907",
+          color: "#F4E8CC",
+          padding: "48px 64px",
         }}
       >
-        <div
-          style={{
-            width: "100%",
-            border: "4px solid #F0BD38",
-            borderRadius: 28,
-            background: "#18202A",
-            display: "flex",
-            alignItems: "center",
-            padding: "48px",
-          }}
-        >
+        <img src={src} width={236} height={416} alt="" />
+        <div style={{ display: "flex", flexDirection: "column", marginLeft: 56 }}>
+          <div style={{ display: "flex", fontSize: 22, letterSpacing: 3, color: "#E9C65A" }}>
+            ELECTRONIC CITY · HEBBAGODI
+          </div>
           <div
             style={{
-              width: 178,
-              height: 390,
-              border: "5px solid #F0BD38",
-              borderRadius: 88,
               display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#F0BD38",
-              fontFamily: "serif",
+              maxWidth: 740,
+              fontSize: 58,
+              lineHeight: 1.05,
+              marginTop: 22,
             }}
           >
-            <div style={{ display: "flex", fontSize: 22, letterSpacing: 5 }}>THE</div>
-            <div style={{ display: "flex", fontSize: 80, fontWeight: 800 }}>90s</div>
-            <div style={{ display: "flex", fontSize: 22, letterSpacing: 5 }}>CLUB</div>
+            Kerala Food & Craft Beer Rooftop Pub
           </div>
-          <div style={{ display: "flex", flexDirection: "column", marginLeft: 54 }}>
-            <div style={{ display: "flex", fontSize: 23, letterSpacing: 4, color: "#F0BD38" }}>
-              ELECTRONIC CITY · HEBBAGODI
-            </div>
-            <div style={{ display: "flex", maxWidth: 780, fontSize: 70, lineHeight: 0.98, marginTop: 24, fontFamily: "serif", fontWeight: 800 }}>
-              Kerala food &amp; craft beer on the rooftop
-            </div>
-            <div style={{ display: "flex", fontSize: 27, marginTop: 32, color: "#FFF0CF" }}>
-              The 90s Club Taproom and Kitchen · Open 12 pm–12 am
-            </div>
+          <div style={{ display: "flex", fontSize: 28, marginTop: 28 }}>
+            The 90s Club · Open 12pm–12am
           </div>
         </div>
       </div>

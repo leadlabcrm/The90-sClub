@@ -19,7 +19,7 @@ export function CtaRow({
   callLabel?: string;
   whatsappMessage?: string;
   className?: string;
-  tone?: "default" | "onDark";
+  tone?: "default" | "onDark" | "onGold";
 }) {
   return (
     <div className={cn("flex flex-wrap gap-3", className)}>
@@ -29,7 +29,11 @@ export function CtaRow({
             <a
               key={item}
               href={phone.href}
-              className={cn(buttonVariants({ variant: "mustard", size: "lg" }), itemClass)}
+              className={cn(
+                buttonVariants({ variant: tone === "onGold" ? "default" : "gold", size: "lg" }),
+                itemClass,
+                tone === "onGold" && "border-black bg-blue text-ivory hover:bg-blue-bright",
+              )}
             >
               <Phone aria-hidden="true" />
               {callLabel ?? `Call ${phone.display}`}
@@ -46,7 +50,8 @@ export function CtaRow({
               className={cn(
                 buttonVariants({ variant: "default", size: "lg" }),
                 itemClass,
-                tone === "onDark" && "border-gold bg-cream text-charcoal hover:bg-paper",
+                "border-black bg-blue text-ivory hover:bg-blue-bright",
+                tone === "onGold" && "bg-black text-ivory hover:bg-charcoal",
               )}
             >
               <MapPin aria-hidden="true" />
@@ -65,7 +70,9 @@ export function CtaRow({
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
                 itemClass,
-                tone === "onDark" && "border-gold",
+                tone === "onDark" && "border-ivory text-ivory hover:bg-ivory/10",
+                tone === "onGold" && "border-black bg-black text-ivory hover:bg-charcoal",
+                tone === "default" && "border-gold-shadow bg-charcoal text-ivory hover:bg-black",
               )}
             >
               <MessageCircle aria-hidden="true" />
@@ -83,7 +90,9 @@ export function CtaRow({
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
               itemClass,
-              tone === "onDark" && "border-gold",
+              tone === "onDark" && "border-ivory text-ivory hover:bg-ivory/10",
+              tone === "onGold" && "border-black bg-black text-ivory hover:bg-charcoal",
+              tone === "default" && "border-gold-shadow bg-charcoal text-ivory hover:bg-black",
             )}
           >
             <Camera aria-hidden="true" />

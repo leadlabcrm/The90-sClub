@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "Kerala food and Flying Fox craft beer on a rooftop in Electronic City. Open daily noon to midnight at Millennium Plaza, Hebbagodi.",
+    "Flying Fox craft beer and a Kerala kitchen at Millennium Plaza, Hebbagodi. Open daily from noon to midnight.",
   applicationName: "The 90s Club",
   authors: [{ name: "The 90s Club" }],
   robots: { index: true, follow: true },
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0A3D8F",
+  themeColor: "#0A0907",
   width: "device-width",
   initialScale: 1,
 };
@@ -48,10 +48,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${oswald.variable} ${fraunces.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-cream pb-20 text-charcoal lg:pb-0">
+      <body className="flex min-h-full flex-col bg-black pb-20 text-ivory lg:pb-0">
         <a
           href="#content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[70] focus:rounded-full focus:bg-mustard focus:px-4 focus:py-2 focus:font-semibold focus:text-charcoal"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[70] focus:rounded-full focus:bg-gold focus:px-4 focus:py-2 focus:font-semibold focus:text-black"
         >
           Skip to content
         </a>

@@ -14,11 +14,11 @@ import {
 
 export function SiteFooter() {
   return (
-    <footer className="bg-charcoal px-3 pb-6 pt-14 sm:px-5 sm:pb-8 sm:pt-20">
-      <div className="mx-auto mb-8 flex w-full max-w-[1220px] flex-col items-start justify-between gap-6 rounded-2xl border-2 border-gold bg-blue px-5 py-7 text-cream shadow-[6px_6px_0_#F0BD38] sm:px-8 md:flex-row md:items-center">
+    <footer className="bg-black px-3 pb-6 pt-14 sm:px-5 sm:pb-8 sm:pt-20">
+      <div className="mx-auto mb-8 flex w-full max-w-[1220px] flex-col items-start justify-between gap-6 rounded-2xl border-2 border-gold-shadow bg-blue px-5 py-7 text-ivory shadow-[6px_6px_0_#0A0907] sm:px-8 md:flex-row md:items-center">
         <div>
-          <p className="type-label text-[0.7rem] text-gold">Open noon to midnight · every day</p>
-          <h2 className="type-display mt-2 max-w-2xl text-3xl sm:text-4xl">
+          <p className="type-label text-[0.7rem] text-ivory">Open noon to midnight · every day</p>
+          <h2 className="type-display mt-2 max-w-2xl text-3xl text-ivory sm:text-4xl">
             Kerala plates, a rooftop table, and a pour from the taproom.
           </h2>
         </div>
@@ -31,8 +31,11 @@ export function SiteFooter() {
       </div>
 
       <div className="club-card mx-auto w-full max-w-[1220px] px-5 py-6 sm:px-7 sm:py-8">
-        <div className="flex flex-col gap-6 border-b-2 border-blue pb-6 sm:flex-row sm:items-center sm:justify-between">
-          <BrandLogo className="w-[12.5rem] sm:w-[14rem]" />
+        <div className="flex flex-col gap-6 border-b border-gold-shadow/50 pb-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <BrandLogo variant="metallic" className="h-36 sm:h-44" />
+            <span className="sr-only">The 90s Club</span>
+          </div>
           <div className="flex gap-2">
             {[
               {
@@ -62,7 +65,7 @@ export function SiteFooter() {
                 aria-label={label}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="club-button inline-flex size-10 items-center justify-center bg-gold text-charcoal"
+                className="club-button inline-flex size-10 items-center justify-center bg-gold text-black"
               >
                 <Icon aria-hidden="true" className="size-4" />
               </a>
@@ -72,12 +75,12 @@ export function SiteFooter() {
 
         <div className="grid gap-10 py-8 md:grid-cols-[0.8fr_1.25fr_1fr]">
           <div>
-            <h2 className="type-display text-2xl text-blue">Explore</h2>
+            <h2 className="type-display text-2xl text-ivory">Explore</h2>
             <ul className="mt-4 grid grid-cols-2 gap-x-5 gap-y-2 text-sm">
               {allNav.map((item) => (
                 <li key={item.href}>
                   <Link
-                    className="type-label text-[0.68rem] text-charcoal hover:text-blue"
+                    className="type-label text-[0.68rem] text-ivory hover:text-gold-highlight"
                     href={item.href}
                   >
                     {item.label}
@@ -88,15 +91,15 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h2 className="type-display text-2xl text-blue">Find us</h2>
-            <address className="mt-4 max-w-md text-sm leading-relaxed not-italic text-charcoal/80">
+            <h2 className="type-display text-2xl text-ivory">Find us</h2>
+            <address className="mt-4 max-w-md text-sm leading-relaxed not-italic text-ivory-muted">
               <span className="block">{address.line1}</span>
               <span className="block">{address.line2}</span>
               <span className="block">{address.line3}</span>
               <span className="block">{address.line4}</span>
             </address>
             <a
-              className="mt-3 inline-block font-semibold text-blue underline decoration-gold decoration-2 underline-offset-4"
+              className="mt-3 inline-block font-semibold text-link underline decoration-gold decoration-2 underline-offset-4"
               href={phone.href}
             >
               {phone.display}
@@ -104,22 +107,22 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h2 className="type-display text-2xl text-blue">Hours</h2>
-            <dl className="mt-4 space-y-2 text-sm">
-              <div className="flex justify-between gap-4 border-b border-blue/20 pb-2">
+            <h2 className="type-display text-2xl text-ivory">Hours</h2>
+            <dl className="mt-4 space-y-2 text-sm text-ivory">
+              <div className="flex justify-between gap-4 border-b border-gold-shadow/40 pb-2">
                 <dt>Monday–Friday</dt>
                 <dd>12 pm–12 am</dd>
               </div>
-              <div className="flex justify-between gap-4 border-b border-blue/20 pb-2">
+              <div className="flex justify-between gap-4 border-b border-gold-shadow/40 pb-2">
                 <dt>Saturday–Sunday</dt>
                 <dd>12 pm–12 am</dd>
               </div>
             </dl>
-            <p className="mt-4 text-sm text-charcoal/70">Parking available at Millennium Plaza.</p>
+            <p className="mt-4 text-sm text-ivory-muted">Parking available at Millennium Plaza.</p>
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 border-t-2 border-blue pt-4 text-[0.67rem] uppercase tracking-[0.12em] text-charcoal/70 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-2 border-t border-gold-shadow/50 pt-4 text-[0.67rem] uppercase tracking-[0.12em] text-ivory-muted sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 The 90s Club · Electronic City</p>
           <p>Established February 2026 · Akhil &amp; Sathish</p>
         </div>

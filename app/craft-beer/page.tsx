@@ -23,12 +23,12 @@ export default function CraftBeerPage() {
         lede="Taproom pours featuring Flying Fox, on the Electronic City rooftop."
       />
 
-      <section className="section-pad bg-cream">
+      <section className="section-pad bg-black">
         <div className="mx-auto grid w-full max-w-[1220px] items-center gap-10 px-5 sm:px-8 lg:grid-cols-2">
           <div className="club-card p-6 sm:p-8">
-            <p className="type-label text-xs text-blue">At the taproom</p>
-            <h2 className="type-display mt-3 text-4xl text-blue sm:text-5xl">Flying Fox on the roof</h2>
-            <p className="mt-4 text-lg leading-relaxed text-charcoal/75">
+            <p className="type-label text-xs text-gold-highlight">At the taproom</p>
+            <h2 className="type-display mt-3 text-4xl text-ivory sm:text-5xl">Flying Fox on the roof</h2>
+            <p className="mt-4 text-lg leading-relaxed text-ivory-muted">
               The 90s Club pours Flying Fox craft beer. The kitchen next to the taps leads with Kerala plates. Ask the team what is on today.
             </p>
           </div>
@@ -62,19 +62,19 @@ export default function CraftBeerPage() {
 
       <section className="border-y-2 border-charcoal bg-gold py-16 sm:py-20">
         <div className="mx-auto w-full max-w-[1220px] px-5 sm:px-8">
-          <p className="type-label text-xs text-blue">From the kitchen</p>
-          <h2 className="type-display mt-3 text-4xl text-charcoal sm:text-5xl lg:text-6xl">Pair and visit</h2>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-charcoal/75">
+          <p className="type-label text-xs text-ink">From the kitchen</p>
+          <h2 className="type-display mt-3 text-4xl text-ink sm:text-5xl lg:text-6xl">Pair and visit</h2>
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/80">
             Pair a pour with{" "}
-            <TextLink href={dishHref("Kerala Style Chicken Biryani")}>Kerala Style Chicken Biryani</TextLink>{" "}
+            <TextLink href={dishHref("Kerala Style Chicken Biryani")} tone="onGold">Kerala Style Chicken Biryani</TextLink>{" "}
             or the seafood starters. Then come up to the roof.
           </p>
           <p className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
-            <TextLink href="/rooftop-pub">Rooftop</TextLink>
-            <TextLink href="/menu">Menu</TextLink>
-            <TextLink href="/kerala-food">Kerala food</TextLink>
+            <TextLink href="/rooftop-pub" tone="onGold">Rooftop</TextLink>
+            <TextLink href="/menu" tone="onGold">Menu</TextLink>
+            <TextLink href="/kerala-food" tone="onGold">Kerala food</TextLink>
           </p>
-          <CtaRow className="mt-6" items={["call", "directions", "whatsapp"]} />
+          <CtaRow className="mt-6" tone="onGold" items={["call", "directions", "whatsapp"]} />
         </div>
       </section>
     </>
