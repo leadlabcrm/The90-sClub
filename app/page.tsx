@@ -167,10 +167,7 @@ export default function HomePage() {
 
       <section className="bg-ivory pb-6 lg:pb-8">
         <div className="lux-container">
-          <Link
-            href="/rooftop-pub"
-            className="group relative flex min-h-[22rem] items-end overflow-hidden rounded-[var(--radius-photo)] bg-black lg:min-h-[28rem]"
-          >
+          <div className="group relative flex min-h-[22rem] items-end overflow-hidden rounded-[var(--radius-photo)] bg-black lg:min-h-[28rem]">
             <Image
               src={photos.interiorNeon.src}
               alt={photos.interiorNeon.alt}
@@ -181,7 +178,9 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/25" />
             <div className="relative z-10 grid w-full gap-6 p-7 text-ivory lg:grid-cols-2 lg:items-end lg:p-12">
               <h2 className="lux-h2 max-w-[12ch]">
-                Experience the <em>rooftop pub</em>
+                <Link href="/rooftop-pub" className="hover:text-gold-highlight">
+                  Experience the <em>rooftop pub</em>
+                </Link>
               </h2>
               <div className="max-w-md lg:justify-self-end">
                 <p className="text-[length:var(--text-body)] leading-[var(--leading-body)] text-ivory/90">
@@ -199,10 +198,12 @@ export default function HomePage() {
                   </TextLink>
                   .
                 </p>
-                <span className="pill-sm pill-outline-light mt-5">Rooftop pub</span>
+                <Link href="/rooftop-pub" className="pill-sm pill-outline-light mt-5">
+                  Rooftop pub
+                </Link>
               </div>
             </div>
-          </Link>
+          </div>
         </div>
       </section>
 

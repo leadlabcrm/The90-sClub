@@ -72,8 +72,8 @@ export default function KeralaFoodPage() {
                   {plate.photo ? (
                     <VenuePhoto photo={plate.photo} aspect="photo" caption={plate.caption} />
                   ) : (
-                    <div className="lux-photo flex aspect-[4/3] items-center justify-center bg-black p-6 text-center">
-                      <p className="font-heading text-2xl leading-tight text-ivory">{plate.name}</p>
+                    <div className="flex aspect-[4/3] items-center justify-center rounded-[var(--radius-photo)] border border-line bg-white p-6 text-center">
+                      <p className="font-heading text-2xl leading-tight text-ink">{plate.name}</p>
                     </div>
                   )}
                   <h3 className="mt-4 text-lg font-semibold">
