@@ -69,7 +69,7 @@ export function SiteFooter() {
             <span className="block">{address.line3}</span>
             <span className="block">{address.line4}</span>
           </address>
-          <a href={phone.href} className="mt-3 inline-block text-gold-highlight hover:text-gold">
+          <a href={phone.href} className="mt-3 inline-block text-gold-highlight tabular-nums hover:text-gold">
             {phone.display}
           </a>
         </div>

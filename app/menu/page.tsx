@@ -5,6 +5,7 @@ import { CtaRow } from "@/components/cta-row";
 import { GapNotice } from "@/components/gap-notice";
 import { PageHero } from "@/components/page-hero";
 import { TextLink } from "@/components/text-link";
+import { TypographicCard } from "@/components/typographic-card";
 import { VenuePhoto } from "@/components/venue-photo";
 import { formatPrice, menuSections, slugify } from "@/lib/menu";
 import { pageMetadata } from "@/lib/metadata";
@@ -14,7 +15,7 @@ import { phone, whatsappMessages } from "@/lib/site";
 
 export const metadata = pageMetadata(seo.menu);
 
-const sectionPhotos = [photos.booth, photos.chilliChicken, photos.biryani, photos.foodSpread];
+const sectionPhotos = [null, photos.chilliChicken, photos.biryani, null] as const;
 
 const keralaDishes = new Set([
   "Kerala Style Chicken Biryani",
@@ -58,9 +59,19 @@ export default function MenuPage() {
               return (
                 <li key={section.id}>
                   <article>
-                    <div className="lux-photo relative aspect-[16/10]">
-                      <Image src={photo.src} alt={photo.alt} fill sizes="(min-width: 640px) 50vw, 100vw" className="object-cover" />
-                    </div>
+                    {photo ? (
+                      <div className="lux-photo relative aspect-[16/10]">
+                        <Image
+                          src={photo.src}
+                          alt={photo.alt}
+                          fill
+                          sizes="(min-width: 640px) 50vw, 100vw"
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <TypographicCard title={section.title} aspect="wide" />
+                    )}
                     <h2 className="lux-h3 mt-4 text-ink">{section.title}</h2>
                     <p className="mt-2 max-w-md text-sm leading-6 text-ink-soft">{section.intro}</p>
                     <Link href={`#${section.id}`} className="pill-sm pill-outline mt-4">
@@ -138,6 +149,7 @@ export default function MenuPage() {
               Flying Fox craft beer and drinks are available. Ask the team for the current list and prices; the site
               does not publish an incomplete card.
             </p>
+            <p>Cocktails at the bar; ask the team for prices.</p>
             <div className="grid gap-4 sm:grid-cols-3">
               {drinkGallery.map((photo) => (
                 <VenuePhoto
@@ -145,10 +157,21 @@ export default function MenuPage() {
                   photo={photo}
                   aspect="tall"
                   sizes="(min-width: 640px) 280px, 100vw"
+                  caption={
+                    photo === photos.redCocktail
+                      ? "A red cocktail at the bar."
+                      : photo === photos.chocolateCocktail
+                        ? "A chocolate cream cocktail."
+                        : "A layered green cocktail at the bar."
+                  }
                 />
               ))}
             </div>
-            <p>The glasses below are cocktails photographed at the bar; no price is implied.</p>
+            <VenuePhoto
+              className="mt-2"
+              photo={photos.neonBar}
+              caption="The bar counter. Ask the team for Flying Fox craft beer."
+            />
             <p>
               <TextLink href="/craft-beer">Flying Fox craft beer</TextLink>
               {" · "}

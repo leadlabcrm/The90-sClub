@@ -47,7 +47,7 @@ export default function OccasionsPage() {
           <ul className="mt-10 grid gap-8 md:grid-cols-3">
             {audiences.map((item, index) => (
               <li key={item.title} className="border-t border-line pt-5">
-                <p className="font-heading text-4xl text-gold-ink">0{index + 1}</p>
+                <p className="font-heading text-4xl text-gold-ink tabular-nums">0{index + 1}</p>
                 <h3 className="lux-h3 mt-4 text-ink">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-ink-soft">{item.copy}</p>
               </li>

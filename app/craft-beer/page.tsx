@@ -36,14 +36,7 @@ export default function CraftBeerPage() {
               today.
             </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <VenuePhoto
-              photo={photos.neonBeer}
-              aspect="photo"
-              caption="Neon beer-bottle wall art inside the taproom."
-            />
-            <VenuePhoto photo={photos.neonBar} aspect="photo" caption="The bar counter with the lit 90s Club logo." />
-          </div>
+          <VenuePhoto photo={photos.neonBar} aspect="photo" caption="The bar counter with the lit 90s Club logo." />
         </div>
       </section>
 

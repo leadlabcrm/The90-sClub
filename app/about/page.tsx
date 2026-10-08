@@ -46,7 +46,11 @@ export default function AboutPage() {
 
       <section className="lux-section bg-ivory">
         <div className="lux-container grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-          <VenuePhoto photo={photos.logoWall} aspect="photo" caption="The backlit 90s Club logo on the interior wall." />
+          <VenuePhoto
+            photo={photos.foodSpread}
+            aspect="photo"
+            caption="Kerala plates from the kitchen: biryani, curry, chilli chicken and bread."
+          />
           <div>
             <p className="eyebrow text-gold-ink">Kitchen + taproom</p>
             <h2 className="lux-h2 mt-3 text-ink">What we serve</h2>
