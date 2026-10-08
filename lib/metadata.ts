@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import { getSiteUrl } from "@/lib/site-url";
+
 export function pageMetadata({
   title,
   description,
@@ -9,14 +11,16 @@ export function pageMetadata({
   description: string;
   path: string;
 }): Metadata {
+  const url = new URL(path, `${getSiteUrl()}/`).toString().replace(/\/$/, "");
+
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: { canonical: url },
     openGraph: {
       title,
       description,
-      url: path,
+      url,
       siteName: "The 90s Club",
       locale: "en_IN",
       type: "website",
