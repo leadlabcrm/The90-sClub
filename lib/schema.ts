@@ -1,6 +1,5 @@
 import type { FaqItem } from "@/lib/faq";
 import { homeFaqs } from "@/lib/faq";
-import { photos } from "@/lib/photos";
 import { geo, hours, links, mapsName, phone, publicName } from "@/lib/site";
 import { getSiteUrl } from "@/lib/site-url";
 
