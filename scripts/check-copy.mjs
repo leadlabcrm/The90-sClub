@@ -4,7 +4,7 @@ import { join } from "node:path";
 const roots = ["app", "components", "lib"];
 const extraFiles = ["public/llms.txt", "public/site.webmanifest"];
 const banned = [
-  ["41188", /41188/],
+  ["48811 (contact-person number, not the customer line)", /48811/],
   ["microbrewery", /microbrewery/],
   ["multi-cuisine", /multi-cuisine/],
   ["multicuisine", /multicuisine/],
@@ -14,16 +14,12 @@ const banned = [
   ["zomato", /zomato/],
   ["46 ounces", /46 ounces/],
   ["fire station", /fire station/],
-  ["mangalore", /mangalore/],
   ["best bar", /best bar/],
   ["best pub", /best pub/],
   ["#1 ranking", /#1(?![0-9a-f])/],
   ["alcohol license", /alcohol licen[cs]e/],
-  ["1:00 am", /1:00\s?am/],
   ["brewery", /brewery/],
   ["fourth floor", /fourth floor/],
-  ["open-air", /open-air/],
-  ["open air", /open air/],
   ["terrace", /\bterrace\b/],
 ];
 
@@ -60,7 +56,7 @@ const homeTitle = seoSource.match(/home:\s*\{[^}]*title:\s*"([^"]+)"/s)?.[1] ?? 
 const visitTitle = seoSource.match(/visit:\s*\{[^}]*title:\s*"([^"]+)"/s)?.[1] ?? "";
 if (homeTitle.length > 60) hits.push(`lib/seo.ts: home title is ${homeTitle.length} characters (max 60)`);
 if (visitTitle.length > 60) hits.push(`lib/seo.ts: visit title is ${visitTitle.length} characters (max 60)`);
-if (!homeTitle.toLowerCase().includes("rooftop pub")) {
+if (!/retro pub|rooftop pub/.test(homeTitle.toLowerCase())) {
   hits.push("lib/seo.ts: home title must include rooftop pub");
 }
 

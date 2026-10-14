@@ -2,9 +2,9 @@
 
 export const seo = {
   home: {
-    title: "Kerala Food & Craft Beer Rooftop Pub | The 90s Club",
+    title: "Retro Pub & Kerala Kitchen in Electronic City | 90s Club",
     description:
-      "Kerala chicken biryani, coconut fish curry and Flying Fox craft beer at a retro 90s pub, Millennium Plaza, Hebbagodi. Open daily from 12 pm.",
+      "Retro taproom and Kerala kitchen at Millennium Plaza, Hebbagodi. Biryani, seafood, craft beer, ₹999 beer bucket combo, BOGO drinks. 4.7 on Google. Open daily 12 PM – 12 AM.",
     path: "/",
   },
   menu: {
@@ -28,13 +28,13 @@ export const seo = {
   visit: {
     title: "Visit The 90s Club | Millennium Plaza, Hebbagodi, E-City",
     description:
-      "Millennium Plaza, 396/48 Hosur Rd, Hebbagodi, Electronic City 560100. Call +91 96321 48811. Parking at the plaza. Open daily from 12 pm.",
+      "Millennium Plaza, 396/48 Hosur Rd, Hebbagodi, Electronic City 560100. Call +91 96321 41188. Parking at the plaza. Open daily from 12 pm.",
     path: "/visit",
   },
   occasions: {
     title: "Team Lunch & Birthdays in Electronic City | The 90s Club",
     description:
-      "Team lunch or birthday near Infosys / E-City Phase 1? About 80 seats, AC, parking, Kerala food and Flying Fox craft beer. Call +91 96321 48811.",
+      "Team lunch or birthday near Infosys / E-City Phase 1? About 80 seats, AC, parking, Kerala food and Flying Fox craft beer. Call +91 96321 41188.",
     path: "/occasions",
   },
   about: {

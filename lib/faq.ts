@@ -8,27 +8,37 @@ export type FaqItem = {
 /** Visible homepage FAQ. FAQPage JSON-LD must use these strings unchanged. */
 export const homeFaqs: FaqItem[] = [
   {
-    question: "Is Kerala food served at The 90s Club?",
+    question: "What is the average cost for two at The 90s Club?",
     answer:
-      "Yes. The menu includes Kerala Style Chicken Biryani, Coconut Fish Curry, Naadan Chicken Curry, Prawns Ghee Roast, and Prawns Pepper Fry.",
+      "About ₹400 to ₹1,000 for two, depending on what you order. Starters run ₹229 to ₹359 and Kerala mains ₹249 to ₹389. The ₹999 Bucket Beer Combo adds a beer bucket with one veg and one non-veg starter.",
   },
   {
-    question: "Is The 90s Club a rooftop pub in Electronic City?",
+    question: "Do you serve Kerala food and seafood?",
     answer:
-      "Yes. It is a rooftop pub at Millennium Plaza, Hebbagodi, with a full AC dining room.",
-  },
-  {
-    question: "Which craft beer is available?",
-    answer:
-      "The taproom serves Flying Fox craft beer. The current tap list and prices are confirmed directly by the team.",
+      "Yes. Kerala Style Chicken Biryani, Coconut Fish Curry, Naadan Chicken Curry, Chicken Stew, Prawns Ghee Roast, Prawns Pepper Fry and Chilli Fish are all on the card, alongside North Indian and Chinese plates.",
   },
   {
     question: "Is parking available?",
-    answer: "Yes. Parking is available at Millennium Plaza.",
+    answer: "Yes. Parking is available on site at Millennium Plaza.",
   },
   {
-    question: "Can I plan a team lunch or birthday?",
-    answer: `Yes. The venue has about 80 seats. Call ${phone.display} with your date, time, and group size.`,
+    question: "Do you have rooftop and AC seating?",
+    answer:
+      "Yes. The 90s Club is a rooftop pub with about 80 seats and a fully air-conditioned dining room.",
+  },
+  {
+    question: "How late are you open?",
+    answer:
+      "Open daily from 12 PM to 12 AM. On event nights, such as birthdays and special celebrations, the taproom stays open till 1 AM.",
+  },
+  {
+    question: "Can I book a birthday party or team lunch?",
+    answer: `Yes. Send your date, headcount and time through the enquiry form or WhatsApp ${phone.display}, and the team confirms on WhatsApp.`,
+  },
+  {
+    question: "Which metro station is closest?",
+    answer:
+      "Biocon Hebbagodi on the Namma Metro Yellow Line is the nearest station. Millennium Plaza is on Hosur Road in Hebbagodi, a short auto ride away.",
   },
 ];
 
@@ -57,7 +67,7 @@ export const keralaFaqs: FaqItem[] = [
 export const rooftopFaqs: FaqItem[] = [
   {
     question: "Is The 90s Club open late?",
-    answer: "Open daily from 12 pm to 12 am.",
+    answer: "Open daily from 12 PM to 12 AM, and till 1 AM on event nights.",
   },
   {
     question: "Is there live music or karaoke?",
@@ -105,7 +115,7 @@ export const visitFaqs: FaqItem[] = [
   },
   {
     question: "What are the hours?",
-    answer: "Open daily from 12 pm to 12 am.",
+    answer: "Open daily from 12 PM to 12 AM. Event nights run till 1 AM.",
   },
   {
     question: "Is there parking?",
@@ -113,6 +123,6 @@ export const visitFaqs: FaqItem[] = [
   },
   {
     question: "Who do I call?",
-    answer: `${phone.display} for calls and WhatsApp. Akhil takes calls after 12 pm.`,
+    answer: `${phone.display} for calls and WhatsApp, any time the taproom is open.`,
   },
 ];

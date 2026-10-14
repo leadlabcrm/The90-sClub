@@ -4,7 +4,7 @@ Site for **The 90s Club** (Maps name) / **The 90s Club Taproom and Kitchen**, Mi
 
 Visual system follows the Luxdin hospitality layout: Cormorant Garamond headings, Inter body, ivory pages, Club Gold pills, and full-bleed venue photography. Next.js App Router, not a Framer file.
 
-English only. Phone locked to **+91 96321 48811**.
+English only. Customer line is **+91 96321 41188** (calls and WhatsApp), from the client brief and wireframe. The 48811 number is the contact person, not a customer line, and the copy check blocks it.
 
 ## Run locally
 
@@ -28,7 +28,7 @@ npm start
 
 | URL | Role |
 |---|---|
-| `/` | Hero, menu categories, rooftop pub, signatures, visit, FAQ, reviews |
+| `/` | The 18-section wireframe: top bar, header, hero, highlights, about, offers, signatures, menu preview, craft beer, parties + WhatsApp enquiry form, gallery, Google reviews, founders, coming soon + WhatsApp opt-in, location, FAQ, footer, sticky action bar |
 | `/menu` | Full food card with prices; drinks and offers by enquiry |
 | `/kerala-food` | Kerala kitchen and signatures |
 | `/rooftop-pub` | Rooftop pub, AC dining, Flying Fox, busy nights, parking |
@@ -55,8 +55,8 @@ App icons: `app/favicon.ico`, `app/icon.svg`, `app/apple-icon.png`, plus `public
 
 Keep Call, Directions, WhatsApp, and Instagram as the only actions. Do not add Swiggy or Zomato.
 
-Do not write microbrewery, brewery, nightclub, multi-cuisine headlines, competitor names, Mangalore dishes, award claims, or “best bar”. Live music, karaoke, and dancing stay as facts on the rooftop and visit pages.
+Do not write microbrewery, brewery, nightclub, multi-cuisine headlines, competitor names, award claims, or “best bar”. Live music, karaoke, and dancing stay as facts on the rooftop and visit pages.
 
-Hours on the site are 12 pm–12 am every day.
+Hours on the site are 12 PM–12 AM every day, till 1 AM on event nights. Offers (₹999 Bucket Beer Combo, BOGO on selected drinks) and the Mangalorean specials preview come from the client brief and the wireframe. Forms on the home page open WhatsApp with a prefilled message; nothing is stored server-side.
 
 `npm run check-copy` scans `app`, `components`, and `lib` for the hard never-say list.

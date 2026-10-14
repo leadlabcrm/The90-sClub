@@ -7,7 +7,8 @@ import { useEffect, useState } from "react";
 
 import { BrandLogo } from "@/components/brand-logo";
 import { PillLink } from "@/components/pill";
-import { hours, phone, primaryNav } from "@/lib/site";
+import { TopBar } from "@/components/top-bar";
+import { hours, phone, primaryNav, whatsappHref, whatsappMessages } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -40,6 +41,7 @@ export function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
+      {!light ? <TopBar /> : null}
       <div
         className={cn(
           "transition-colors duration-200 motion-reduce:transition-none",
@@ -53,7 +55,7 @@ export function SiteHeader() {
 
           <nav aria-label="Primary" className="ml-1 hidden items-center gap-x-6 min-[1180px]:flex">
             {primaryNav.map((item) => {
-              const active = pathname === item.href;
+              const active = pathname === item.href.replace(/#.*$/, "") && !item.href.includes("#");
               return (
                 <Link
                   key={item.href}
@@ -87,8 +89,8 @@ export function SiteHeader() {
               <Phone aria-hidden="true" className="size-3.5" />
               {phone.display}
             </a>
-            <PillLink href={phone.href} tone={light ? "navOnLight" : "nav"}>
-              Call to book
+            <PillLink href={whatsappHref(whatsappMessages.book)} tone={light ? "navOnLight" : "nav"} external>
+              Book a Table
             </PillLink>
           </div>
 
@@ -115,7 +117,7 @@ export function SiteHeader() {
         >
           <nav aria-label="Mobile" className="lux-container flex flex-col pt-4 pb-10">
             {primaryNav.map((item) => {
-              const active = pathname === item.href;
+              const active = pathname === item.href.replace(/#.*$/, "") && !item.href.includes("#");
               return (
                 <Link
                   key={item.href}
@@ -134,8 +136,8 @@ export function SiteHeader() {
               <Phone aria-hidden="true" className="size-4" />
               {phone.display}
             </a>
-            <PillLink href={phone.href} tone="gold" className="mt-5 w-fit">
-              Call to book
+            <PillLink href={whatsappHref(whatsappMessages.book)} tone="gold" className="mt-5 w-fit" external>
+              Book a Table
             </PillLink>
             <p className="mt-8 text-sm leading-6 text-ink-soft">
               Open daily · {hours.summary}

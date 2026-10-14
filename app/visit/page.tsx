@@ -85,7 +85,7 @@ export default function VisitPage() {
               </a>
             </p>
             <p className="mt-3 text-sm leading-6 text-ink-soft">
-              WhatsApp uses the same number. Akhil takes calls after 12 pm.
+              WhatsApp uses the same number, any time the taproom is open.
             </p>
             <h3 className="lux-h3 mt-8 text-ink">Parking</h3>
             <p className="mt-2 text-sm leading-6 text-ink-soft">
