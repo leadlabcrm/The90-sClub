@@ -1,55 +1,46 @@
-import { ArrowRight, Bell } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-import { TypographicCard } from "@/components/typographic-card";
 import { WhatsappSubscribe } from "@/components/whatsapp-subscribe";
-import { WhatsAppIcon } from "@/components/social-icons";
 import { whatsappHref } from "@/lib/site";
 
-/** 14 Coming soon & updates. */
+/** 14 Coming soon & updates, on the template's "Stay updated" band. */
 export function ComingSoonSection() {
   return (
-    <section className="bg-ivory pb-16 lg:pb-24">
-      <div className="lux-container grid gap-6 lg:grid-cols-2">
-        <div className="grid gap-6 rounded-[var(--radius-card)] border border-line bg-white p-6 sm:grid-cols-[180px_minmax(0,1fr)] sm:p-8">
-          <TypographicCard title="Mangalorean" kicker="Preview" tone="dark" aspect="photo" className="sm:aspect-square" />
-          <div>
-            <span className="rounded-full border border-gold bg-gold/15 px-3 py-1 text-[0.65rem] tracking-[0.14em] text-gold-ink uppercase">
-              Coming soon
-            </span>
-            <h2 className="mt-4 font-heading text-[1.9rem] leading-tight font-medium text-ink">Mangalorean Specials</h2>
-            <p className="mt-3 text-sm leading-6 text-ink-soft">
-              Coastal plates from Mangalore are joining the Kerala card in the next few months: ghee roasts, neer dosa
-              and coconut-forward curries, cooked the way the coast does them.
-            </p>
-            <a
-              href={whatsappHref("Hi The 90s Club, let me know when the Mangalorean specials launch.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-ink hover:text-gold-ink"
-            >
-              <Bell aria-hidden="true" className="size-4" />
-              Get notified
-              <ArrowRight aria-hidden="true" className="size-4" />
-              <span className="sr-only"> (opens WhatsApp in a new tab)</span>
-            </a>
-          </div>
+    <section className="bg-charcoal-2 text-ivory">
+      <div className="lux-container grid gap-12 py-16 lg:grid-cols-2 lg:gap-20 lg:py-24">
+        <div>
+          <p className="eyebrow text-gold-highlight">Coming soon</p>
+          <h2 className="lux-h2 mt-4">
+            <em className="text-gold">Mangalorean</em> specials
+          </h2>
+          <p className="prose-body mt-6 text-ivory/80">
+            Coastal plates from Mangalore are joining the Kerala card in the next few months: ghee roasts, neer dosa and
+            coconut-forward curries, cooked the way the coast does them.
+          </p>
+          <a
+            href={whatsappHref("Hi The 90s Club, let me know when the Mangalorean specials launch.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="lux-link mt-8 text-ivory hover:text-gold-highlight"
+          >
+            Get notified
+            <ArrowRight aria-hidden="true" className="size-4" />
+            <span className="sr-only"> (opens WhatsApp in a new tab)</span>
+          </a>
         </div>
-        <div className="rounded-[var(--radius-card)] border border-line bg-white p-6 sm:p-8">
-          <div className="flex items-start gap-4">
-            <span className="flex size-12 shrink-0 items-center justify-center rounded-full border border-gold/50 text-gold-ink">
-              <WhatsAppIcon className="size-5" />
-            </span>
-            <div>
-              <h2 className="font-heading text-[1.9rem] leading-tight font-medium text-ink">
-                Offers & event nights on WhatsApp
-              </h2>
-              <p className="mt-2 text-sm leading-6 text-ink-soft">
-                Weekly deals and new menu alerts, straight to your phone.
-              </p>
-            </div>
+        <div className="lg:border-l lg:border-ivory/10 lg:pl-20">
+          <h2 className="font-heading text-[clamp(1.75rem,1.3rem+1.6vw,2.6rem)] leading-[1.15] font-medium">
+            Stay <em className="text-gold">updated</em>
+            <br />
+            with offers & event nights
+          </h2>
+          <p className="mt-4 text-sm leading-6 text-ivory/70">
+            Weekly deals and new menu alerts, straight to your WhatsApp.
+          </p>
+          <div className="mt-7">
+            <WhatsappSubscribe />
           </div>
-          <WhatsappSubscribe />
-          <p className="mt-3 text-xs text-ink-soft">Opens WhatsApp with an opt-in message. Reply STOP any time.</p>
+          <p className="mt-3 text-xs text-ivory/50">Opens WhatsApp with an opt-in message. Reply STOP any time.</p>
         </div>
       </div>
     </section>

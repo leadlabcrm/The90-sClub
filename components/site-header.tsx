@@ -50,7 +50,7 @@ export function SiteHeader() {
       >
         <div className="lux-container flex h-[4.25rem] items-center gap-5 lg:h-[4.75rem]">
           <Link href="/" className="shrink-0">
-            <BrandLogo variant="metallic" alt="The 90s Club logo" className="h-10 lg:h-14" />
+            <BrandLogo variant="metallic" alt="The 90s Club logo" className="h-10 lg:h-12" />
           </Link>
 
           <nav aria-label="Primary" className="ml-1 hidden items-center gap-x-6 min-[1180px]:flex">
@@ -62,7 +62,7 @@ export function SiteHeader() {
                   href={item.href}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "nav-link",
+                    "nav-link text-[0.95rem]",
                     light
                       ? active
                         ? "text-gold-ink"
@@ -78,20 +78,29 @@ export function SiteHeader() {
             })}
           </nav>
 
-          <div className="ml-auto hidden items-center gap-5 min-[1180px]:flex">
+          <div className="ml-auto hidden items-center min-[1180px]:flex">
             <a
               href={phone.href}
               className={cn(
-                "inline-flex items-center gap-2 text-sm tabular-nums transition-colors",
+                "inline-flex items-center gap-2 pr-7 text-[0.95rem] tabular-nums transition-colors",
                 light ? "text-ink hover:text-gold-ink" : "text-ivory hover:text-gold-highlight",
               )}
             >
-              <Phone aria-hidden="true" className="size-3.5" />
+              <Phone aria-hidden="true" className="size-4 text-gold" />
               {phone.display}
             </a>
-            <PillLink href={whatsappHref(whatsappMessages.book)} tone={light ? "navOnLight" : "nav"} external>
+            <a
+              href={whatsappHref(whatsappMessages.book)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "border-l pl-7 text-[0.95rem] font-semibold transition-colors",
+                light ? "border-gold/50 text-ink hover:text-gold-ink" : "border-gold/60 text-ivory hover:text-gold-highlight",
+              )}
+            >
               Book a Table
-            </PillLink>
+              <span className="sr-only"> (opens WhatsApp in a new tab)</span>
+            </a>
           </div>
 
           <button

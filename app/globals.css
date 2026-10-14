@@ -22,6 +22,8 @@
   --color-gold-ink: #8e6519;
   --color-charcoal: #16130f;
   --color-bar-blue: #273a81;
+  --color-forest: #16302a;
+  --color-charcoal-2: #1f1f1f;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -94,12 +96,12 @@
   --sidebar-border: #e3d7ca;
   --sidebar-ring: #8e6519;
   --text-body: clamp(1rem, 0.93rem + 0.28vw, 1.125rem);
-  --text-h1: clamp(2.25rem, 1.35rem + 3.7vw, 4rem);
-  --text-h2: clamp(1.75rem, 1.25rem + 2.05vw, 2.75rem);
-  --text-h3: clamp(1.25rem, 1.12rem + 0.55vw, 1.75rem);
+  --text-h1: clamp(2.6rem, 1.4rem + 5vw, 5.75rem);
+  --text-h2: clamp(2rem, 1.3rem + 2.6vw, 4rem);
+  --text-h3: clamp(1.35rem, 1.15rem + 0.7vw, 1.9rem);
   --leading-body: 1.65;
   --leading-heading: 1.15;
-  --section-y: clamp(3.5rem, 2.5rem + 4vw, 6rem);
+  --section-y: clamp(4rem, 2.5rem + 5vw, 7.5rem);
   --shadow-card: 0 12px 40px rgba(10, 9, 7, 0.08);
   --radius-card: 0.75rem;
   --radius-photo: 0.75rem;
@@ -166,9 +168,9 @@
   }
   .eyebrow {
     font-family: var(--font-sans);
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     font-weight: 500;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.3em;
     line-height: 1.4;
     text-transform: uppercase;
   }
@@ -183,15 +185,51 @@
     font-family: var(--font-heading);
     font-size: var(--text-h1);
     font-weight: 500;
-    letter-spacing: -0.02em;
-    line-height: 1.12;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
   }
   .lux-h2 {
     font-family: var(--font-heading);
     font-size: var(--text-h2);
     font-weight: 500;
-    letter-spacing: -0.018em;
-    line-height: 1.15;
+    letter-spacing: -0.012em;
+    line-height: 1.08;
+  }
+  .lux-rule {
+    width: 2rem;
+    height: 1px;
+    background: #d0a232;
+  }
+  .lux-input {
+    width: 100%;
+    background: #fbf8f4;
+    border: 1px solid #e3d7ca;
+    padding: 0.85rem 1.1rem;
+    font-size: 0.95rem;
+    color: #321d1d;
+    outline: none;
+    transition: border-color 180ms ease;
+  }
+  .lux-input::placeholder {
+    color: rgba(110, 89, 89, 0.7);
+  }
+  .lux-input:focus {
+    border-color: #8e6519;
+  }
+  .lux-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #321d1d;
+    border-bottom: 1px solid #d0a232;
+    padding-bottom: 0.2rem;
+    transition: color 180ms ease;
+  }
+  .lux-link:hover {
+    color: #8e6519;
   }
   .lux-h3 {
     font-family: var(--font-heading);
@@ -293,12 +331,12 @@
     justify-content: center;
     gap: 0.5rem;
     border-radius: 100px;
-    font-family: var(--font-sans);
-    font-size: 0.9375rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    line-height: 1.2;
-    padding: 0.72rem 1.55rem;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.005em;
+    line-height: 1.1;
+    padding: 0.85rem 2rem;
     font-variant-numeric: lining-nums tabular-nums;
     font-feature-settings: "lnum" 1, "tnum" 1;
     transition:
@@ -328,6 +366,7 @@
   .pill-solid {
     background: #fbf8f4;
     color: #321d1d;
+    border: 1px solid #fbf8f4;
   }
   .pill-solid:hover {
     background: #e9c65a;
@@ -335,6 +374,7 @@
   .pill-gold {
     background: #d0a232;
     color: #0a0907;
+    border: 1px solid #d0a232;
   }
   .pill-gold:hover {
     background: #e9c65a;
@@ -343,6 +383,9 @@
     border: 1px solid #321d1d;
     background: transparent;
     color: #321d1d;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 500;
   }
   .pill-outline:hover {
     border-color: #d0a232;
@@ -353,6 +396,9 @@
     border: 1px solid rgba(251, 248, 244, 0.85);
     background: transparent;
     color: #fbf8f4;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 500;
   }
   .pill-outline-light:hover {
     border-color: #e9c65a;
@@ -366,7 +412,7 @@
     padding-inline: 3.125rem;
   }
   body {
-    padding-bottom: 3.5rem;
+    padding-bottom: 0;
   }
 }
 

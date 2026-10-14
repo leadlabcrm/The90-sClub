@@ -1,6 +1,5 @@
 "use client";
 
-import { Send } from "lucide-react";
 import { useState, type FormEvent } from "react";
 
 import { phone, whatsappHref } from "@/lib/site";
@@ -28,34 +27,33 @@ export function PartyEnquiryForm() {
     window.open(whatsappHref(message), "_blank", "noopener,noreferrer");
   }
 
-  const field =
-    "mt-1.5 w-full rounded-[0.6rem] border border-line bg-ivory px-3.5 py-2.5 text-[0.95rem] text-ink outline-none placeholder:text-ink-soft/70 focus:border-gold-ink";
+  const label = "block text-[0.7rem] tracking-[0.18em] text-ink-soft uppercase";
 
   return (
-    <form onSubmit={submit} className="lux-card bg-white p-6 sm:p-8">
-      <h3 className="font-heading text-[1.75rem] leading-tight font-medium text-ink">Plan your party</h3>
-      <p className="mt-1.5 text-sm text-ink-soft">Tell us your plan and we will confirm on WhatsApp.</p>
+    <form onSubmit={submit} className="lux-card bg-white px-7 py-9 sm:px-10 sm:py-11">
+      <p className="eyebrow text-gold-ink">Plan your party</p>
+      <h3 className="lux-h3 mt-3 text-ink">Tell us your plan, we confirm on WhatsApp</h3>
 
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        <label className="text-sm font-medium text-ink">
-          Full name
-          <input className={field} name="name" autoComplete="name" required value={name} onChange={(e) => setName(e.target.value)} />
+      <div className="mt-8 grid gap-5 sm:grid-cols-2">
+        <label>
+          <span className={label}>Full name</span>
+          <input className="lux-input mt-2" name="name" autoComplete="name" required value={name} onChange={(e) => setName(e.target.value)} />
         </label>
-        <label className="text-sm font-medium text-ink">
-          Phone / WhatsApp
-          <input className={field} name="phone" type="tel" autoComplete="tel" required value={contact} onChange={(e) => setContact(e.target.value)} />
+        <label>
+          <span className={label}>Phone / WhatsApp</span>
+          <input className="lux-input mt-2" name="phone" type="tel" autoComplete="tel" required value={contact} onChange={(e) => setContact(e.target.value)} />
         </label>
-        <label className="text-sm font-medium text-ink">
-          Date
-          <input className={field} name="date" type="date" required value={date} onChange={(e) => setDate(e.target.value)} />
+        <label>
+          <span className={label}>Date</span>
+          <input className="lux-input mt-2" name="date" type="date" required value={date} onChange={(e) => setDate(e.target.value)} />
         </label>
-        <label className="text-sm font-medium text-ink">
-          No. of guests
-          <input className={field} name="guests" type="number" min={1} max={80} inputMode="numeric" required value={guests} onChange={(e) => setGuests(e.target.value)} />
+        <label>
+          <span className={label}>No. of guests</span>
+          <input className="lux-input mt-2" name="guests" type="number" min={1} max={80} inputMode="numeric" required value={guests} onChange={(e) => setGuests(e.target.value)} />
         </label>
-        <label className="text-sm font-medium text-ink sm:col-span-2">
-          Occasion
-          <select className={field} name="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value as (typeof occasions)[number])}>
+        <label className="sm:col-span-2">
+          <span className={label}>Occasion</span>
+          <select className="lux-input mt-2" name="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value as (typeof occasions)[number])}>
             {occasions.map((item) => (
               <option key={item} value={item}>
                 {item}
@@ -65,13 +63,12 @@ export function PartyEnquiryForm() {
         </label>
       </div>
 
-      <button type="submit" className="pill pill-gold mt-6 w-full">
-        <Send aria-hidden="true" className="size-4" />
-        Send enquiry on WhatsApp
+      <button type="submit" className="pill pill-gold mt-8 w-full">
+        Send enquiry
       </button>
-      <p className="mt-4 text-center text-sm text-ink-soft">
+      <p className="mt-5 text-center text-sm text-ink-soft">
         or call{" "}
-        <a href={phone.href} className="text-ink underline decoration-line underline-offset-4 hover:text-gold-ink tabular-nums">
+        <a href={phone.href} className="text-ink underline decoration-gold underline-offset-4 hover:text-gold-ink tabular-nums">
           {phone.display}
         </a>
       </p>

@@ -1,60 +1,40 @@
-import { Beer, Briefcase, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-import { PillLink } from "@/components/pill";
 import { offers } from "@/lib/offers";
 import { whatsappHref, whatsappMessages } from "@/lib/site";
 
-const icons = {
-  "bucket-beer-combo": Beer,
-  "bogo-drinks": Sparkles,
-  "weekday-team-lunch": Briefcase,
-} as const;
-
-/** 06 Offers & deals. Each claim opens WhatsApp with the offer named. */
+/** 06 Offers & deals. Hairline cards, serif numerals, text-link claims. */
 export function OffersSection() {
   return (
-    <section id="offers" className="lux-section scroll-mt-24 bg-black text-ivory">
+    <section id="offers" className="lux-section scroll-mt-24 bg-ivory">
       <div className="lux-container">
-        <p className="eyebrow text-center text-gold-highlight">This week at The 90s Club</p>
-        <h2 className="lux-h2 mt-3 text-center">
+        <p className="eyebrow text-center text-gold-ink">This week at The 90s Club</p>
+        <h2 className="lux-h2 mt-4 text-center text-ink">
           Offers & <em>happy deals</em>
         </h2>
-        <ul className="mt-10 grid gap-5 md:grid-cols-3">
-          {offers.map((offer) => {
-            const Icon = icons[offer.id as keyof typeof icons] ?? Sparkles;
-            return (
-              <li
-                key={offer.id}
-                className="flex flex-col rounded-[var(--radius-card)] border border-gold/30 bg-charcoal p-7"
+        <ul className="mt-14 grid gap-px overflow-hidden rounded-[var(--radius-card)] border border-line bg-line md:grid-cols-3">
+          {offers.map((offer) => (
+            <li key={offer.id} className="flex flex-col bg-ivory px-8 py-10 lg:px-10 lg:py-12">
+              {offer.note ? <p className="eyebrow text-gold-ink">{offer.note}</p> : null}
+              <p className="mt-6 font-heading text-[clamp(3rem,2rem+3vw,4.5rem)] leading-none font-medium text-ink tabular-nums">
+                {offer.headline}
+              </p>
+              <h3 className="lux-h3 mt-4 text-ink">{offer.title}</h3>
+              <p className="prose-body mt-3 flex-1 text-ink-soft">{offer.copy}</p>
+              <a
+                href={whatsappHref(whatsappMessages.offer(offer.title))}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="lux-link mt-8 w-fit"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <span className="flex size-12 items-center justify-center rounded-full border border-gold/50 text-gold">
-                    <Icon aria-hidden="true" className="size-5" strokeWidth={1.6} />
-                  </span>
-                  {offer.note ? (
-                    <span className="rounded-full border border-ivory/25 px-3 py-1 text-[0.65rem] tracking-[0.14em] text-ivory/80 uppercase">
-                      {offer.note}
-                    </span>
-                  ) : null}
-                </div>
-                <p className="mt-6 font-heading text-[2.5rem] leading-none font-semibold text-gold-highlight tabular-nums">
-                  {offer.headline}
-                </p>
-                <h3 className="mt-3 text-lg font-semibold">{offer.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-ivory/80">{offer.copy}</p>
-                <PillLink
-                  href={whatsappHref(whatsappMessages.offer(offer.title))}
-                  tone="outlineLight"
-                  external
-                  className="mt-6 w-fit"
-                >
-                  Claim offer
-                </PillLink>
-              </li>
-            );
-          })}
+                Claim offer
+                <ArrowRight aria-hidden="true" className="size-4" />
+                <span className="sr-only"> (opens WhatsApp in a new tab)</span>
+              </a>
+            </li>
+          ))}
         </ul>
-        <p className="mt-6 text-center text-xs text-ivory/60">
+        <p className="mt-6 text-center text-xs tracking-wide text-ink-soft">
           Offers change week to week and are confirmed by the team on the day. Please drink responsibly.
         </p>
       </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import type { FaqItem } from "@/lib/faq";
@@ -29,21 +29,22 @@ export function FaqList({
         {items.map((item, index) => {
           const expanded = open === index;
           return (
-            <div key={item.question} className="border-b border-line">
+            <div key={item.question} className="border-b border-ink/70">
               <button
                 type="button"
-                className="flex w-full items-center justify-between gap-6 py-5 text-left"
+                className="flex w-full items-center justify-between gap-6 py-6 text-left"
                 aria-expanded={expanded}
                 onClick={() => setOpen(expanded ? -1 : index)}
               >
-                <span className="font-heading text-[clamp(1.125rem,1rem+0.55vw,1.35rem)] leading-snug font-medium text-ink">
+                <span className="font-heading text-[clamp(1.25rem,1.05rem+0.8vw,1.75rem)] leading-snug font-medium text-ink">
                   {item.question}
                 </span>
-                <ChevronDown
+                <ArrowRight
                   aria-hidden="true"
+                  strokeWidth={1.25}
                   className={cn(
-                    "size-5 shrink-0 text-ink transition-transform duration-300 motion-reduce:transition-none",
-                    expanded && "rotate-180",
+                    "size-6 shrink-0 text-gold transition-transform duration-300 motion-reduce:transition-none",
+                    expanded && "rotate-90",
                   )}
                 />
               </button>

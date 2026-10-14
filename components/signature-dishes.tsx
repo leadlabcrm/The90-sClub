@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,24 +13,16 @@ const signatures: { name: string; tag: string; photo?: Photo }[] = [
   { name: "Chicken Ghee Roast", tag: "Chef's pick" },
 ];
 
-/** 07 Signature dishes. Dishes without a photo yet get a typographic card. */
+/** 07 Signature dishes, in the Popular Delights layout. Dishes without a photo get a typographic card. */
 export function SignatureDishes() {
   return (
     <section className="lux-section bg-ivory">
       <div className="lux-container">
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="eyebrow text-gold-ink">Must try</p>
-            <h2 className="lux-h2 mt-3 text-ink">
-              Our <em>signature</em> dishes
-            </h2>
-          </div>
-          <Link href="/menu" className="inline-flex items-center gap-2 text-sm font-medium text-ink hover:text-gold-ink">
-            View full menu
-            <ArrowRight aria-hidden="true" className="size-4" />
-          </Link>
-        </div>
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+        <p className="eyebrow text-center text-gold-ink">Must try</p>
+        <h2 className="lux-h2 mt-4 text-center text-ink">
+          Our <em>signature</em> dishes
+        </h2>
+        <ul className="mt-14 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-7 sm:gap-y-10 lg:grid-cols-5">
           {signatures.map((item) => {
             const dish = findDish(item.name);
             return (
@@ -45,26 +36,31 @@ export function SignatureDishes() {
                           alt={item.photo.alt}
                           fill
                           sizes="(min-width: 1024px) 250px, 50vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                          className="object-cover transition-transform duration-700 group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                         />
                       </div>
                     ) : (
-                      <TypographicCard title={item.name} kicker="Kerala kitchen" tone="dark" className="aspect-[4/5]" />
+                      <TypographicCard title={item.name} kicker="Kerala kitchen" tone="light" className="aspect-[4/5]" />
                     )}
-                    <span className="absolute top-3 left-3 rounded-full bg-ivory px-3 py-1 text-[0.65rem] tracking-[0.14em] text-ink uppercase">
+                    <span className="absolute top-3 right-3 bg-ivory px-2.5 py-1 text-[0.6rem] tracking-[0.18em] text-ink uppercase shadow-[0_1px_0_rgba(10,9,7,0.06)] sm:top-4 sm:right-4 sm:px-3 sm:py-1.5 sm:text-[0.65rem]">
                       {item.tag}
                     </span>
                   </div>
-                  <p className="mt-3 text-[0.65rem] tracking-[0.14em] text-ink-soft uppercase">Non-veg</p>
-                  <div className="mt-1 grid grid-cols-[1fr_auto] items-baseline gap-3">
-                    <span className="font-medium text-ink">{dish.name}</span>
-                    <span className="text-gold-ink tabular-nums">{formatPrice(dish.price)}</span>
+                  <div className="mt-4 flex items-baseline justify-between gap-3">
+                    <span className="font-heading text-[1.15rem] leading-tight text-ink sm:text-[1.35rem]">{dish.name}</span>
+                    <span className="text-sm text-gold-ink tabular-nums">{formatPrice(dish.price)}</span>
                   </div>
+                  <p className="mt-1 text-[0.65rem] tracking-[0.18em] text-ink-soft uppercase">Non-veg</p>
                 </Link>
               </li>
             );
           })}
         </ul>
+        <div className="mt-12 flex justify-center">
+          <Link href="/menu" className="pill pill-outline">
+            View full menu
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -15,7 +15,7 @@ export function WhatsappSubscribe() {
   }
 
   return (
-    <form onSubmit={submit} className="mt-6 flex flex-col gap-3 sm:flex-row">
+    <form onSubmit={submit} className="flex flex-col gap-3 sm:flex-row">
       <label className="sr-only" htmlFor="subscribe-number">
         Your WhatsApp number
       </label>
@@ -28,9 +28,9 @@ export function WhatsappSubscribe() {
         placeholder="Your WhatsApp number"
         value={number}
         onChange={(e) => setNumber(e.target.value)}
-        className="min-w-0 flex-1 rounded-full border border-line bg-ivory px-5 py-3 text-[0.95rem] text-ink outline-none placeholder:text-ink-soft/70 focus:border-gold-ink"
+        className="lux-input min-w-0 flex-1 border-ivory/10 bg-ivory py-4"
       />
-      <button type="submit" className="pill pill-gold">
+      <button type="submit" className="pill bg-gold text-black hover:bg-gold-highlight sm:rounded-none">
         Subscribe
       </button>
     </form>

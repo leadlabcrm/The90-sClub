@@ -26,7 +26,7 @@ export function TypographicCard({
         aspects[aspect],
         aspect !== "oval" && "rounded-[var(--radius-photo)]",
         tone === "light"
-          ? "border border-line bg-white text-ink"
+          ? "border border-line bg-[linear-gradient(160deg,#ffffff_0%,#f4e8cc_100%)] text-ink"
           : "border border-gold/25 bg-black text-ivory",
         className,
       )}
