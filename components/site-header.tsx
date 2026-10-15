@@ -82,24 +82,12 @@ export function SiteHeader() {
             <a
               href={phone.href}
               className={cn(
-                "inline-flex items-center gap-2 pr-7 text-[0.95rem] tabular-nums transition-colors",
+                "inline-flex items-center gap-2 text-[0.95rem] font-medium tabular-nums transition-colors",
                 light ? "text-ink hover:text-gold-ink" : "text-ivory hover:text-gold-highlight",
               )}
             >
               <Phone aria-hidden="true" className="size-4 text-gold" />
               {phone.display}
-            </a>
-            <a
-              href={whatsappHref(whatsappMessages.book)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                "border-l pl-7 text-[0.95rem] font-semibold transition-colors",
-                light ? "border-gold/50 text-ink hover:text-gold-ink" : "border-gold/60 text-ivory hover:text-gold-highlight",
-              )}
-            >
-              Book a Table
-              <span className="sr-only"> (opens WhatsApp in a new tab)</span>
             </a>
           </div>
 

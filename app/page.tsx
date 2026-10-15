@@ -69,8 +69,7 @@ export default function HomePage() {
             <br className="hidden sm:block" /> in <em>Electronic City</em>
           </h1>
           <p className="prose-body mx-auto mt-6 max-w-[46ch] text-ivory/90">
-            Kerala biryani and seafood, Flying Fox craft beer and 90s music at Millennium Plaza, Hebbagodi. Open daily
-            noon to midnight.
+            Kerala biryani and seafood, Flying Fox craft beer, and the music you grew up on.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
             <PillLink href={whatsappHref(whatsappMessages.book)} tone="solid" external>
@@ -78,9 +77,6 @@ export default function HomePage() {
             </PillLink>
             <PillLink href="/menu" tone="outlineLight">
               View Menu
-            </PillLink>
-            <PillLink href={whatsappHref(whatsappMessages.visit)} tone="outlineLight" external>
-              WhatsApp
             </PillLink>
           </div>
           <p className="mt-8 inline-flex items-center gap-2.5 text-sm text-ivory/90">
