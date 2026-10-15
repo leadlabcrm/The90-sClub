@@ -35,9 +35,6 @@ export function OffersSection({ eyebrow = "04 — Offers" }: { eyebrow?: string 
             </li>
           ))}
         </ul>
-        <p className="mt-6 text-center text-xs tracking-wide text-ink-soft">
-          Offers change week to week and are confirmed by the team on the day. Please drink responsibly.
-        </p>
       </div>
     </section>
   );
