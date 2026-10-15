@@ -18,10 +18,11 @@ export function PartiesSection() {
     <section id="parties" className="lux-section scroll-mt-24 border-t border-line bg-ivory">
       <div className="lux-container grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-20">
         <div>
-          <p className="eyebrow text-gold-ink">Celebrate with us</p>
+          <p className="eyebrow text-gold-ink">07 — Parties & Events</p>
           <h2 className="lux-h2 mt-4 text-ink">
             Parties & <em>group bookings</em>
           </h2>
+          <p className="mt-3 font-heading text-[1.35rem] text-ink-soft">Birthdays, team lunches, date nights and student hangouts.</p>
           <p className="prose-body mt-6 text-ink-soft">
             About 80 seats, a full AC room, parking at the plaza, and a kitchen that feeds a table of twenty without
             fuss. Birthdays and team lunches are what we do most.

@@ -16,10 +16,11 @@ export function OffersSection() {
   return (
     <section id="offers" className="lux-section scroll-mt-24 bg-ivory">
       <div className="lux-container">
-        <p className="eyebrow text-center text-gold-ink">This week at The 90s Club</p>
+        <p className="eyebrow text-center text-gold-ink">04 — Offers</p>
         <h2 className="lux-h2 mt-4 text-center text-ink">
           Offers & <em>happy deals</em>
         </h2>
+        <p className="mx-auto mt-3 max-w-[48ch] text-center font-heading text-[1.35rem] text-ink-soft">This week at The 90s Club. Claim on WhatsApp, confirmed on the day.</p>
         <ul className="mt-14 grid gap-px overflow-hidden rounded-[var(--radius-card)] border border-line bg-line md:grid-cols-3">
           {offers.map((offer) => (
             <li key={offer.id} className="flex flex-col bg-ivory">

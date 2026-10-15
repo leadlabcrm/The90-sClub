@@ -17,10 +17,11 @@ export function SignatureDishes() {
   return (
     <section className="lux-section bg-ivory">
       <div className="lux-container">
-        <p className="eyebrow text-center text-gold-ink">Must try</p>
+        <p className="eyebrow text-center text-gold-ink">05 — Signatures</p>
         <h2 className="lux-h2 mt-4 text-center text-ink">
           Our <em>signature</em> dishes
         </h2>
+        <p className="mx-auto mt-3 max-w-[48ch] text-center font-heading text-[1.35rem] text-ink-soft">Five plates to order first. Biryani, seafood and the ghee roasts.</p>
         <ul className="mt-14 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-7 sm:gap-y-10 lg:grid-cols-5">
           {signatures.map((item) => {
             const dish = findDish(item.name);

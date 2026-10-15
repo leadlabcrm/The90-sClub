@@ -21,10 +21,11 @@ export function CraftBeerSection() {
           />
         </div>
         <div className="lg:pr-10">
-          <p className="eyebrow text-gold-ink">The taproom</p>
+          <p className="eyebrow text-gold-ink">06 — The Taproom</p>
           <h2 className="lux-h2 mt-4 text-ink">
             Craft beer & <em>bar</em>
           </h2>
+          <p className="mt-3 font-heading text-[1.35rem] text-ink-soft">Flying Fox on tap, cocktails and beer buckets for the table.</p>
           <p className="prose-body mt-6 text-ink-soft">
             Flying Fox craft beer poured at the bar, with cocktails and a bucket deal built for a table of friends. The
             kitchen next to the taps keeps the Kerala starters coming, and on event nights the music runs till 1 AM.

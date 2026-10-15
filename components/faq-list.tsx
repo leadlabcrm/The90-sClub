@@ -11,6 +11,8 @@ import { cn } from "@/lib/utils";
 export function FaqList({
   items,
   photo,
+  eyebrow = "FAQ",
+  lede,
   heading = (
     <>
       Answers for <em>questions</em>
@@ -19,6 +21,8 @@ export function FaqList({
 }: {
   items: readonly FaqItem[];
   photo?: Photo;
+  eyebrow?: string;
+  lede?: string;
   heading?: ReactNode;
 }) {
   const [open, setOpen] = useState(0);
@@ -26,8 +30,9 @@ export function FaqList({
   return (
     <div className="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-16">
       <div>
-        <p className="eyebrow text-gold-ink">FAQ</p>
+        <p className="eyebrow text-gold-ink">{eyebrow}</p>
         <h2 className="lux-h2 mt-3 max-w-[12ch] text-ink">{heading}</h2>
+        {lede ? <p className="mt-3 max-w-[28ch] font-heading text-[1.35rem] text-ink-soft">{lede}</p> : null}
         {photo ? (
           <div className="lux-photo relative mt-8 hidden aspect-[4/5] max-w-[360px] lg:block">
             <Image src={photo.src} alt={photo.alt} fill sizes="360px" className="object-cover" />

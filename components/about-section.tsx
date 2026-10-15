@@ -13,10 +13,11 @@ export function AboutSection() {
     <section className="lux-section bg-ivory">
       <div className="lux-container grid items-center gap-14 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-20">
         <div>
-          <p className="eyebrow text-gold-ink">01 — The club</p>
+          <p className="eyebrow text-gold-ink">01 — The Club</p>
           <h2 className="lux-h2 mt-5 text-ink">
-            Electronic City&apos;s <em>retro taproom</em>, with a Kerala kitchen
+            Electronic City&apos;s <em>retro taproom</em>
           </h2>
+          <p className="mt-3 font-heading text-[1.35rem] text-ink-soft">A Kerala kitchen and a Flying Fox taproom under one roof.</p>
           <p className="prose-body mt-7 text-ink-soft">{story}</p>
           <Link href="/about" className="lux-link mt-8">
             Our Story

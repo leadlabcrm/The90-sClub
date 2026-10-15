@@ -18,10 +18,11 @@ export function FoundersSection() {
           />
         </div>
         <div className="lg:pr-10">
-          <p className="eyebrow text-gold-ink">Our story</p>
+          <p className="eyebrow text-gold-ink">10 — Our Story</p>
           <h2 className="lux-h2 mt-4 text-ink">
             Two friends, one <em>90s dream</em>
           </h2>
+          <p className="mt-3 font-heading text-[1.35rem] text-ink-soft">Akhil Kumar and Sathish, Electronic City, February 2026.</p>
           <p className="prose-body mt-6 text-ink-soft">
             Akhil Kumar and Sathish opened The 90s Club in February 2026 at Millennium Plaza on Hosur Road. The idea was
             simple: the music they grew up on, the Kerala food they missed in Electronic City, and a taproom where a

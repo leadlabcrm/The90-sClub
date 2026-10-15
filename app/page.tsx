@@ -114,15 +114,13 @@ export default function HomePage() {
             style={{ objectPosition: photos.neonBar.position }}
           />
           <div className="absolute inset-0 bg-black/30" />
-          <p className="eyebrow absolute bottom-8 left-5 z-10 text-ivory lg:bottom-12 lg:left-[50px]">Why choose us</p>
-          <div className="relative z-10 flex min-h-[30rem] items-center justify-center px-5 py-16 lg:min-h-[36rem] lg:justify-end lg:px-[50px]">
+                    <div className="relative z-10 flex min-h-[30rem] items-center justify-center px-5 py-16 lg:min-h-[36rem] lg:justify-end lg:px-[50px]">
             <div className="lux-card w-full max-w-[600px] bg-ivory px-8 py-10 text-ink sm:px-12 sm:py-14">
-              <h2 className="lux-h2">
+              <p className="eyebrow text-gold-ink">03 — Why Choose Us</p>
+              <h2 className="lux-h2 mt-4">
                 Why <em>The 90s Club</em>
               </h2>
-              <p className="prose-body mt-4 text-ink-soft">
-                Three things the room is built around, and the reasons people drive in from across Electronic City.
-              </p>
+              <p className="mt-3 font-heading text-[1.35rem] text-ink-soft">Three things the room is built around.</p>
               <ul className="mt-8 space-y-5">
                 {reasons.map(({ icon: Icon, title, copy }) => (
                   <li key={title} className="flex gap-4">
@@ -172,6 +170,8 @@ export default function HomePage() {
           <FaqList
             items={homeFaqs}
             photo={stock.draftPint}
+            eyebrow="13 — FAQ"
+            lede="Cost for two, parking, hours and how to book."
             heading={
               <>
                 Frequently asked <em>questions</em>

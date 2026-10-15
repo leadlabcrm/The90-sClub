@@ -14,10 +14,11 @@ export function ComingSoonSection() {
           <Image src={stock.neerDosa.src} alt={stock.neerDosa.alt} fill sizes="220px" className="object-cover" />
         </div>
         <div>
-          <p className="eyebrow text-gold-highlight">Coming soon</p>
+          <p className="eyebrow text-gold-highlight">11 — Coming Soon</p>
           <h2 className="lux-h2 mt-4">
             <em className="text-gold">Mangalorean</em> specials
           </h2>
+          <p className="mt-3 font-heading text-[1.35rem] text-ivory/75">Coastal plates joining the Kerala card this season.</p>
           <p className="prose-body mt-6 text-ivory/80">
             Coastal plates from Mangalore are joining the Kerala card in the next few months: ghee roasts, neer dosa and
             coconut-forward curries, cooked the way the coast does them.
