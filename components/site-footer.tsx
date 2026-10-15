@@ -3,7 +3,6 @@ import Link from "next/link";
 
 import { BrandLogo } from "@/components/brand-logo";
 import { InstagramIcon, WhatsAppIcon } from "@/components/social-icons";
-import { menuSections } from "@/lib/menu";
 import { address, footerNav, hours, links, phone, whatsappHref, whatsappMessages } from "@/lib/site";
 
 const social = [
@@ -16,7 +15,7 @@ const social = [
 export function SiteFooter() {
   return (
     <footer className="bg-charcoal-2 text-ivory">
-      <div className="lux-container grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_0.8fr_1fr] lg:gap-10 lg:py-24">
+      <div className="lux-container grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_1fr] lg:gap-10 lg:py-24">
         <div>
           <BrandLogo variant="metallic" className="h-24" alt="The 90s Club" />
           <p className="mt-6 max-w-[24rem] text-[0.95rem] leading-7 text-ivory/80">
@@ -61,23 +60,6 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        <div>
-          <h2 className="font-heading text-2xl leading-none font-medium">Menu</h2>
-          <ul className="mt-6 space-y-3 text-[0.95rem]">
-            <li>
-              <Link href="/menu" className="hover:text-gold-highlight">
-                Our Menu
-              </Link>
-            </li>
-            {menuSections.map((section) => (
-              <li key={section.id}>
-                <Link href={`/menu#${section.id}`} className="hover:text-gold-highlight">
-                  {section.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
 
         <div>
           <h2 className="font-heading text-2xl leading-none font-medium">Address</h2>
