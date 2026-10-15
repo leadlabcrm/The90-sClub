@@ -69,6 +69,17 @@ export const photos = {
   },
 } as const satisfies Record<string, Photo>;
 
+/** Stock dish photographs (Pexels, free licence) used only for the signature plates until the venue shoot. Alt text never claims the venue. */
+const st = "/photos/stock";
+
+export const stockDishes = {
+  coconutFishCurry: { src: `${st}/coconut-fish-curry-1600.webp`, alt: "Coconut fish curry in a creamy yellow gravy with tomato, green chilli and curry leaves." },
+  prawnsGheeRoast: { src: `${st}/prawns-ghee-roast-1600.webp`, alt: "Prawns roasted in a dark red masala with green chillies in a steel kadai." },
+  naadanChickenCurry: { src: `${st}/naadan-chicken-curry-clay-pot-1600.webp`, alt: "Chicken curry in a clay pot on a wooden table with dried red chillies.", position: "30% 50%" },
+  chickenGheeRoast: { src: `${st}/chicken-ghee-roast-1600.webp`, alt: "Chicken ghee roast in a clay bowl with a wedge of lime and coriander." },
+  appamStew: { src: `${st}/appam-chicken-stew-1600.webp`, alt: "Appam on a steel plate with a bowl of chicken stew." },
+} as const satisfies Record<string, Photo>;
+
 export const interiorGallery = [
   photos.interiorNeon,
   photos.booth,

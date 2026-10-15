@@ -47,6 +47,8 @@ Photographs in `public/photos/` are enhanced versions of the client Photo Drive 
 
 There is no rooftop or open-sky photograph. Copy may still say rooftop pub. Image alt text describes the interior that is shown.
 
+Five stock dish photographs in `public/photos/stock/` (Pexels, free licence) are used only for the signature plates on the home page and the Kerala page. They are listed in `lib/photos.ts` under `stockDishes` and should be replaced as the photoshoot delivers.
+
 The official gold logo lives in `public/brand/` and is not redrawn.
 
 App icons: `app/favicon.ico`, `app/icon.svg`, `app/apple-icon.png`, plus `public/icon-192.png`, `public/icon-512.png`, `public/maskable-512.png`, `public/og-image.jpg`, and `public/site.webmanifest`. Theme colour is `#0A0907`.

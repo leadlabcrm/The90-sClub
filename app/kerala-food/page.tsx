@@ -3,12 +3,11 @@ import { FaqList } from "@/components/faq-list";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { TextLink } from "@/components/text-link";
-import { TypographicCard } from "@/components/typographic-card";
 import { VenuePhoto } from "@/components/venue-photo";
 import { keralaFaqs } from "@/lib/faq";
 import { dishHref, findDish, formatPrice } from "@/lib/menu";
 import { pageMetadata } from "@/lib/metadata";
-import { photos } from "@/lib/photos";
+import { photos, stockDishes } from "@/lib/photos";
 import { reviews } from "@/lib/reviews";
 import { faqPageJsonLd } from "@/lib/schema";
 import { seo } from "@/lib/seo";
@@ -18,9 +17,9 @@ export const metadata = pageMetadata(seo.kerala);
 
 const plates = [
   { name: "Kerala Style Chicken Biryani", photo: photos.biryani, note: "The bestseller. Short-grain rice, slow-cooked chicken, served with curry and flatbread." },
-  { name: "Coconut Fish Curry", photo: null, note: "Fish simmered in a coconut gravy, the way it is done on the coast." },
-  { name: "Naadan Chicken Curry", photo: null, note: "Home-style Kerala chicken curry with roasted spices." },
-  { name: "Chicken Stew", photo: null, note: "Mild, coconut-milk stew. Order it with the biryani for the table." },
+  { name: "Coconut Fish Curry", photo: stockDishes.coconutFishCurry, note: "Fish simmered in a coconut gravy, the way it is done on the coast." },
+  { name: "Naadan Chicken Curry", photo: stockDishes.naadanChickenCurry, note: "Home-style Kerala chicken curry with roasted spices." },
+  { name: "Chicken Stew", photo: stockDishes.appamStew, note: "Mild, coconut-milk stew. Order it with the biryani for the table." },
 ] as const;
 
 export default function KeralaFoodPage() {
@@ -70,11 +69,7 @@ export default function KeralaFoodPage() {
               const dish = findDish(plate.name);
               return (
                 <li key={plate.name}>
-                  {plate.photo ? (
-                    <VenuePhoto photo={plate.photo} aspect="tall" sizes="(min-width: 1024px) 320px, 50vw" />
-                  ) : (
-                    <TypographicCard title={plate.name} kicker="Kerala kitchen" tone="light" className="aspect-[4/5]" />
-                  )}
+                  <VenuePhoto photo={plate.photo} aspect="tall" sizes="(min-width: 1024px) 320px, 50vw" />
                   <div className="mt-4 flex items-baseline justify-between gap-3">
                     <h3 className="font-heading text-[1.35rem] leading-tight text-ink">
                       <TextLink href={dishHref(dish.name)}>{dish.name}</TextLink>
