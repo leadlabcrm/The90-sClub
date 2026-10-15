@@ -9,11 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/menu",
     "/kerala-food",
-    "/rooftop-pub",
     "/visit",
-    "/occasions",
-    "/about",
-    "/craft-beer",
   ];
 
   return paths.map((path) => ({

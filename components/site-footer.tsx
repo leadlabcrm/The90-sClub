@@ -76,11 +76,6 @@ export function SiteFooter() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link href="/craft-beer" className="hover:text-gold-highlight">
-                Drinks & Beer
-              </Link>
-            </li>
           </ul>
         </div>
 

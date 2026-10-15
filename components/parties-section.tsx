@@ -1,5 +1,3 @@
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 
 import { PartyEnquiryForm } from "@/components/party-enquiry-form";
 
@@ -28,16 +26,12 @@ export function PartiesSection() {
           <ul className="mt-10">
             {plans.map(({ title, copy }) => (
               <li key={title}>
-                <Link
-                  href="/occasions"
-                  className="group flex items-center gap-6 border-b border-line py-5 transition-colors hover:text-gold-ink"
-                >
+                <div className="flex items-center gap-6 border-b border-line py-5">
                   <span className="min-w-0 flex-1">
-                    <span className="block font-heading text-[1.5rem] leading-tight text-ink group-hover:text-gold-ink">{title}</span>
+                    <span className="block font-heading text-[1.5rem] leading-tight text-ink">{title}</span>
                     <span className="mt-1 block text-sm text-ink-soft">{copy}</span>
                   </span>
-                  <ArrowRight aria-hidden="true" className="size-5 shrink-0 text-gold transition-transform group-hover:translate-x-1 motion-reduce:transition-none" strokeWidth={1.25} />
-                </Link>
+                </div>
               </li>
             ))}
           </ul>

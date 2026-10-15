@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { PillLink } from "@/components/pill";
 import { photos } from "@/lib/photos";
 
 const points = ["Craft beer on tap", "Bucket offers", "BOGO drinks", "Event nights"] as const;
@@ -40,9 +39,6 @@ export function CraftBeerSection() {
               </li>
             ))}
           </ul>
-          <PillLink href="/craft-beer" tone="outline" className="mt-10">
-            See drinks menu
-          </PillLink>
         </div>
       </div>
     </section>

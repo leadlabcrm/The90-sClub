@@ -1,6 +1,4 @@
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 import { photos } from "@/lib/photos";
 
@@ -19,10 +17,6 @@ export function AboutSection() {
           </h2>
           <p className="mt-3 font-heading text-[1.35rem] text-ink-soft">A Kerala kitchen and a Flying Fox taproom under one roof.</p>
           <p className="prose-body mt-7 text-ink-soft">{story}</p>
-          <Link href="/about" className="lux-link mt-8">
-            Our Story
-            <ArrowRight aria-hidden="true" className="size-4" />
-          </Link>
         </div>
         <div className="relative pb-16 pr-10 lg:pb-24 lg:pr-16">
           <div className="lux-photo relative aspect-[4/3]">

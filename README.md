@@ -31,11 +31,7 @@ npm start
 | `/` | The 18-section wireframe: top bar, header, hero, highlights, about, offers, signatures, menu preview, craft beer, parties + WhatsApp enquiry form, gallery, Google reviews, founders, coming soon + WhatsApp opt-in, location, FAQ, footer, sticky action bar |
 | `/menu` | Full food card with prices; drinks and offers by enquiry |
 | `/kerala-food` | Kerala kitchen and signatures |
-| `/rooftop-pub` | Rooftop pub, AC dining, Flying Fox, busy nights, parking |
 | `/visit` | NAP, map, hours, phone, parking, catchment. `/contact` 301s here |
-| `/occasions` | Team lunch and birthdays |
-| `/about` | Akhil and Sathish, February 2026 |
-| `/craft-beer` | Flying Fox; current tap list and prices by enquiry |
 
 ## Deploy on Vercel
 

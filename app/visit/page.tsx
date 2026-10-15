@@ -85,7 +85,7 @@ export default function VisitPage() {
             </p>
             <p className="mt-3 text-sm leading-6 text-ink-soft">
               One number for calls and WhatsApp, answered whenever the taproom is open. For a group, send the date,
-              headcount and time through the <TextLink href="/occasions">party enquiry form</TextLink>.
+              headcount and time through the <TextLink href="/#parties">party enquiry form</TextLink>.
             </p>
             <h3 className="lux-h3 mt-10 text-ink">Parking</h3>
             <p className="mt-2 text-sm leading-6 text-ink-soft">Parking is available at Millennium Plaza.</p>

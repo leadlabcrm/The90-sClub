@@ -64,51 +64,6 @@ export const keralaFaqs: FaqItem[] = [
   },
 ];
 
-export const rooftopFaqs: FaqItem[] = [
-  {
-    question: "Is The 90s Club open late?",
-    answer: "Open daily from 12 PM to 12 AM, and till 1 AM on event nights.",
-  },
-  {
-    question: "Is there live music or karaoke?",
-    answer:
-      "Yes. Live music, karaoke and dancing on event nights, with the taproom open till 1 AM. Follow @the90sclubretropub on Instagram for what is on this week.",
-  },
-  {
-    question: "Which nights are busiest?",
-    answer:
-      "Thursday, Friday and Saturday. Book ahead for groups on those nights; Monday to Wednesday are the relaxed ones.",
-  },
-];
-
-export const beerFaqs: FaqItem[] = [
-  {
-    question: "Do you brew your own beer?",
-    answer: "No. We pour Flying Fox craft beer.",
-  },
-  {
-    question: "What is on tap, and what does it cost?",
-    answer:
-      "Flying Fox craft beer by the pint and by the bucket, plus cocktails. The ₹999 Bucket Beer Combo adds one veg and one non-veg starter, and selected drinks run buy-one-get-one. The team confirms today’s pours and prices at the bar or on WhatsApp.",
-  },
-];
-
-export const occasionsFaqs: FaqItem[] = [
-  {
-    question: "How many people can you seat?",
-    answer: "About 80.",
-  },
-  {
-    question: "Is it close to Infosys / E-City Phase 1?",
-    answer:
-      "Millennium Plaza is on Hosur Rd, Hebbagodi, about 2 km from the Infosys–Velankani side.",
-  },
-  {
-    question: "Do you take group bookings?",
-    answer: `Yes. Send the date, headcount and time through the party enquiry form or WhatsApp ${phone.display}, and the team confirms the table.`,
-  },
-];
-
 export const visitFaqs: FaqItem[] = [
   {
     question: "Where exactly is The 90s Club?",

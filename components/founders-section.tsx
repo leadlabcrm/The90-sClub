@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { PillLink } from "@/components/pill";
 import { photos } from "@/lib/photos";
 
 /** 13 Our story / founders. The portrait slot shows the music corner until the photoshoot. */
@@ -41,9 +40,6 @@ export function FoundersSection() {
               <dd className="mt-1 text-sm text-ink-soft">Electronic City</dd>
             </div>
           </dl>
-          <PillLink href="/about" tone="outline" className="mt-10">
-            Read our story
-          </PillLink>
         </div>
       </div>
     </section>

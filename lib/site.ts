@@ -94,9 +94,6 @@ export const footerNav = [
   { href: "/kerala-food", label: "Kerala Specials" },
   { href: "/#offers", label: "Offers" },
   { href: "/#parties", label: "Parties & Events" },
-  { href: "/rooftop-pub", label: "Rooftop Pub" },
-  { href: "/craft-beer", label: "Craft Beer" },
-  { href: "/about", label: "Our Story" },
   { href: "/visit", label: "Contact" },
 ] as const;
 
