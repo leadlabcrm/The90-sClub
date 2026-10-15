@@ -18,8 +18,8 @@ export function MenuPreview() {
     <section id="menu" className="lux-section scroll-mt-24 bg-ivory">
       <div className="lux-container">
         <p className="eyebrow text-center text-gold-ink">02 — Menu</p>
-        <h2 className="lux-h2 mt-4 text-center text-ink">
-          Our <em>menu</em>
+        <h2 className="lux-h2 mx-auto mt-4 max-w-[20ch] text-center text-ink">
+          The 90s Club menu, <em>crafted in Kerala</em>
         </h2>
         <p className="mx-auto mt-3 max-w-[48ch] text-center font-heading text-[1.35rem] text-ink-soft">Kerala plates lead the card. Starters, mains and Chinese favourites for the table.</p>
         <div role="tablist" aria-label="Menu categories" className="mt-8 flex flex-wrap justify-center gap-2">
