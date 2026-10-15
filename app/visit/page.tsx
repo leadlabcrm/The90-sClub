@@ -8,7 +8,6 @@ import { MapEmbed } from "@/components/map-embed";
 import { PageHero } from "@/components/page-hero";
 import { PillLink } from "@/components/pill";
 import { TextLink } from "@/components/text-link";
-import { VenuePhoto } from "@/components/venue-photo";
 import { visitFaqs } from "@/lib/faq";
 import { pageMetadata } from "@/lib/metadata";
 import { photos } from "@/lib/photos";
@@ -55,12 +54,6 @@ export default function VisitPage() {
         </div>
       </section>
 
-      <section className="bg-ivory pb-[var(--section-y)]">
-        <div className="lux-container grid gap-5 sm:grid-cols-2">
-          <VenuePhoto photo={photos.streetSign} aspect="tall" caption="Look for the sign at Millennium Plaza." />
-          <VenuePhoto photo={photos.neonBar} caption="The bar inside The 90s Club." />
-        </div>
-      </section>
 
       <section className="bg-ivory pb-[var(--section-y)]">
         <div className="lux-container grid gap-12 md:grid-cols-2 lg:gap-20">
