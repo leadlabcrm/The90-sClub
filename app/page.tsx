@@ -65,8 +65,9 @@ export default function HomePage() {
         <div className="lux-scrim-center absolute inset-0" />
         <div className="lux-container lux-on-photo relative z-10 flex flex-col items-center pt-32 pb-20 text-center lg:pt-40 lg:pb-24">
           <p className="eyebrow text-gold-highlight">Retro taproom · Electronic City, Bengaluru</p>
-          <h1 className="lux-h1 mt-6 max-w-[13ch] text-ivory">
-            Retro Pub & Kerala Kitchen in <em>Electronic City</em>
+          <h1 className="lux-h1 mt-6 max-w-[24ch] text-ivory">
+            Retro Pub & Kerala Kitchen
+            <br className="hidden sm:block" /> in <em>Electronic City</em>
           </h1>
           <p className="prose-body mx-auto mt-6 max-w-[46ch] text-ivory/90">
             Kerala biryani and seafood, Flying Fox craft beer and 90s music at Millennium Plaza, Hebbagodi. Open daily
