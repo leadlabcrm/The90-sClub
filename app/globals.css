@@ -124,7 +124,6 @@
     overflow-x: clip;
     font-size: var(--text-body);
     line-height: var(--leading-body);
-    padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
   }
   ::selection {
     background: #e9c65a;
