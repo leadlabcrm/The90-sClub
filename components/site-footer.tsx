@@ -1,4 +1,4 @@
-import { MapPin } from "lucide-react";
+import { MapPin, Navigation, Phone } from "lucide-react";
 import Link from "next/link";
 
 import { BrandLogo } from "@/components/brand-logo";
@@ -63,14 +63,18 @@ export function SiteFooter() {
 
         <div>
           <h2 className="font-heading text-2xl leading-none font-medium">Address</h2>
-          <address className="mt-6 text-[0.95rem] leading-7 not-italic text-ivory/85">
-            {address.line1}
-            <br />
-            {address.line2}
-            <br />
-            {address.line3}, {address.line4}
-          </address>
-          <a href={phone.href} className="mt-4 inline-block text-[0.95rem] text-ivory tabular-nums hover:text-gold-highlight">
+          <div className="mt-6 flex gap-3">
+            <MapPin aria-hidden="true" className="mt-1.5 size-4 shrink-0 text-gold" strokeWidth={1.6} />
+            <address className="text-[0.95rem] leading-7 not-italic text-ivory/85">
+              {address.line1}
+              <br />
+              {address.line2}
+              <br />
+              {address.line3}, {address.line4}
+            </address>
+          </div>
+          <a href={phone.href} className="mt-4 inline-flex items-center gap-3 text-[0.95rem] text-ivory tabular-nums hover:text-gold-highlight">
+            <Phone aria-hidden="true" className="size-4 text-gold" strokeWidth={1.6} />
             {phone.display}
           </a>
           <div className="mt-8">
@@ -78,12 +82,14 @@ export function SiteFooter() {
               href={links.directions}
               target="_blank"
               rel="noopener noreferrer"
-              className="border-b border-gold pb-1 text-[0.95rem] font-medium hover:text-gold-highlight"
+              className="inline-flex items-center gap-2 border-b border-gold pb-1 text-[0.95rem] font-medium hover:text-gold-highlight"
             >
+              <Navigation aria-hidden="true" className="size-4 text-gold" strokeWidth={1.6} />
               Get location direction
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
           </div>
+        </div>
         </div>
 
       </div>
