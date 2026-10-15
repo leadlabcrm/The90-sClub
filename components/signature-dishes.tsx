@@ -17,7 +17,7 @@ export function SignatureDishes() {
   return (
     <section className="lux-section bg-ivory">
       <div className="lux-container">
-        <p className="eyebrow text-center text-gold-ink">05 — Signatures</p>
+        <p className="eyebrow text-center text-gold-ink">04 — Signatures</p>
         <h2 className="lux-h2 mt-4 text-center text-ink">
           Our <em>signature</em> dishes
         </h2>

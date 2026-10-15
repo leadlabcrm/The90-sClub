@@ -11,7 +11,6 @@ import { IconCircle } from "@/components/icon-circle";
 import { JsonLd } from "@/components/json-ld";
 import { LocationSection } from "@/components/location-section";
 import { MenuPreview } from "@/components/menu-preview";
-import { OffersSection } from "@/components/offers-section";
 import { PartiesSection } from "@/components/parties-section";
 import { PillLink } from "@/components/pill";
 import { ReviewsSection } from "@/components/reviews-section";
@@ -131,9 +130,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 06 Offers & deals */}
-      <OffersSection />
-
       {/* 07 Signature dishes */}
       <SignatureDishes />
 
@@ -160,7 +156,7 @@ export default function HomePage() {
         <div className="lux-container">
           <FaqList
             items={homeFaqs}
-            eyebrow="12 — FAQ"
+            eyebrow="11 — FAQ"
             lede="Cost for two, parking, hours and how to book."
             heading={
               <>

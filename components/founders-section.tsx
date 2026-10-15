@@ -17,7 +17,7 @@ export function FoundersSection() {
           />
         </div>
         <div className="lg:pr-10">
-          <p className="eyebrow text-gold-ink">10 — Our Story</p>
+          <p className="eyebrow text-gold-ink">09 — Our Story</p>
           <h2 className="lux-h2 mt-4 text-ink">
             Two friends, one <em>90s dream</em>
           </h2>

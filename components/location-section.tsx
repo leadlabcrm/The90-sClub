@@ -44,7 +44,7 @@ export function LocationSection() {
   return (
     <section id="visit" className="lux-section scroll-mt-24 bg-ivory">
       <div className="lux-container">
-        <p className="eyebrow text-gold-ink">11 — Visit Us</p>
+        <p className="eyebrow text-gold-ink">10 — Visit Us</p>
         <h2 className="lux-h2 mt-4 text-ink">
           Find The 90s Club in <em>Electronic City</em>
         </h2>

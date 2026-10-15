@@ -11,7 +11,7 @@ export function GalleryGrid() {
   return (
     <section id="gallery" className="lux-section scroll-mt-24 bg-ivory">
       <div className="lux-container">
-        <p className="eyebrow text-center text-gold-ink">08 — Gallery</p>
+        <p className="eyebrow text-center text-gold-ink">07 — Gallery</p>
         <h2 className="lux-h2 mt-4 text-center text-ink">
           Inside <em>The 90s Club</em>
         </h2>

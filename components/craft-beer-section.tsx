@@ -20,7 +20,7 @@ export function CraftBeerSection() {
           />
         </div>
         <div className="lg:pr-10">
-          <p className="eyebrow text-gold-ink">06 — The Taproom</p>
+          <p className="eyebrow text-gold-ink">05 — The Taproom</p>
           <h2 className="lux-h2 mt-4 text-ink">
             Craft beer & <em>bar</em>
           </h2>

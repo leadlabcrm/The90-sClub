@@ -14,7 +14,7 @@ export function PartiesSection() {
     <section id="parties" className="lux-section scroll-mt-24 border-t border-line bg-ivory">
       <div className="lux-container grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-20">
         <div>
-          <p className="eyebrow text-gold-ink">07 — Parties & Events</p>
+          <p className="eyebrow text-gold-ink">06 — Parties & Events</p>
           <h2 className="lux-h2 mt-4 text-ink">
             Parties & <em>group bookings</em>
           </h2>

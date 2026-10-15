@@ -21,7 +21,7 @@ export function ReviewsSection() {
   return (
     <section id="reviews" className="lux-section scroll-mt-24 bg-black text-ivory">
       <div className="lux-container">
-        <p className="eyebrow text-center text-gold-highlight">09 — Reviews</p>
+        <p className="eyebrow text-center text-gold-highlight">08 — Reviews</p>
         <h2 className="lux-h2 mt-4 text-center">
           What our <em>guests</em> say
         </h2>

@@ -81,7 +81,6 @@ export const primaryNav = [
   { href: "/", label: "Home" },
   { href: "/menu", label: "Menu" },
   { href: "/kerala-food", label: "Kerala Specials" },
-  { href: "/#offers", label: "Offers" },
   { href: "/#parties", label: "Parties & Events" },
   { href: "/#gallery", label: "Gallery" },
   { href: "/visit", label: "Contact" },
@@ -92,7 +91,6 @@ export const footerNav = [
   { href: "/", label: "Home" },
   { href: "/menu", label: "Menu" },
   { href: "/kerala-food", label: "Kerala Specials" },
-  { href: "/#offers", label: "Offers" },
   { href: "/#parties", label: "Parties & Events" },
   { href: "/visit", label: "Contact" },
 ] as const;
