@@ -1,14 +1,22 @@
 "use client";
 
-import { Menu, Phone, X } from "lucide-react";
+import { MapPin, Menu, Phone, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { BrandLogo } from "@/components/brand-logo";
 import { PillLink } from "@/components/pill";
+import { InstagramIcon, WhatsAppIcon } from "@/components/social-icons";
 import { TopBar } from "@/components/top-bar";
-import { hours, phone, primaryNav, whatsappHref, whatsappMessages } from "@/lib/site";
+import { hours, links, phone, primaryNav, whatsappHref, whatsappMessages } from "@/lib/site";
+
+const quickActions = [
+  { href: links.directions, label: "Get directions", Icon: MapPin, external: true },
+  { href: phone.href, label: `Call ${phone.display}`, Icon: Phone, external: false },
+  { href: whatsappHref(whatsappMessages.visit), label: "WhatsApp", Icon: WhatsAppIcon, external: true },
+  { href: links.instagram, label: "Instagram", Icon: InstagramIcon, external: true },
+] as const;
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -78,18 +86,26 @@ export function SiteHeader() {
             })}
           </nav>
 
-          <div className="ml-auto hidden items-center min-[1180px]:flex">
-            <a
-              href={phone.href}
-              className={cn(
-                "inline-flex items-center gap-2 text-[0.95rem] font-medium tabular-nums transition-colors",
-                light ? "text-ink hover:text-gold-ink" : "text-ivory hover:text-gold-highlight",
-              )}
-            >
-              <Phone aria-hidden="true" className="size-4 text-gold" />
-              {phone.display}
-            </a>
-          </div>
+          <ul className="ml-auto hidden items-center gap-2.5 min-[1180px]:flex">
+            {quickActions.map(({ href, label, Icon, external }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  aria-label={external ? `${label} (opens in a new tab)` : label}
+                  title={label}
+                  className={cn(
+                    "flex size-10 items-center justify-center rounded-full border transition-colors",
+                    light
+                      ? "border-ink/25 text-ink hover:border-gold hover:bg-gold hover:text-black"
+                      : "border-ivory/40 text-ivory hover:border-gold hover:bg-gold hover:text-black",
+                  )}
+                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                >
+                  <Icon aria-hidden="true" className="size-4" strokeWidth={1.6} />
+                </a>
+              </li>
+            ))}
+          </ul>
 
           <button
             type="button"
