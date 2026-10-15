@@ -1,7 +1,7 @@
-import { ArrowRight, Beer, Music, Star, UtensilsCrossed } from "lucide-react";
+import { Beer, Music, Star, UtensilsCrossed } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
+import { AboutSection } from "@/components/about-section";
 import { ComingSoonSection } from "@/components/coming-soon-section";
 import { CraftBeerSection } from "@/components/craft-beer-section";
 import { FaqList } from "@/components/faq-list";
@@ -16,7 +16,6 @@ import { PartiesSection } from "@/components/parties-section";
 import { PillLink } from "@/components/pill";
 import { ReviewsSection } from "@/components/reviews-section";
 import { SignatureDishes } from "@/components/signature-dishes";
-import { TextLink } from "@/components/text-link";
 import { homeFaqs } from "@/lib/faq";
 import { pageMetadata } from "@/lib/metadata";
 import { photos } from "@/lib/photos";
@@ -101,34 +100,9 @@ export default function HomePage() {
       <HighlightsStrip />
 
       {/* 05 About & why choose us */}
-      <section className="lux-section bg-ivory">
-        <div className="lux-container">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20">
-            <div>
-              <p className="eyebrow text-gold-ink">Welcome to The 90s Club</p>
-              <h2 className="lux-h2 mt-4 text-ink">
-                Electronic City&apos;s <em>retro taproom</em>
-              </h2>
-            </div>
-            <div className="lg:pt-10">
-              <p className="prose-body text-ink-soft">
-                The 90s Club is a retro pub and Kerala kitchen on Hosur Road in Hebbagodi, a short drive from E-City
-                Phase 1 and Phase 2, Ananth Nagar and Bommasandra. The card leads with{" "}
-                <TextLink href="/kerala-food">Kerala food</TextLink>: Kerala Style Chicken Biryani, Coconut Fish Curry,
-                Naadan Chicken Curry and prawn ghee roast, with North Indian curries and Chinese plates for the table.
-                The taproom pours <TextLink href="/craft-beer">Flying Fox craft beer</TextLink>, with a ₹999 beer
-                bucket combo and buy-one-get-one on selected drinks. Eighty seats, a fully AC room, a{" "}
-                <TextLink href="/rooftop-pub">rooftop pub</TextLink>, parking at the plaza and 90s music all night.
-              </p>
-              <Link href="/about" className="lux-link mt-8">
-                Our Story
-                <ArrowRight aria-hidden="true" className="size-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="relative mt-16 min-h-[30rem] bg-black lg:mt-24 lg:min-h-[36rem]">
+      <AboutSection />
+      <section className="bg-ivory">
+        <div className="relative min-h-[30rem] bg-black lg:min-h-[36rem]">
           <Image
             src={photos.neonBar.src}
             alt={photos.neonBar.alt}
