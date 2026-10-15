@@ -99,8 +99,10 @@ export default function HomePage() {
       {/* 04 Key highlights */}
       <HighlightsStrip />
 
-      {/* 05 About & why choose us */}
+      {/* 05 About, then the menu straight after it */}
       <AboutSection />
+      <MenuPreview />
+
       <section className="bg-ivory">
         <div className="relative min-h-[30rem] bg-black lg:min-h-[36rem]">
           <Image
@@ -142,9 +144,6 @@ export default function HomePage() {
 
       {/* 07 Signature dishes */}
       <SignatureDishes />
-
-      {/* 08 Menu preview */}
-      <MenuPreview />
 
       {/* 09 Craft beer & bar */}
       <CraftBeerSection />

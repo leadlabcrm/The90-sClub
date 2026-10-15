@@ -3,18 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { photos } from "@/lib/photos";
-import { rating } from "@/lib/site";
 
 const story =
   "Akhil Kumar and Sathish opened The 90s Club in February 2026 on the rooftop of Millennium Plaza, Hebbagodi. Kerala biryani, coconut fish curry and prawn ghee roast from the kitchen. Flying Fox craft beer and cocktails at the bar. Eighty seats, a fully AC room, parking at the plaza, and the music you grew up on all night.";
 
-const stats = [
-  { value: "2026", label: "Est. February" },
-  { value: "80", label: "Seats, fully AC" },
-  { value: rating.value, label: `${rating.count} Google reviews` },
-] as const;
-
-/** 05 About: numbered eyebrow, story, stats row, and a two-photo collage. */
+/** 05 About: numbered eyebrow, story, and a two-photo collage. */
 export function AboutSection() {
   return (
     <section className="lux-section bg-ivory">
@@ -29,14 +22,6 @@ export function AboutSection() {
             Our Story
             <ArrowRight aria-hidden="true" className="size-4" />
           </Link>
-          <dl className="mt-12 grid grid-cols-3 divide-x divide-line border-t border-line pt-8">
-            {stats.map((stat) => (
-              <div key={stat.label} className="px-4 first:pl-0">
-                <dt className="font-heading text-[2.5rem] leading-none font-medium text-ink tabular-nums">{stat.value}</dt>
-                <dd className="mt-2 text-[0.7rem] tracking-[0.18em] text-ink-soft uppercase">{stat.label}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
         <div className="relative pb-16 pr-10 lg:pb-24 lg:pr-16">
           <div className="lux-photo relative aspect-[4/3]">
