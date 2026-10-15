@@ -90,8 +90,6 @@ export function SiteFooter() {
             </a>
           </div>
         </div>
-        </div>
-
       </div>
 
       <div className="lux-container flex flex-col gap-3 border-t border-ivory/10 py-7 text-sm text-ivory/60 sm:flex-row sm:items-center sm:justify-between pb-[calc(5.25rem+env(safe-area-inset-bottom,0px))] lg:pb-28">
