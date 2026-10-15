@@ -15,8 +15,9 @@ export default function MenuPage() {
       <section className="bg-ivory pt-32 pb-10 lg:pt-44 lg:pb-14">
         <div className="lux-container text-center">
           <p className="eyebrow text-gold-ink">The 90s Club · Electronic City</p>
-          <h1 className="lux-h1 mx-auto mt-5 max-w-[16ch] text-ink">
-            The 90s Club menu, <em>crafted in Kerala</em>
+          <h1 className="lux-h1 mx-auto mt-5 max-w-[24ch] text-ink">
+            The 90s Club menu,
+            <br className="hidden sm:block" /> <em>crafted in Kerala</em>
           </h1>
           <p className="mx-auto mt-5 max-w-[52ch] font-heading text-[1.35rem] text-ink-soft">
             Kerala plates lead the card. Starters, mains and Chinese favourites for the table, with Flying Fox craft
