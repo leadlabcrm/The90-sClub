@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 /** 08 Menu preview: centred heading, pill tabs, a bordered card with dotted price leaders. */
 export function MenuPreview() {
   const tabs = menuSections.map((s) => ({ id: s.id, title: s.title }));
-  const [active, setActive] = useState(menuSections[1].id);
+  const [active, setActive] = useState(menuSections[0].id);
   const section = menuSections.find((s) => s.id === active) ?? menuSections[0];
 
   return (
