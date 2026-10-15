@@ -2,7 +2,6 @@ import { Beer, Music, Star, UtensilsCrossed } from "lucide-react";
 import Image from "next/image";
 
 import { AboutSection } from "@/components/about-section";
-import { ComingSoonSection } from "@/components/coming-soon-section";
 import { CraftBeerSection } from "@/components/craft-beer-section";
 import { FaqList } from "@/components/faq-list";
 import { FoundersSection } from "@/components/founders-section";
@@ -154,9 +153,6 @@ export default function HomePage() {
       {/* 13 Our story / founders */}
       <FoundersSection />
 
-      {/* 14 Coming soon & updates */}
-      <ComingSoonSection />
-
       {/* 15 Location, hours & areas served */}
       <LocationSection />
 
@@ -165,7 +161,7 @@ export default function HomePage() {
         <div className="lux-container">
           <FaqList
             items={homeFaqs}
-            eyebrow="13 — FAQ"
+            eyebrow="12 — FAQ"
             lede="Cost for two, parking, hours and how to book."
             heading={
               <>
