@@ -18,7 +18,7 @@ import { ReviewsSection } from "@/components/reviews-section";
 import { SignatureDishes } from "@/components/signature-dishes";
 import { homeFaqs } from "@/lib/faq";
 import { pageMetadata } from "@/lib/metadata";
-import { photos } from "@/lib/photos";
+import { photos, stock } from "@/lib/photos";
 import { faqPageJsonLd } from "@/lib/schema";
 import { seo } from "@/lib/seo";
 import { rating, whatsappHref, whatsappMessages } from "@/lib/site";
@@ -171,6 +171,7 @@ export default function HomePage() {
         <div className="lux-container">
           <FaqList
             items={homeFaqs}
+            photo={stock.draftPint}
             heading={
               <>
                 Frequently asked <em>questions</em>

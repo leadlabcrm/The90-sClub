@@ -7,7 +7,7 @@ import { TextLink } from "@/components/text-link";
 import { VenuePhoto } from "@/components/venue-photo";
 import { occasionsFaqs } from "@/lib/faq";
 import { pageMetadata } from "@/lib/metadata";
-import { photos } from "@/lib/photos";
+import { photos, stock } from "@/lib/photos";
 import { reviews } from "@/lib/reviews";
 import { faqPageJsonLd } from "@/lib/schema";
 import { seo } from "@/lib/seo";
@@ -52,7 +52,11 @@ export default function OccasionsPage() {
             <h2 className="lux-h2 mt-4 text-ink">
               Parties & <em>group bookings</em>
             </h2>
-            <ul className="mt-10 divide-y divide-line border-y border-line">
+            <div className="mt-8 grid grid-cols-2 gap-4">
+              <VenuePhoto photo={stock.birthdaySparkler} aspect="photo" sizes="(min-width: 1024px) 320px, 50vw" />
+              <VenuePhoto photo={stock.teamLunch} aspect="photo" sizes="(min-width: 1024px) 320px, 50vw" />
+            </div>
+            <ul className="mt-6 divide-y divide-line border-y border-line">
               {occasions.map((item) => (
                 <li key={item.title} className="py-6">
                   <h3 className="font-heading text-[1.6rem] leading-tight text-ink">{item.title}</h3>
@@ -87,7 +91,9 @@ export default function OccasionsPage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <VenuePhoto photo={photos.booth} caption="Booth seating for groups." />
-            <VenuePhoto photo={photos.boombox} aspect="tall" caption="The music corner." />
+            <VenuePhoto photo={stock.rooftopCityView} caption="Rooftop tables for the long evenings." />
+            <VenuePhoto photo={stock.friendsToast} caption="A toast at the bar." />
+            <VenuePhoto photo={photos.boombox} caption="The music corner." />
           </div>
         </div>
       </section>

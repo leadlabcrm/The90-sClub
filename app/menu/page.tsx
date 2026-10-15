@@ -5,17 +5,16 @@ import { ClosingBand } from "@/components/closing-band";
 import { OffersSection } from "@/components/offers-section";
 import { PageHero } from "@/components/page-hero";
 import { TextLink } from "@/components/text-link";
-import { TypographicCard } from "@/components/typographic-card";
 import { VenuePhoto } from "@/components/venue-photo";
 import { formatPrice, menuSections, slugify } from "@/lib/menu";
 import { pageMetadata } from "@/lib/metadata";
-import { drinkGallery, photos } from "@/lib/photos";
+import { drinkGallery, photos, stock } from "@/lib/photos";
 import { seo } from "@/lib/seo";
 import { phone } from "@/lib/site";
 
 export const metadata = pageMetadata(seo.menu);
 
-const sectionPhotos = [null, photos.chilliChicken, photos.biryani, null] as const;
+const sectionPhotos = [stock.gobiManchurian, photos.chilliChicken, photos.biryani, stock.hakkaNoodles] as const;
 
 const keralaDishes = new Set([
   "Kerala Style Chicken Biryani",
@@ -52,13 +51,9 @@ export default function MenuPage() {
               return (
                 <li key={section.id}>
                   <article>
-                    {photo ? (
-                      <div className="lux-photo relative aspect-[16/10]">
-                        <Image src={photo.src} alt={photo.alt} fill sizes="(min-width: 640px) 50vw, 100vw" className="object-cover" />
-                      </div>
-                    ) : (
-                      <TypographicCard title={section.title} aspect="wide" />
-                    )}
+                    <div className="lux-photo relative aspect-[16/10]">
+                      <Image src={photo.src} alt={photo.alt} fill sizes="(min-width: 640px) 50vw, 100vw" className="object-cover" />
+                    </div>
                     <h2 className="lux-h3 mt-5 text-ink">{section.title}</h2>
                     <p className="mt-2 max-w-md text-sm leading-6 text-ink-soft">{section.intro}</p>
                     <Link href={`#${section.id}`} className="lux-link mt-4">

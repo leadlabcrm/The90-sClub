@@ -1,13 +1,18 @@
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 import { WhatsappSubscribe } from "@/components/whatsapp-subscribe";
+import { stock } from "@/lib/photos";
 import { whatsappHref } from "@/lib/site";
 
 /** 14 Coming soon & updates, on the template's "Stay updated" band. */
 export function ComingSoonSection() {
   return (
     <section className="bg-charcoal-2 text-ivory">
-      <div className="lux-container grid gap-12 py-16 lg:grid-cols-2 lg:gap-20 lg:py-24">
+      <div className="lux-container grid gap-12 py-16 lg:grid-cols-[220px_minmax(0,1fr)_minmax(0,1fr)] lg:gap-14 lg:py-24">
+        <div className="lux-photo relative aspect-[4/5] max-w-[220px]">
+          <Image src={stock.neerDosa.src} alt={stock.neerDosa.alt} fill sizes="220px" className="object-cover" />
+        </div>
         <div>
           <p className="eyebrow text-gold-highlight">Coming soon</p>
           <h2 className="lux-h2 mt-4">
@@ -28,7 +33,7 @@ export function ComingSoonSection() {
             <span className="sr-only"> (opens WhatsApp in a new tab)</span>
           </a>
         </div>
-        <div className="lg:border-l lg:border-ivory/10 lg:pl-20">
+        <div className="lg:border-l lg:border-ivory/10 lg:pl-14">
           <h2 className="font-heading text-[clamp(1.75rem,1.3rem+1.6vw,2.6rem)] leading-[1.15] font-medium">
             Stay <em className="text-gold">updated</em>
             <br />
