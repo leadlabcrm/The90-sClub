@@ -45,7 +45,9 @@ export function SiteHeader() {
     };
   }, [open]);
 
-  const light = scrolled || open;
+  // Pages without a dark hero get the light header from the top.
+  const lightPage = pathname === "/menu";
+  const light = scrolled || open || lightPage;
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
