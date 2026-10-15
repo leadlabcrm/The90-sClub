@@ -34,7 +34,7 @@ export default function RooftopPage() {
 
       <section className="lux-section bg-ivory">
         <div className="lux-container">
-          <p className="eyebrow text-gold-ink">Millennium Plaza, Hebbagodi</p>
+          <p className="eyebrow text-gold-ink">01 — The Room</p>
           <h2 className="lux-h2 mt-4 text-ink">
             Rooftop pub and <em>AC dining</em>
           </h2>
@@ -65,7 +65,7 @@ export default function RooftopPage() {
       <section className="bg-ivory pb-[var(--section-y)]">
         <div className="lux-container grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
-            <p className="eyebrow text-gold-ink">At the taproom</p>
+            <p className="eyebrow text-gold-ink">02 — The Taproom</p>
             <h2 className="lux-h2 mt-4 text-ink">
               Flying Fox and <em>Kerala plates</em>
             </h2>
@@ -88,7 +88,7 @@ export default function RooftopPage() {
 
       <section className="lux-section bg-black text-cream">
         <div className="lux-container">
-          <p className="eyebrow text-gold-highlight">Nights at the club</p>
+          <p className="eyebrow text-gold-highlight">03 — Nights</p>
           <h2 className="lux-h2 mt-4 max-w-3xl">
             Retro music, <em>late nights</em>
           </h2>
@@ -110,7 +110,7 @@ export default function RooftopPage() {
       <section className="lux-section bg-ivory">
         <div className="lux-container grid gap-12 md:grid-cols-2 lg:gap-20">
           <div>
-            <p className="eyebrow text-gold-ink">Plan the night</p>
+            <p className="eyebrow text-gold-ink">04 — Busy Nights</p>
             <h2 className="lux-h2 mt-4 text-ink">Busy nights</h2>
             <p className="prose-body mt-5 text-ink-soft">
               Thursday to Saturday fill up fast, so book ahead for{" "}
@@ -119,7 +119,7 @@ export default function RooftopPage() {
             </p>
           </div>
           <div>
-            <p className="eyebrow text-gold-ink">Arrive easy</p>
+            <p className="eyebrow text-gold-ink">05 — Getting Here</p>
             <h2 className="lux-h2 mt-4 text-ink">Parking and metro</h2>
             <p className="prose-body mt-5 text-ink-soft">
               Parking is available at Millennium Plaza. Biocon Hebbagodi on the Yellow Line is the nearest metro
@@ -131,11 +131,11 @@ export default function RooftopPage() {
 
       <section className="bg-ivory pb-[var(--section-y)]">
         <div className="lux-container">
-          <FaqList items={rooftopFaqs} />
+          <FaqList items={rooftopFaqs} eyebrow="06 — FAQ" />
         </div>
       </section>
 
-      <ClosingBand eyebrow="Come up" title={<>Your table on the <em>rooftop</em></>} items={["whatsapp", "call", "directions", "instagram"]}>
+      <ClosingBand eyebrow="07 — Book a Table" title={<>Your table on the <em>rooftop</em></>} items={["whatsapp", "call", "directions", "instagram"]}>
         <p>Open daily {hours.short}. WhatsApp or call with your date and headcount and the team keeps a table.</p>
       </ClosingBand>
     </>

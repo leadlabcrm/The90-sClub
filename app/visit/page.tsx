@@ -32,7 +32,7 @@ export default function VisitPage() {
       <section className="lux-section bg-ivory">
         <div className="lux-container grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <div>
-            <p className="eyebrow text-gold-ink">Hosur Road, Hebbagodi</p>
+            <p className="eyebrow text-gold-ink">01 — Address</p>
             <h2 className="lux-h2 mt-4 text-ink">Address</h2>
             <address className="prose-body mt-6 space-y-1 not-italic text-ink">
               <span className="block">{address.line1}</span>
@@ -65,7 +65,7 @@ export default function VisitPage() {
       <section className="bg-ivory pb-[var(--section-y)]">
         <div className="lux-container grid gap-12 md:grid-cols-2 lg:gap-20">
           <div>
-            <p className="eyebrow text-gold-ink">Every day</p>
+            <p className="eyebrow text-gold-ink">02 — Hours</p>
             <h2 className="lux-h2 mt-4 text-ink">Hours</h2>
             <table className="mt-8 w-full text-left text-sm">
               <caption className="sr-only">Opening hours, Monday to Sunday</caption>
@@ -83,7 +83,7 @@ export default function VisitPage() {
             <p className="mt-4 text-sm leading-6 text-ink-soft">{hours.eventNights}. Thursday to Saturday are the busy nights.</p>
           </div>
           <div>
-            <p className="eyebrow text-gold-ink">Direct to the venue</p>
+            <p className="eyebrow text-gold-ink">03 — Contact</p>
             <h2 className="lux-h2 mt-4 text-ink">Phone and WhatsApp</h2>
             <p className="mt-6 font-heading text-[2rem] text-gold-ink tabular-nums">
               <a className="underline decoration-gold/50 underline-offset-8 hover:text-gold" href={phone.href}>
@@ -107,12 +107,12 @@ export default function VisitPage() {
 
       <section className="bg-ivory pb-[var(--section-y)]">
         <div className="lux-container">
-          <FaqList items={visitFaqs} />
+          <FaqList items={visitFaqs} eyebrow="04 — FAQ" />
         </div>
       </section>
 
       <ClosingBand
-        eyebrow="Call · chat · follow"
+        eyebrow="05 — Get in Touch"
         title={<>Contact <em>The 90s Club</em></>}
         items={["whatsapp", "call", "instagram", "directions"]}
         whatsappMessage={whatsappMessages.visit}

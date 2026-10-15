@@ -31,7 +31,7 @@ export default function AboutPage() {
       <section className="lux-section bg-ivory">
         <div className="lux-container grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
-            <p className="eyebrow text-gold-ink">Akhil + Sathish</p>
+            <p className="eyebrow text-gold-ink">01 — The Story</p>
             <h2 className="lux-h2 mt-4 text-ink">
               The <em>story</em>
             </h2>
@@ -61,7 +61,7 @@ export default function AboutPage() {
         <div className="lux-container grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <VenuePhoto photo={photos.foodSpread} aspect="photo" caption="Kerala plates from the kitchen: biryani, curry, chilli chicken and bread." />
           <div>
-            <p className="eyebrow text-gold-ink">At a glance</p>
+            <p className="eyebrow text-gold-ink">02 — The Club</p>
             <h2 className="lux-h2 mt-4 text-ink">
               The <em>club</em>
             </h2>
@@ -79,7 +79,7 @@ export default function AboutPage() {
 
       <section className="bg-ivory pb-[var(--section-y)]">
         <div className="lux-container">
-          <p className="eyebrow text-gold-ink">The room</p>
+          <p className="eyebrow text-gold-ink">03 — The Room</p>
           <h2 className="lux-h2 mt-4 text-ink">
             Built for the <em>90s</em>
           </h2>
@@ -93,7 +93,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <ClosingBand eyebrow="Come see it" title={<>Noon to midnight, <em>every day</em></>} items={["whatsapp", "call", "directions", "instagram"]}>
+      <ClosingBand eyebrow="04 — Book a Table" title={<>Noon to midnight, <em>every day</em></>} items={["whatsapp", "call", "directions", "instagram"]}>
         <p>Book a table on WhatsApp, call the team, or follow the club on Instagram for event nights and new plates.</p>
       </ClosingBand>
     </>

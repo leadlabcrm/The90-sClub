@@ -41,7 +41,7 @@ export default function KeralaFoodPage() {
       <section className="lux-section bg-ivory">
         <div className="lux-container grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20">
           <div>
-            <p className="eyebrow text-gold-ink">The kitchen</p>
+            <p className="eyebrow text-gold-ink">01 — The Kitchen</p>
             <h2 className="lux-h2 mt-4 text-ink">
               Why Kerala, <em>here</em>
             </h2>
@@ -60,7 +60,7 @@ export default function KeralaFoodPage() {
 
       <section className="bg-ivory pb-[var(--section-y)]">
         <div className="lux-container">
-          <p className="eyebrow text-gold-ink">Order from the menu</p>
+          <p className="eyebrow text-gold-ink">02 — Signature Plates</p>
           <h2 className="lux-h2 mt-4 text-ink">
             The <em>signature</em> plates
           </h2>
@@ -87,7 +87,7 @@ export default function KeralaFoodPage() {
       <section className="bg-ivory pb-[var(--section-y)]">
         <div className="lux-container grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
-            <p className="eyebrow text-gold-ink">Coastal starters</p>
+            <p className="eyebrow text-gold-ink">03 — Seafood</p>
             <h2 className="lux-h2 mt-4 text-ink">
               Seafood and <em>ghee roasts</em>
             </h2>
@@ -119,11 +119,11 @@ export default function KeralaFoodPage() {
 
       <section className="lux-section bg-ivory">
         <div className="lux-container">
-          <FaqList items={keralaFaqs} />
+          <FaqList items={keralaFaqs} eyebrow="04 — FAQ" />
         </div>
       </section>
 
-      <ClosingBand eyebrow="Kitchen to taproom" title={<>Kerala plates, <em>Flying Fox</em> pints</>}>
+      <ClosingBand eyebrow="05 — Book a Table" title={<>Kerala plates, <em>Flying Fox</em> pints</>}>
         <p>Open daily {hours.short}. Book a table on WhatsApp, or walk in and ask what is pouring.</p>
       </ClosingBand>
     </>

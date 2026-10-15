@@ -36,7 +36,7 @@ export default function CraftBeerPage() {
       <section className="lux-section bg-ivory">
         <div className="lux-container grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
-            <p className="eyebrow text-gold-ink">Flying Fox in Hebbagodi</p>
+            <p className="eyebrow text-gold-ink">01 — Flying Fox</p>
             <h2 className="lux-h2 mt-4 text-ink">
               Fresh pints, <em>Kerala plates</em>
             </h2>
@@ -60,7 +60,7 @@ export default function CraftBeerPage() {
 
       <section className="bg-ivory pb-[var(--section-y)]">
         <div className="lux-container">
-          <p className="eyebrow text-gold-ink">From the bar</p>
+          <p className="eyebrow text-gold-ink">02 — Cocktails</p>
           <h2 className="lux-h2 mt-4 text-ink">Cocktails</h2>
           <ul className="mt-8 grid grid-cols-3 gap-4 lg:gap-6">
             {drinkGallery.map((photo) => (
@@ -72,15 +72,15 @@ export default function CraftBeerPage() {
         </div>
       </section>
 
-      <OffersSection />
+      <OffersSection eyebrow="03 — Offers" />
 
       <section className="lux-section bg-ivory">
         <div className="lux-container">
-          <FaqList items={beerFaqs} />
+          <FaqList items={beerFaqs} eyebrow="04 — FAQ" />
         </div>
       </section>
 
-      <ClosingBand eyebrow="From the kitchen" title={<>Pair a pour with <em>Kerala food</em></>}>
+      <ClosingBand eyebrow="05 — Book a Table" title={<>Pair a pour with <em>Kerala food</em></>}>
         <p>
           Flying Fox goes with the{" "}
           <TextLink href={dishHref("Kerala Style Chicken Biryani")} tone="onDark">

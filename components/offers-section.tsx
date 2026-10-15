@@ -4,11 +4,11 @@ import { offers } from "@/lib/offers";
 import { whatsappHref, whatsappMessages } from "@/lib/site";
 
 /** 06 Offers & deals. Hairline cards, serif numerals, text-link claims. */
-export function OffersSection() {
+export function OffersSection({ eyebrow = "04 — Offers" }: { eyebrow?: string }) {
   return (
     <section id="offers" className="lux-section scroll-mt-24 bg-ivory">
       <div className="lux-container">
-        <p className="eyebrow text-center text-gold-ink">04 — Offers</p>
+        <p className="eyebrow text-center text-gold-ink">{eyebrow}</p>
         <h2 className="lux-h2 mt-4 text-center text-ink">
           Offers & <em>happy deals</em>
         </h2>

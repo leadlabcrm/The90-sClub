@@ -48,7 +48,7 @@ export default function OccasionsPage() {
       <section className="lux-section bg-ivory">
         <div className="lux-container grid gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
-            <p className="eyebrow text-gold-ink">Celebrate with us</p>
+            <p className="eyebrow text-gold-ink">01 — Celebrate</p>
             <h2 className="lux-h2 mt-4 text-ink">
               Parties & <em>group bookings</em>
             </h2>
@@ -68,7 +68,7 @@ export default function OccasionsPage() {
       <section className="bg-ivory pb-[var(--section-y)]">
         <div className="lux-container grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
-            <p className="eyebrow text-gold-ink">Room for the group</p>
+            <p className="eyebrow text-gold-ink">02 — The Room</p>
             <h2 className="lux-h2 mt-4 text-ink">
               Eighty seats, <em>one roof</em>
             </h2>
@@ -94,12 +94,12 @@ export default function OccasionsPage() {
 
       <section className="bg-ivory pb-[var(--section-y)]">
         <div className="lux-container">
-          <FaqList items={occasionsFaqs} />
+          <FaqList items={occasionsFaqs} eyebrow="03 — FAQ" />
         </div>
       </section>
 
       <ClosingBand
-        eyebrow="Three details are enough"
+        eyebrow="04 — Book a Table"
         title={<>Date, headcount, <em>time</em></>}
         items={["whatsapp", "call", "directions"]}
         whatsappMessage={whatsappMessages.group}
