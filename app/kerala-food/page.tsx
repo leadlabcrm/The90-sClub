@@ -11,7 +11,7 @@ import { photos, stockDishes } from "@/lib/photos";
 import { reviews } from "@/lib/reviews";
 import { faqPageJsonLd } from "@/lib/schema";
 import { seo } from "@/lib/seo";
-import { hours, whatsappHref } from "@/lib/site";
+import { hours } from "@/lib/site";
 
 export const metadata = pageMetadata(seo.kerala);
 
@@ -116,31 +116,6 @@ export default function KeralaFoodPage() {
         </div>
       </section>
 
-      <section className="bg-charcoal-2 text-ivory">
-        <div className="lux-container grid items-center gap-10 py-16 lg:grid-cols-2 lg:gap-20 lg:py-24">
-          <div>
-            <p className="eyebrow text-gold-highlight">Coming soon</p>
-            <h2 className="lux-h2 mt-4">
-              <em className="text-gold">Mangalorean</em> specials
-            </h2>
-          </div>
-          <div>
-            <p className="prose-body text-ivory/80">
-              Coastal plates from Mangalore are joining the Kerala card in the next few months: ghee roasts, neer dosa
-              and coconut-forward curries. Ask the team on WhatsApp and they will tell you the day they launch.
-            </p>
-            <a
-              href={whatsappHref("Hi The 90s Club, let me know when the Mangalorean specials launch.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="lux-link mt-6 text-ivory hover:text-gold-highlight"
-            >
-              Get notified
-              <span className="sr-only"> (opens WhatsApp in a new tab)</span>
-            </a>
-          </div>
-        </div>
-      </section>
 
       <section className="lux-section bg-ivory">
         <div className="lux-container">
