@@ -1,4 +1,7 @@
+import { Phone } from "lucide-react";
+
 import { ClosingBand } from "@/components/closing-band";
+import { IconCircle } from "@/components/icon-circle";
 import { FaqList } from "@/components/faq-list";
 import { JsonLd } from "@/components/json-ld";
 import { MapEmbed } from "@/components/map-embed";
@@ -41,13 +44,11 @@ export default function VisitPage() {
               Millennium Plaza is on Hosur Road, next to the Biocon campus. Nearest metro: {metro.station},{" "}
               {metro.line}.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <PillLink href={links.directions} tone="gold" external>
                 Get directions
               </PillLink>
-              <PillLink href={phone.href} tone="outline">
-                Call now
-              </PillLink>
+              <IconCircle href={phone.href} label={`Call ${phone.display}`} Icon={Phone} />
             </div>
           </div>
           <MapEmbed className="min-h-[24rem] rounded-[var(--radius-photo)]" />

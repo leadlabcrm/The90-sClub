@@ -1,4 +1,4 @@
-import { Beer, Music, Star, UtensilsCrossed } from "lucide-react";
+import { Beer, Music, Star, Utensils, UtensilsCrossed } from "lucide-react";
 import Image from "next/image";
 
 import { AboutSection } from "@/components/about-section";
@@ -7,6 +7,7 @@ import { FaqList } from "@/components/faq-list";
 import { FoundersSection } from "@/components/founders-section";
 import { GalleryGrid } from "@/components/gallery-grid";
 import { HighlightsStrip } from "@/components/highlights-strip";
+import { IconCircle } from "@/components/icon-circle";
 import { JsonLd } from "@/components/json-ld";
 import { LocationSection } from "@/components/location-section";
 import { MenuPreview } from "@/components/menu-preview";
@@ -70,13 +71,11 @@ export default function HomePage() {
           <p className="prose-body mx-auto mt-6 max-w-[46ch] text-ivory/90">
             Kerala biryani and seafood, Flying Fox craft beer, and the music you grew up on.
           </p>
-          <div className="mt-9 flex flex-wrap justify-center gap-3">
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <PillLink href={whatsappHref(whatsappMessages.book)} tone="solid" external>
               Book a Table
             </PillLink>
-            <PillLink href="/menu" tone="outlineLight">
-              View Menu
-            </PillLink>
+            <IconCircle href="/menu" label="View menu" Icon={Utensils} tone="onDark" />
           </div>
           <p className="mt-8 inline-flex items-center gap-2.5 text-sm text-ivory/90">
             <span className="inline-flex gap-0.5" aria-hidden="true">

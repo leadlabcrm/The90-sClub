@@ -1,8 +1,10 @@
 "use client";
 
+import { CalendarDays } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
+import { IconCircle } from "@/components/icon-circle";
 import { PillLink } from "@/components/pill";
 import { formatPrice, menuSections, slugify } from "@/lib/menu";
 import { whatsappHref, whatsappMessages } from "@/lib/site";
@@ -60,13 +62,11 @@ export function MenuPreview() {
           </ul>
         </div>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <PillLink href="/menu" tone="gold">
             View full menu
           </PillLink>
-          <PillLink href={whatsappHref(whatsappMessages.book)} tone="outline" external>
-            Book a table
-          </PillLink>
+          <IconCircle href={whatsappHref(whatsappMessages.book)} label="Book a table on WhatsApp" Icon={CalendarDays} external />
         </div>
       </div>
     </section>

@@ -1,3 +1,6 @@
+import { Phone } from "lucide-react";
+
+import { IconCircle } from "@/components/icon-circle";
 import { MapEmbed } from "@/components/map-embed";
 import { PillLink } from "@/components/pill";
 import { address, areas, hours, links, metro, phone } from "@/lib/site";
@@ -61,13 +64,11 @@ export function LocationSection() {
                 <dd className="text-[0.95rem] leading-7 text-ink">{areas.join(" · ")}</dd>
               </div>
             </dl>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <PillLink href={links.directions} tone="gold" external>
                 Get directions
               </PillLink>
-              <PillLink href={phone.href} tone="outline">
-                Call now
-              </PillLink>
+              <IconCircle href={phone.href} label={`Call ${phone.display}`} Icon={Phone} />
             </div>
           </div>
         </div>

@@ -1,3 +1,6 @@
+import { Phone } from "lucide-react";
+
+import { IconCircle } from "@/components/icon-circle";
 import { MenuList } from "@/components/menu-list";
 import { PillLink } from "@/components/pill";
 import { pageMetadata } from "@/lib/metadata";
@@ -19,13 +22,11 @@ export default function MenuPage() {
             Kerala plates lead the card. Starters, mains and Chinese favourites for the table, with Flying Fox craft
             beer at the bar. Prices in rupees.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <PillLink href={whatsappHref(whatsappMessages.book)} tone="gold" external>
               Book a Table
             </PillLink>
-            <PillLink href={phone.href} tone="outline">
-              Call {phone.display}
-            </PillLink>
+            <IconCircle href={phone.href} label={`Call ${phone.display}`} Icon={Phone} />
           </div>
         </div>
       </section>
