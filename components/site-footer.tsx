@@ -1,14 +1,15 @@
+import { MapPin } from "lucide-react";
 import Link from "next/link";
 
 import { BrandLogo } from "@/components/brand-logo";
-import { GoogleIcon, InstagramIcon, WhatsAppIcon } from "@/components/social-icons";
+import { InstagramIcon, WhatsAppIcon } from "@/components/social-icons";
 import { menuSections } from "@/lib/menu";
 import { address, footerNav, hours, links, phone, whatsappHref, whatsappMessages } from "@/lib/site";
 
 const social = [
   { label: "Instagram", href: links.instagram, Icon: InstagramIcon },
   { label: "WhatsApp", href: whatsappHref(whatsappMessages.visit), Icon: WhatsAppIcon },
-  { label: "Google Maps", href: links.googleListing, Icon: GoogleIcon },
+  { label: "Directions", href: links.directions, Icon: MapPin },
 ] as const;
 
 /** 17 Footer, in the template's charcoal four-column layout. */
