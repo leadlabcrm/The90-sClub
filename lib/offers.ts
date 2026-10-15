@@ -23,11 +23,4 @@ export const offers: Offer[] = [
     copy: "On selected drinks. Ask the team what is on the list today.",
     note: "Standing offer",
   },
-  {
-    id: "weekday-team-lunch",
-    headline: "Mon–Wed",
-    title: "Weekday Team Lunch",
-    copy: "Bring the office on a quiet weekday. Group tables and set plates for teams.",
-    note: "By enquiry",
-  },
 ];
