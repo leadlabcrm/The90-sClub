@@ -17,8 +17,7 @@ export function MenuPreview() {
   return (
     <section id="menu" className="lux-section scroll-mt-24 bg-ivory">
       <div className="lux-container">
-        <p className="eyebrow text-center text-gold-ink">Food & drinks</p>
-        <h2 className="lux-h2 mt-4 text-center text-ink">
+        <h2 className="lux-h2 text-center text-ink">
           Our <em>menu</em>
         </h2>
         <div role="tablist" aria-label="Menu categories" className="mt-8 flex flex-wrap justify-center gap-2">
