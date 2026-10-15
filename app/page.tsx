@@ -18,7 +18,7 @@ import { ReviewsSection } from "@/components/reviews-section";
 import { SignatureDishes } from "@/components/signature-dishes";
 import { homeFaqs } from "@/lib/faq";
 import { pageMetadata } from "@/lib/metadata";
-import { photos, stock } from "@/lib/photos";
+import { photos } from "@/lib/photos";
 import { faqPageJsonLd } from "@/lib/schema";
 import { seo } from "@/lib/seo";
 import { rating, whatsappHref, whatsappMessages } from "@/lib/site";
@@ -169,7 +169,6 @@ export default function HomePage() {
         <div className="lux-container">
           <FaqList
             items={homeFaqs}
-            photo={stock.draftPint}
             eyebrow="13 — FAQ"
             lede="Cost for two, parking, hours and how to book."
             heading={

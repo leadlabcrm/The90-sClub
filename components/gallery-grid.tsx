@@ -1,12 +1,12 @@
 import Image from "next/image";
 
 import { InstagramIcon } from "@/components/social-icons";
-import { photos, stock, type Photo } from "@/lib/photos";
+import { photos, type Photo } from "@/lib/photos";
 import { links } from "@/lib/site";
 
-const tiles: Photo[] = [stock.rooftopTwilight, photos.booth, photos.barFront, photos.boombox, photos.foodSpread, photos.neonBeer];
+const tiles: Photo[] = [photos.booth, photos.barFront, photos.boombox, photos.foodSpread, photos.logoWall, photos.neonBeer];
 
-/** 11 Gallery & Instagram. The rooftop tile is a stock frame until the venue rooftop is shot. */
+/** 11 Gallery & Instagram. The lead frame is the taproom until a rooftop frame is shot. */
 export function GalleryGrid() {
   return (
     <section id="gallery" className="lux-section scroll-mt-24 bg-ivory">

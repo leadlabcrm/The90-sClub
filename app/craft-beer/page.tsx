@@ -8,7 +8,7 @@ import { VenuePhoto } from "@/components/venue-photo";
 import { beerFaqs } from "@/lib/faq";
 import { dishHref } from "@/lib/menu";
 import { pageMetadata } from "@/lib/metadata";
-import { drinkGallery, photos, stock } from "@/lib/photos";
+import { drinkGallery, photos } from "@/lib/photos";
 import { faqPageJsonLd } from "@/lib/schema";
 import { seo } from "@/lib/seo";
 import { hours } from "@/lib/site";
@@ -54,13 +54,7 @@ export default function CraftBeerPage() {
               ))}
             </ul>
           </div>
-          <div className="grid gap-4">
-            <VenuePhoto photo={photos.neonBar} aspect="photo" caption="The bar counter with the lit 90s Club logo." />
-            <div className="grid grid-cols-2 gap-4">
-              <VenuePhoto photo={stock.beerPour} aspect="square" sizes="(min-width: 1024px) 320px, 50vw" />
-              <VenuePhoto photo={stock.beerBucket} aspect="square" sizes="(min-width: 1024px) 320px, 50vw" />
-            </div>
-          </div>
+          <VenuePhoto photo={photos.neonBar} aspect="photo" caption="The bar counter with the lit 90s Club logo." />
         </div>
       </section>
 

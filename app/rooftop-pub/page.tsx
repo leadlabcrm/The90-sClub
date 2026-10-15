@@ -6,7 +6,7 @@ import { TextLink } from "@/components/text-link";
 import { VenuePhoto } from "@/components/venue-photo";
 import { rooftopFaqs } from "@/lib/faq";
 import { pageMetadata } from "@/lib/metadata";
-import { photos, stock } from "@/lib/photos";
+import { photos } from "@/lib/photos";
 import { reviews } from "@/lib/reviews";
 import { faqPageJsonLd } from "@/lib/schema";
 import { seo } from "@/lib/seo";
@@ -44,7 +44,7 @@ export default function RooftopPage() {
             tables by the bar, and the boombox DJ booth in the music corner.
           </p>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
-            <VenuePhoto photo={stock.rooftopTwilight} caption="Rooftop seating under the sky." />
+            <VenuePhoto photo={photos.booth} caption="Booth seating for groups." />
             <VenuePhoto photo={photos.interiorNeon} caption="The taproom, with neon on the ceiling." />
             <VenuePhoto photo={photos.neonBar} caption="The bar counter and lit logo." />
           </div>
@@ -56,7 +56,7 @@ export default function RooftopPage() {
               <VenuePhoto photo={photos.boombox} aspect="photo" sizes="(min-width: 1024px) 400px, 50vw" caption="The boombox DJ booth in the music corner." />
             </li>
             <li>
-              <VenuePhoto photo={photos.booth} aspect="photo" sizes="(min-width: 1024px) 400px, 50vw" caption="Booth seating for groups." />
+              <VenuePhoto photo={photos.neonBeer} aspect="photo" sizes="(min-width: 1024px) 400px, 50vw" caption="Neon bottle wall by the bar." />
             </li>
           </ul>
         </div>
@@ -96,11 +96,6 @@ export default function RooftopPage() {
             Thursday, Friday and Saturday are the busy nights. Doors open at noon every day and the bar runs till
             midnight, or till 1 AM on event nights.
           </p>
-          <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-3">
-            <VenuePhoto photo={stock.birthdaySparkler} aspect="photo" sizes="(min-width: 1024px) 440px, 50vw" />
-            <VenuePhoto photo={stock.friendsToast} aspect="photo" sizes="(min-width: 1024px) 440px, 50vw" />
-            <VenuePhoto photo={photos.neonBeer} aspect="photo" sizes="(min-width: 1024px) 440px, 50vw" className="hidden lg:block" />
-          </div>
           <ul className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {nights.map((item) => (
               <li key={item.title} className="border-t border-cream/20 pt-5">

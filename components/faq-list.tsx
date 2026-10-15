@@ -1,16 +1,13 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import { useState, type ReactNode } from "react";
 
 import type { FaqItem } from "@/lib/faq";
-import type { Photo } from "@/lib/photos";
 import { cn } from "@/lib/utils";
 
 export function FaqList({
   items,
-  photo,
   eyebrow = "FAQ",
   lede,
   heading = (
@@ -20,7 +17,6 @@ export function FaqList({
   ),
 }: {
   items: readonly FaqItem[];
-  photo?: Photo;
   eyebrow?: string;
   lede?: string;
   heading?: ReactNode;
@@ -33,11 +29,6 @@ export function FaqList({
         <p className="eyebrow text-gold-ink">{eyebrow}</p>
         <h2 className="lux-h2 mt-3 max-w-[12ch] text-ink">{heading}</h2>
         {lede ? <p className="mt-3 max-w-[28ch] font-heading text-[1.35rem] text-ink-soft">{lede}</p> : null}
-        {photo ? (
-          <div className="lux-photo relative mt-8 hidden aspect-[4/5] max-w-[360px] lg:block">
-            <Image src={photo.src} alt={photo.alt} fill sizes="360px" className="object-cover" />
-          </div>
-        ) : null}
       </div>
       <div>
         {items.map((item, index) => {

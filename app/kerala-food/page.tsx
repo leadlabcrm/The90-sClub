@@ -3,11 +3,12 @@ import { FaqList } from "@/components/faq-list";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { TextLink } from "@/components/text-link";
+import { TypographicCard } from "@/components/typographic-card";
 import { VenuePhoto } from "@/components/venue-photo";
 import { keralaFaqs } from "@/lib/faq";
 import { dishHref, findDish, formatPrice } from "@/lib/menu";
 import { pageMetadata } from "@/lib/metadata";
-import { photos, stock } from "@/lib/photos";
+import { photos } from "@/lib/photos";
 import { reviews } from "@/lib/reviews";
 import { faqPageJsonLd } from "@/lib/schema";
 import { seo } from "@/lib/seo";
@@ -17,9 +18,9 @@ export const metadata = pageMetadata(seo.kerala);
 
 const plates = [
   { name: "Kerala Style Chicken Biryani", photo: photos.biryani, note: "The bestseller. Short-grain rice, slow-cooked chicken, served with curry and flatbread." },
-  { name: "Coconut Fish Curry", photo: stock.coconutFishCurry, note: "Fish simmered in a coconut gravy, the way it is done on the coast." },
-  { name: "Naadan Chicken Curry", photo: stock.naadanChickenCurry, note: "Home-style Kerala chicken curry with roasted spices." },
-  { name: "Chicken Stew", photo: stock.appamStew, note: "Mild, coconut-milk stew. Order it with the biryani for the table." },
+  { name: "Coconut Fish Curry", photo: null, note: "Fish simmered in a coconut gravy, the way it is done on the coast." },
+  { name: "Naadan Chicken Curry", photo: null, note: "Home-style Kerala chicken curry with roasted spices." },
+  { name: "Chicken Stew", photo: null, note: "Mild, coconut-milk stew. Order it with the biryani for the table." },
 ] as const;
 
 export default function KeralaFoodPage() {
@@ -47,7 +48,6 @@ export default function KeralaFoodPage() {
             </h2>
           </div>
           <div className="lg:pt-10">
-            <VenuePhoto photo={stock.keralaMeal} aspect="wide" className="mb-8" sizes="(min-width: 1024px) 720px, 100vw" />
             <p className="prose-body text-ink-soft">
               Akhil and Sathish opened The 90s Club with one rule for the kitchen: cook the food they grew up on.
               Electronic City has plenty of places for a pint. It had very few for a proper Kerala chicken biryani, a
@@ -70,7 +70,11 @@ export default function KeralaFoodPage() {
               const dish = findDish(plate.name);
               return (
                 <li key={plate.name}>
-                  <VenuePhoto photo={plate.photo} aspect="tall" sizes="(min-width: 1024px) 320px, 50vw" />
+                  {plate.photo ? (
+                    <VenuePhoto photo={plate.photo} aspect="tall" sizes="(min-width: 1024px) 320px, 50vw" />
+                  ) : (
+                    <TypographicCard title={plate.name} kicker="Kerala kitchen" tone="light" className="aspect-[4/5]" />
+                  )}
                   <div className="mt-4 flex items-baseline justify-between gap-3">
                     <h3 className="font-heading text-[1.35rem] leading-tight text-ink">
                       <TextLink href={dishHref(dish.name)}>{dish.name}</TextLink>
@@ -113,19 +117,12 @@ export default function KeralaFoodPage() {
               </footer>
             </blockquote>
           </div>
-          <div className="grid gap-4">
-            <VenuePhoto photo={stock.prawnsGheeRoast} aspect="photo" caption="Prawns ghee roast." />
-            <div className="grid grid-cols-2 gap-4">
-              <VenuePhoto photo={stock.fishCurryRice} aspect="square" sizes="(min-width: 1024px) 320px, 50vw" />
-              <VenuePhoto photo={photos.chilliChicken} aspect="square" sizes="(min-width: 1024px) 320px, 50vw" />
-            </div>
-          </div>
+          <VenuePhoto photo={photos.chilliChicken} aspect="photo" caption="Chilli Chicken from the starters card." />
         </div>
       </section>
 
       <section className="bg-charcoal-2 text-ivory">
-        <div className="lux-container grid items-center gap-10 py-16 lg:grid-cols-[200px_minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-14 lg:py-24">
-          <VenuePhoto photo={stock.neerDosa} aspect="tall" sizes="200px" className="max-w-[200px]" />
+        <div className="lux-container grid items-center gap-10 py-16 lg:grid-cols-2 lg:gap-20 lg:py-24">
           <div>
             <p className="eyebrow text-gold-highlight">Coming soon</p>
             <h2 className="lux-h2 mt-4">

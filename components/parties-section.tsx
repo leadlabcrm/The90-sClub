@@ -1,9 +1,7 @@
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 import { PartyEnquiryForm } from "@/components/party-enquiry-form";
-import { stock } from "@/lib/photos";
 
 const plans = [
   { title: "Birthday Parties", copy: "Reserved tables and group menus" },
@@ -27,15 +25,7 @@ export function PartiesSection() {
             About 80 seats, a full AC room, parking at the plaza, and a kitchen that feeds a table of twenty without
             fuss. Birthdays and team lunches are what we do most.
           </p>
-          <div className="mt-8 grid grid-cols-[1.3fr_1fr] gap-4">
-            <div className="lux-photo relative aspect-[4/3]">
-              <Image src={stock.birthdaySparkler.src} alt={stock.birthdaySparkler.alt} fill sizes="(min-width: 1024px) 400px, 60vw" className="object-cover" style={{ objectPosition: stock.birthdaySparkler.position }} />
-            </div>
-            <div className="lux-photo relative aspect-[4/3] lg:aspect-auto">
-              <Image src={stock.friendsToast.src} alt={stock.friendsToast.alt} fill sizes="(min-width: 1024px) 300px, 40vw" className="object-cover" />
-            </div>
-          </div>
-          <ul className="mt-6">
+          <ul className="mt-10">
             {plans.map(({ title, copy }) => (
               <li key={title}>
                 <Link
