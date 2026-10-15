@@ -15,7 +15,35 @@ const social = [
 export function SiteFooter() {
   return (
     <footer className="bg-charcoal-2 text-ivory">
-      <div className="lux-container grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[0.8fr_0.8fr_1fr_1.3fr] lg:gap-10 lg:py-24">
+      <div className="lux-container grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_0.8fr_1fr] lg:gap-10 lg:py-24">
+        <div>
+          <BrandLogo variant="metallic" className="h-24" alt="The 90s Club" />
+          <p className="mt-6 max-w-[24rem] text-[0.95rem] leading-7 text-ivory/80">
+            A retro 90s taproom with a Kerala kitchen at Millennium Plaza, Hebbagodi. Craft beer, seafood, biryani and
+            the music you grew up on.
+          </p>
+          <h3 className="mt-8 font-heading text-2xl leading-none font-medium">Hours</h3>
+          <p className="mt-4 text-[0.95rem] leading-7 text-ivory/85">
+            Mon – Sun ( {hours.short} )
+            <br />
+            {hours.eventNights}
+          </p>
+          <ul className="mt-6 flex gap-3">
+            {social.map(({ label, href, Icon }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${label} (opens in a new tab)`}
+                  className="flex size-10 items-center justify-center rounded-full border border-ivory/20 text-ivory transition-colors hover:border-gold hover:text-gold"
+                >
+                  <Icon className="size-4" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
         <div>
           <h2 className="font-heading text-2xl leading-none font-medium">Links</h2>
           <ul className="mt-6 space-y-3 text-[0.95rem]">
@@ -80,34 +108,6 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div>
-          <BrandLogo variant="metallic" className="h-24" alt="The 90s Club" />
-          <p className="mt-6 max-w-[24rem] text-[0.95rem] leading-7 text-ivory/80">
-            A retro 90s taproom with a Kerala kitchen at Millennium Plaza, Hebbagodi. Craft beer, seafood, biryani and
-            the music you grew up on.
-          </p>
-          <h3 className="mt-8 font-heading text-2xl leading-none font-medium">Hours</h3>
-          <p className="mt-4 text-[0.95rem] leading-7 text-ivory/85">
-            Mon – Sun ( {hours.short} )
-            <br />
-            {hours.eventNights}
-          </p>
-          <ul className="mt-6 flex gap-3">
-            {social.map(({ label, href, Icon }) => (
-              <li key={label}>
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${label} (opens in a new tab)`}
-                  className="flex size-10 items-center justify-center rounded-full border border-ivory/20 text-ivory transition-colors hover:border-gold hover:text-gold"
-                >
-                  <Icon className="size-4" />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
 
       <div className="lux-container flex flex-col gap-3 border-t border-ivory/10 py-7 text-sm text-ivory/60 sm:flex-row sm:items-center sm:justify-between">
