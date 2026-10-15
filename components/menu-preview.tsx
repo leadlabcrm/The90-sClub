@@ -8,13 +8,11 @@ import { formatPrice, menuSections, slugify } from "@/lib/menu";
 import { whatsappHref, whatsappMessages } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-const drinks = { id: "drinks", title: "Drinks & Beer" } as const;
-
 /** 08 Menu preview: centred heading, pill tabs, a bordered card with dotted price leaders. */
 export function MenuPreview() {
-  const tabs = [...menuSections.map((s) => ({ id: s.id, title: s.title })), drinks];
+  const tabs = menuSections.map((s) => ({ id: s.id, title: s.title }));
   const [active, setActive] = useState(menuSections[1].id);
-  const section = menuSections.find((s) => s.id === active);
+  const section = menuSections.find((s) => s.id === active) ?? menuSections[0];
 
   return (
     <section id="menu" className="lux-section scroll-mt-24 bg-ivory">
@@ -42,36 +40,23 @@ export function MenuPreview() {
         </div>
 
         <div className="mx-auto mt-10 max-w-5xl rounded-[var(--radius-card)] border border-line bg-white px-6 py-8 sm:px-10 sm:py-10">
-          {section ? (
-            <>
-              <p className="text-center text-sm text-ink-soft">{section.intro}</p>
-              <ul className="mt-8 grid gap-x-12 gap-y-1 md:grid-cols-2">
-                {section.items.slice(0, 8).map((item) => (
-                  <li key={item.name}>
-                    <Link href={`/menu#${slugify(item.name)}`} className="block py-3 hover:text-gold-ink">
-                      <span className="flex items-baseline gap-2">
-                        <span className="font-heading text-[1.2rem] leading-tight text-ink">{item.name}</span>
-                        <span className="mb-1 flex-1 border-b border-dotted border-line" aria-hidden="true" />
-                        <span className="text-sm text-ink tabular-nums">{formatPrice(item.price)}</span>
-                      </span>
-                      {item.signature ? (
-                        <span className="text-[0.6rem] tracking-[0.18em] text-gold-ink uppercase">Kerala kitchen</span>
-                      ) : null}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </>
-          ) : (
-            <div className="mx-auto max-w-2xl text-center">
-              <p className="font-heading text-[2rem] leading-tight text-ink">Flying Fox craft beer on tap</p>
-              <p className="prose-body mx-auto mt-4 text-ink-soft">
-                Pints, beer buckets and the BOGO list change through the week, so the team confirms today&apos;s pours
-                and prices on WhatsApp or at the bar. The ₹999 Bucket Beer Combo comes with one veg and one non-veg
-                starter.
-              </p>
-            </div>
-          )}
+          <p className="text-center text-sm text-ink-soft">{section.intro}</p>
+          <ul className="mt-8 grid gap-x-12 gap-y-1 md:grid-cols-2">
+            {section.items.slice(0, 8).map((item) => (
+              <li key={item.name}>
+                <Link href={`/menu#${slugify(item.name)}`} className="block py-3 hover:text-gold-ink">
+                  <span className="flex items-baseline gap-2">
+                    <span className="font-heading text-[1.2rem] leading-tight text-ink">{item.name}</span>
+                    <span className="mb-1 flex-1 border-b border-dotted border-line" aria-hidden="true" />
+                    <span className="text-sm text-ink tabular-nums">{formatPrice(item.price)}</span>
+                  </span>
+                  {item.signature ? (
+                    <span className="text-[0.6rem] tracking-[0.18em] text-gold-ink uppercase">Kerala kitchen</span>
+                  ) : null}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="mt-10 flex flex-wrap justify-center gap-3">
