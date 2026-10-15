@@ -72,11 +72,12 @@ export const rooftopFaqs: FaqItem[] = [
   {
     question: "Is there live music or karaoke?",
     answer:
-      "The Google listing includes live music, karaoke, and dancing. Ask the team what is on when you visit.",
+      "Yes. Live music, karaoke and dancing on event nights, with the taproom open till 1 AM. Follow @the90sclubretropub on Instagram for what is on this week.",
   },
   {
-    question: "Is there an entry or cover charge?",
-    answer: `Ask the team when you call ${phone.display}. This page does not list a cover charge.`,
+    question: "Which nights are busiest?",
+    answer:
+      "Thursday, Friday and Saturday. Book ahead for groups on those nights; Monday to Wednesday are the relaxed ones.",
   },
 ];
 
@@ -87,7 +88,8 @@ export const beerFaqs: FaqItem[] = [
   },
   {
     question: "What is on tap, and what does it cost?",
-    answer: "Ask the team for today’s Flying Fox tap list and prices.",
+    answer:
+      "Flying Fox craft beer by the pint and by the bucket, plus cocktails. The ₹999 Bucket Beer Combo adds one veg and one non-veg starter, and selected drinks run buy-one-get-one. The team confirms today’s pours and prices at the bar or on WhatsApp.",
   },
 ];
 
@@ -103,7 +105,7 @@ export const occasionsFaqs: FaqItem[] = [
   },
   {
     question: "Do you take group bookings?",
-    answer: `Call ${phone.display} with the date, headcount, and time.`,
+    answer: `Yes. Send the date, headcount and time through the party enquiry form or WhatsApp ${phone.display}, and the team confirms the table.`,
   },
 ];
 
@@ -119,7 +121,7 @@ export const visitFaqs: FaqItem[] = [
   },
   {
     question: "Is there parking?",
-    answer: "Yes, at the plaza.",
+    answer: "Yes, at Millennium Plaza.",
   },
   {
     question: "Who do I call?",

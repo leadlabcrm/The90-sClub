@@ -14,7 +14,7 @@ export function PageHero({
   photo: Photo;
 }) {
   return (
-    <header className="relative flex min-h-[22rem] items-end overflow-hidden bg-black text-ivory lg:min-h-[28rem]">
+    <header className="relative flex min-h-[26rem] items-end overflow-hidden bg-black text-ivory lg:min-h-[34rem]">
       <Image
         src={photo.src}
         alt={photo.alt}
@@ -25,10 +25,10 @@ export function PageHero({
         style={photo.position ? { objectPosition: photo.position } : undefined}
       />
       <div className="lux-scrim-left absolute inset-0" />
-      <div className="lux-container lux-on-photo relative z-10 pt-28 pb-12 lg:pt-32 lg:pb-16">
+      <div className="lux-container lux-on-photo relative z-10 pt-32 pb-14 lg:pt-40 lg:pb-20">
         <p className="eyebrow text-gold-highlight">{eyebrow}</p>
-        <h1 className="lux-h2 mt-3 max-w-3xl text-ivory">{title}</h1>
-        <p className="prose-body mt-4 max-w-[62ch] text-ivory">{lede}</p>
+        <h1 className="lux-h1 mt-5 max-w-[16ch] text-ivory">{title}</h1>
+        <p className="prose-body mt-5 max-w-[56ch] text-ivory/90">{lede}</p>
       </div>
     </header>
   );

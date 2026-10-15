@@ -1,4 +1,4 @@
-import { CtaRow } from "@/components/cta-row";
+import { ClosingBand } from "@/components/closing-band";
 import { FaqList } from "@/components/faq-list";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
@@ -12,96 +12,101 @@ import { photos } from "@/lib/photos";
 import { reviews } from "@/lib/reviews";
 import { faqPageJsonLd } from "@/lib/schema";
 import { seo } from "@/lib/seo";
-import { hours } from "@/lib/site";
+import { hours, whatsappHref } from "@/lib/site";
 
 export const metadata = pageMetadata(seo.kerala);
 
 const plates = [
-  {
-    name: "Kerala Style Chicken Biryani",
-    photo: photos.biryani,
-    caption: "A bowl of biryani with curry and flatbread from the kitchen.",
-  },
-  {
-    name: "Coconut Fish Curry",
-    photo: null,
-    caption: "",
-  },
-  {
-    name: "Naadan Chicken Curry",
-    photo: null,
-    caption: "",
-  },
+  { name: "Kerala Style Chicken Biryani", photo: photos.biryani, note: "The bestseller. Short-grain rice, slow-cooked chicken, served with curry and flatbread." },
+  { name: "Coconut Fish Curry", photo: null, note: "Fish simmered in a coconut gravy, the way it is done on the coast." },
+  { name: "Naadan Chicken Curry", photo: null, note: "Home-style Kerala chicken curry with roasted spices." },
+  { name: "Chicken Stew", photo: null, note: "Mild, coconut-milk stew. Order it with the biryani for the table." },
 ] as const;
 
 export default function KeralaFoodPage() {
-  const stew = findDish("Chicken Stew");
   const ghee = findDish("Prawns Ghee Roast");
   const pepper = findDish("Prawns Pepper Fry");
   const chilliFish = findDish("Chilli Fish");
+  const chickenGhee = findDish("Chicken Ghee Roast");
 
   return (
     <>
       <JsonLd data={faqPageJsonLd(keralaFaqs)} />
       <PageHero
-        eyebrow="Naadan plates"
-        title="Kerala food in Electronic City — The 90s Club kitchen"
-        lede="Kerala food and Flying Fox craft beer under one roof at Millennium Plaza, Hebbagodi, on Hosur Rd — biryani, coconut fish, and coastal starters."
+        eyebrow="Kerala specials"
+        title="Kerala food in Electronic City"
+        lede="Biryani, coconut fish curry, naadan chicken and prawn ghee roast from the kitchen at The 90s Club, Millennium Plaza, Hebbagodi."
         photo={photos.foodSpread}
       />
 
       <section className="lux-section bg-ivory">
-        <div className="lux-container">
-          <p className="eyebrow text-gold-ink">The kitchen’s point of view</p>
-          <h2 className="lux-h2 mt-3 text-ink">Why Kerala here</h2>
-          <p className="prose-body mt-4 text-ink-soft">
-            Kerala food and Flying Fox craft beer under one roof at Millennium Plaza, Hebbagodi. The kitchen leads with
-            these plates. You eat them in the rooftop pub, open daily from noon to midnight.
-          </p>
+        <div className="lux-container grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20">
+          <div>
+            <p className="eyebrow text-gold-ink">The kitchen</p>
+            <h2 className="lux-h2 mt-4 text-ink">
+              Why Kerala, <em>here</em>
+            </h2>
+          </div>
+          <div className="lg:pt-10">
+            <p className="prose-body text-ink-soft">
+              Akhil and Sathish opened The 90s Club with one rule for the kitchen: cook the food they grew up on.
+              Electronic City has plenty of places for a pint. It had very few for a proper Kerala chicken biryani, a
+              coconut fish curry or a prawn ghee roast done right. The kitchen leads with those plates, backed by
+              North Indian curries and Chinese favourites for the rest of the table, and every plate pairs with a
+              Flying Fox pint from the taproom.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="bg-ivory pb-16 lg:pb-24">
+      <section className="bg-ivory pb-[var(--section-y)]">
         <div className="lux-container">
           <p className="eyebrow text-gold-ink">Order from the menu</p>
-          <h2 className="lux-h2 mt-3 text-ink">Signatures</h2>
-          <ul className="mt-8 grid gap-8 lg:grid-cols-3">
+          <h2 className="lux-h2 mt-4 text-ink">
+            The <em>signature</em> plates
+          </h2>
+          <ul className="mt-12 grid gap-x-7 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {plates.map((plate) => {
               const dish = findDish(plate.name);
               return (
                 <li key={plate.name}>
                   {plate.photo ? (
-                    <VenuePhoto photo={plate.photo} aspect="photo" caption={plate.caption} />
+                    <VenuePhoto photo={plate.photo} aspect="tall" sizes="(min-width: 1024px) 320px, 50vw" />
                   ) : (
-                    <div className="flex aspect-[4/3] items-center justify-center rounded-[var(--radius-photo)] border border-line bg-white p-6 text-center">
-                      <p className="font-heading text-2xl leading-tight text-ink">{plate.name}</p>
-                    </div>
+                    <TypographicCard title={plate.name} kicker="Kerala kitchen" tone="light" className="aspect-[4/5]" />
                   )}
-                  <h3 className="mt-4 text-lg font-semibold">
-                    <TextLink href={dishHref(dish.name)}>{dish.name}</TextLink>
-                  </h3>
-                  <p className="mt-1 text-sm font-semibold text-gold-ink tabular-nums">{formatPrice(dish.price)}</p>
+                  <div className="mt-4 flex items-baseline justify-between gap-3">
+                    <h3 className="font-heading text-[1.35rem] leading-tight text-ink">
+                      <TextLink href={dishHref(dish.name)}>{dish.name}</TextLink>
+                    </h3>
+                    <span className="text-sm text-gold-ink tabular-nums">{formatPrice(dish.price)}</span>
+                  </div>
+                  <p className="mt-2 text-sm leading-6 text-ink-soft">{plate.note}</p>
                 </li>
               );
             })}
           </ul>
-          <p className="mt-6 text-base text-ink">
-            <TextLink href={dishHref(stew.name)}>{stew.name}</TextLink>
-            <span className="text-ink-soft"> · {formatPrice(stew.price)}</span>
-          </p>
         </div>
       </section>
 
-      <section className="bg-ivory pb-16 lg:pb-24">
-        <div className="lux-container grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+      <section className="bg-ivory pb-[var(--section-y)]">
+        <div className="lux-container grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <p className="eyebrow text-gold-ink">Coastal starters</p>
-            <h2 className="lux-h2 mt-3 text-ink">Seafood</h2>
-            <ul className="mt-5 space-y-2.5 text-base">
-              {[ghee, pepper, chilliFish].map((dish) => (
-                <li key={dish.name}>
-                  <TextLink href={dishHref(dish.name)}>{dish.name}</TextLink>
-                  <span className="text-ink-soft"> · {formatPrice(dish.price)}</span>
+            <h2 className="lux-h2 mt-4 text-ink">
+              Seafood and <em>ghee roasts</em>
+            </h2>
+            <p className="prose-body mt-6 text-ink-soft">
+              Prawns roasted in ghee and spice, pepper-fried prawns, chilli fish and the chicken ghee roast. These are
+              the plates that sell most with a beer bucket on a Friday night.
+            </p>
+            <ul className="mt-8 divide-y divide-line border-y border-line">
+              {[ghee, pepper, chilliFish, chickenGhee].map((dish) => (
+                <li key={dish.name} className="flex items-baseline justify-between gap-4 py-4">
+                  <TextLink href={dishHref(dish.name)} className="font-heading text-[1.25rem] leading-tight">
+                    {dish.name}
+                  </TextLink>
+                  <span className="text-sm text-ink tabular-nums">{formatPrice(dish.price)}</span>
                 </li>
               ))}
             </ul>
@@ -112,43 +117,45 @@ export default function KeralaFoodPage() {
               </footer>
             </blockquote>
           </div>
-          <TypographicCard title="Seafood starters" kicker="Coastal kitchen" />
+          <VenuePhoto photo={photos.chilliChicken} aspect="photo" caption="Chilli Chicken from the starters card." />
         </div>
       </section>
 
-      <section className="lux-section bg-black text-cream">
-        <div className="lux-container">
-          <p className="eyebrow text-gold-highlight">From kitchen to taproom</p>
-          <h2 className="lux-h2 mt-3">Pair with craft beer</h2>
-          <p className="prose-body mt-4 text-cream/85">
-            Kerala plates with Flying Fox on Hosur Rd in Hebbagodi. Ask what is pouring — then{" "}
-            <TextLink href="/craft-beer" tone="onDark">
-              pair with Flying Fox
-            </TextLink>
-            .
-          </p>
-          <p className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-base">
-            <TextLink href="/rooftop-pub" tone="onDark">
-              Rooftop pub
-            </TextLink>
-            <TextLink href="/menu" tone="onDark">
-              Full menu
-            </TextLink>
-            <TextLink href="/visit" tone="onDark">
-              Visit
-            </TextLink>
-          </p>
+      <section className="bg-charcoal-2 text-ivory">
+        <div className="lux-container grid items-center gap-10 py-16 lg:grid-cols-2 lg:gap-20 lg:py-24">
+          <div>
+            <p className="eyebrow text-gold-highlight">Coming soon</p>
+            <h2 className="lux-h2 mt-4">
+              <em className="text-gold">Mangalorean</em> specials
+            </h2>
+          </div>
+          <div>
+            <p className="prose-body text-ivory/80">
+              Coastal plates from Mangalore are joining the Kerala card in the next few months: ghee roasts, neer dosa
+              and coconut-forward curries. Ask the team on WhatsApp and they will tell you the day they launch.
+            </p>
+            <a
+              href={whatsappHref("Hi The 90s Club, let me know when the Mangalorean specials launch.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lux-link mt-6 text-ivory hover:text-gold-highlight"
+            >
+              Get notified
+              <span className="sr-only"> (opens WhatsApp in a new tab)</span>
+            </a>
+          </div>
         </div>
       </section>
 
       <section className="lux-section bg-ivory">
         <div className="lux-container">
           <FaqList items={keralaFaqs} />
-          <h2 className="lux-h2 mt-16 text-ink">Come in</h2>
-          <p className="mt-3 text-sm text-ink-soft">Open daily, {hours.summary}.</p>
-          <CtaRow className="mt-5" tone="onLight" items={["directions", "call", "whatsapp"]} />
         </div>
       </section>
+
+      <ClosingBand eyebrow="Kitchen to taproom" title={<>Kerala plates, <em>Flying Fox</em> pints</>}>
+        <p>Open daily {hours.short}. Book a table on WhatsApp, or walk in and ask what is pouring.</p>
+      </ClosingBand>
     </>
   );
 }
